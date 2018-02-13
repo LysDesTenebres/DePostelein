@@ -1,0 +1,4 @@
+D:\GitHub\DePostelein\DePosteleinManagement\ClassLibrary2\DePosteleinManagement.Domain.csproj;x86
+D:\GitHub\DePostelein\DePosteleinManagement\ClassLibrary2\DePosteleinManagement.Domain.csproj;x86
+D:\GitHub\DePostelein\DePosteleinManagement\DePosteleinManagement.DAL\DePosteleinManagement.DAL.csproj;x86
+D:\GitHub\DePostelein\DePosteleinManagement\DePosteleinManagement\DePosteleinManagement.csproj;x86

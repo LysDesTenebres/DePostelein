@@ -1,0 +1,2 @@
+C:\Users\Verena\Documents\Visual Studio 2017\Projects\DePosteleinManagement\DePosteleinManagement.Domain\obj\Debug\DePosteleinManagement.Domain.csprojResolveAssemblyReference.cache
+C:\Users\Verena\Documents\Visual Studio 2017\Projects\DePosteleinManagement\DePosteleinManagement.Domain\obj\Debug\DePosteleinManagement.Domain.csproj.CoreCompileInputs.cache

@@ -1,0 +1,94 @@
+﻿<Page
+    x:Class="DePosteleinManagement.Views.LoginView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DePosteleinManagement.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid x:Name="LayoutRoot">
+        <Grid.Background>
+            <ImageBrush ImageSource="ms-appx:///Assets/background.jpg"  AlignmentY="Bottom" AlignmentX="Center" Stretch="Uniform"/>
+        </Grid.Background>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="WideState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="600" />
+                    </VisualState.StateTriggers>
+
+                    <VisualState.Setters>
+                        <Setter Target="banner.(RelativePanel.AlignHorizontalCenterWithPanel)" Value="true"/>
+                        <Setter Target="login.(RelativePanel.AlignHorizontalCenterWithPanel)" Value="true"/>
+
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState x:Name="NarrowState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+
+                    <VisualState.Setters>
+
+                        <Setter Target="banner.(RelativePanel.AlignHorizontalCenterWithPanel)" Value="false"/>
+                        <Setter Target="login.(RelativePanel.AlignHorizontalCenterWithPanel)" Value="false"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <RelativePanel HorizontalAlignment="Stretch"
+               Margin="20">
+
+            <Image x:Name="banner"
+                   MaxHeight="150"
+                   HorizontalAlignment="Center"
+                   Source="http://www.depostelein.com/img/backgrounds/logo.png" />
+            <Grid x:Name="login" RelativePanel.Below="banner" >
+                <Grid.Background >
+                    <SolidColorBrush Color="White"></SolidColorBrush>
+                </Grid.Background>
+                <Image x:Name="usernameImage"
+                Source="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/user_male4-128.png"
+                HorizontalAlignment="Left" 
+                Height="54" 
+                Margin="10,10,0,0" 
+                VerticalAlignment="Top" 
+                Width="54"/>
+                <Image x:Name="passwordImage" 
+                   Source="https://maxcdn.icons8.com/Share/icon/Security//password1600.png" 
+                   HorizontalAlignment="Left" 
+                   Height="54" 
+                   Margin="10,66,0,0"
+                   VerticalAlignment="Top" 
+                   Width="54"/>
+                <TextBox x:Name="usernameText" 
+                   RelativePanel.RightOf="usernameImage"
+                     RelativePanel.Below="banner"
+                     HorizontalAlignment="Left" 
+                     Margin="69,20,0,0" 
+                     TextWrapping="Wrap" 
+                     Text="{Binding Username, Mode=TwoWay}" 
+                     VerticalAlignment="Top"
+                     Width="179" />
+                <PasswordBox x:Name="passwordBox" 
+                             Password="{Binding Password, Mode=TwoWay}"
+                         RelativePanel.Below="banner"
+                   RelativePanel.RightOf="passwordImage"
+                         HorizontalAlignment="Left" 
+                         Margin="69,76,0,0" 
+                         VerticalAlignment="Top" 
+                         Width="179"/>
+                <Button x:Name="loginButton" 
+                        Background="ForestGreen"
+                        RelativePanel.Below="banner"
+                        Content="Login" 
+                        HorizontalAlignment="Left" 
+                        Margin="191,146,0,0"
+                        VerticalAlignment="Top"
+                        Command="{Binding LoginCommand}"/>
+            </Grid>
+        </RelativePanel>
+    </Grid>
+</Page>

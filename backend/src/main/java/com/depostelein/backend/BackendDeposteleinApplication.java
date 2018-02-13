@@ -9,7 +9,7 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 
 @ComponentScan
 @EnableAutoConfiguration
-@EnableJpaRepositories (basePackages = {"com.depostelein.backend"})
+@EnableJpaRepositories
 @SpringBootApplication
 @EnableGlobalMethodSecurity(securedEnabled = true)
 public class BackendDeposteleinApplication {

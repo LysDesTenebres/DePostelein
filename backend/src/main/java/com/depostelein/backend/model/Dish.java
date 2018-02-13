@@ -14,6 +14,7 @@ public class Dish {
     private int menuId;
     private int functionId;
 
+
     public Dish(){
 
     }
@@ -41,7 +42,8 @@ public class Dish {
         this.name = name;
     }
 
-    @OneToOne
+
+    @ManyToOne
     public int getMenuId() {
         return menuId;
     }

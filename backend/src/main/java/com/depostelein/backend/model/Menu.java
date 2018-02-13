@@ -14,14 +14,16 @@ public class Menu {
     private int id;
     private String name;
     private double price;
+    private boolean variableAmount;
 
     public Menu(){
 
     }
 
-    public Menu(String name, double price){
+    public Menu(String name, double price, boolean variableAmount){
         this.name = name;
         this.price = price;
+        this.variableAmount = variableAmount;
     }
 
     public int getId() {
@@ -46,5 +48,13 @@ public class Menu {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public boolean isVariableAmount() {
+        return variableAmount;
+    }
+
+    public void setVariableAmount(boolean variableAmount) {
+        this.variableAmount = variableAmount;
     }
 }
