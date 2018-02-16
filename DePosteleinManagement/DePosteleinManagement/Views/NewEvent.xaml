@@ -1,8 +1,8 @@
 ﻿<Page
-    x:Class="DePostelein.Views.NewMenu"
+    x:Class="DePostelein.Views.New_Event"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:DePosteleinManagement.Views"
+    xmlns:local="using:DePostelein.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
@@ -12,16 +12,16 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="100" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
-        <Rectangle x:ConnectionId='1' Grid.RowSpan="2" Name="background"></Rectangle>
+        <Rectangle Grid.RowSpan="2" Name="background"></Rectangle>
         <StackPanel Background="DimGray" HorizontalAlignment="Stretch">
-            <Image x:ConnectionId='3' Grid.Column="0" x:Name="banner"
+            <Image Grid.Column="0" x:Name="banner"
                    MaxHeight="100"
                    HorizontalAlignment="Left"
                    Source="http://www.depostelein.com/img/backgrounds/logo.png" />
         </StackPanel>
-        <Grid x:ConnectionId='2' Grid.Row="1" x:Name="createNewMenu" RelativePanel.Below="banner" RelativePanel.AlignLeftWithPanel="True"
+        <Grid Grid.Row="1" x:Name="createNewMenu" RelativePanel.Below="banner" RelativePanel.AlignLeftWithPanel="True"
                       MinWidth="80" Margin="0,0,0,10" DataContext="Menu">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.30*" />
@@ -36,18 +36,23 @@
                 <RowDefinition Height="2*"/>
                 <RowDefinition Height="0.5*"/>
                 <RowDefinition Height="2*"/>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="2*"/>
                 <RowDefinition Height="10*"/>
             </Grid.RowDefinitions>
-            <TextBlock Grid.Column="0" Grid.Row="1" FontSize="23px" HorizontalAlignment="Right">Menu naam</TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="1" FontSize="23px" HorizontalAlignment="Right">Menu</TextBlock>
             <TextBox Grid.Column="2" Grid.Row="1" Text="{Binding Name, Mode=TwoWay}"/>
-            <TextBlock Grid.Column="0" Grid.Row="3" FontSize="23px" HorizontalAlignment="Right">Prijs</TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="3" FontSize="23px" HorizontalAlignment="Right">Guests</TextBlock>
             <TextBox Grid.Column="2" Grid.Row="3" Text="{Binding Price, Mode=TwoWay}"/>
-            <TextBlock Grid.Column="0" Grid.Row="5" FontSize="23px" HorizontalAlignment="Right" VerticalAlignment="Center">Variable Amount</TextBlock>
-            <CheckBox Grid.Column="2" Grid.Row="5" IsChecked="{Binding VariableAmount, Mode=TwoWay}"></CheckBox>
+            <TextBlock Grid.Column="0" Grid.Row="5" FontSize="23px" HorizontalAlignment="Right" VerticalAlignment="Center">Broodjes</TextBlock>
+            <TextBox Grid.Column="2" Grid.Row="5" Text="{Binding Price, Mode=TwoWay}"/>
+            <TextBlock Grid.Column="0" Grid.Row="7" FontSize="23px" HorizontalAlignment="Right" VerticalAlignment="Center">Customer</TextBlock>
+            <TextBox Grid.Column="2" Grid.Row="7" Text="{Binding Price, Mode=TwoWay}"/>
+            <TextBlock Grid.Column="0" Grid.Row="9" FontSize="23px" HorizontalAlignment="Right" VerticalAlignment="Center">Locatie</TextBlock>
+            <TextBox Grid.Column="2" Grid.Row="9" Text="{Binding Price, Mode=TwoWay}"/>
         </Grid>
-      
-        <Button Grid.Row="3" HorizontalAlignment="Right">Add Menu</Button>
+        <Button Grid.Row="2" HorizontalAlignment="Right" >Add Event</Button>
     </Grid>
 </Page>
-
-

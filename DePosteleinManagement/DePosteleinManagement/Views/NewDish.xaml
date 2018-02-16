@@ -24,27 +24,21 @@
         </StackPanel>
         <Grid Grid.Row="2" x:Name="createDishes" RelativePanel.Below="banner" RelativePanel.AlignLeftWithPanel="True"
                       MinWidth="80" Margin="0,0,0,10" DataContext="Dish">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.7*"/>
-                <ColumnDefinition Width="0.3*"/>
-            </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="0.20*"/>
                         <RowDefinition Height="0.95*"/>
-                        <RowDefinition Height="0.05*"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="0.9*"/>
                         <ColumnDefinition Width="0.1*"/>
-                        <ColumnDefinition Width="0.025*"/>
+                        <ColumnDefinition Width="0.01*"/>
                     </Grid.ColumnDefinitions>
-                    <Button Grid.Column="1" Grid.Row="2">Add Dish</Button>
                     <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="30*"/>
-                            <ColumnDefinition Width="70*"/>
+                            <ColumnDefinition Width="17.5*"/>
+                            <ColumnDefinition Width="80*"/>
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Column="0">
                             <Grid>
@@ -80,8 +74,8 @@
                     <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" DataContext="Ingredients">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="0.6*"/>
-                            <ColumnDefinition Width="0.4*"/>
                             <ColumnDefinition Width="0.01*"/>
+                            <ColumnDefinition Width="0.4*"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="0.9*"/>
@@ -138,16 +132,14 @@
                                 </Grid>
                             </StackPanel>
                         </Grid>
-                        <Grid Grid.Column="1">
+                        <Grid Grid.Column="2">
                             <TextBox></TextBox>
                         </Grid>
                     </Grid>
                 </Grid>
             </Grid>
-            <Grid Grid.Column="1">
-                <TextBox></TextBox>
-            </Grid>
         </Grid>
-        <Button Grid.Row="3" HorizontalAlignment="Right">Add Menu</Button>
+        <Button Grid.Row="3" HorizontalAlignment="Right" Margin=" 0, 0, 150, 0">Add Another Dish</Button>
+        <Button Grid.Row="3" HorizontalAlignment="Right" Margin=" 0, 0, 10, 0">Finish Menu</Button>
     </Grid>
 </Page>
