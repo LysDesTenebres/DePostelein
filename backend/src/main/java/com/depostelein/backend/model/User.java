@@ -19,7 +19,7 @@ public class User {
     private String salt;
     private String name;
     private String login;
-    private String function;
+    private String role;
 
     public User() {
     }
@@ -29,7 +29,7 @@ public class User {
         this.password = password;
         this.name = name;
         this.login = login;
-        this.function = function;
+        this.role = function;
         this.salt = GenerateSalt();
         try {
             this.password = HashPassword(password, this.salt);
@@ -98,10 +98,10 @@ public class User {
     }
 
     public String getFunction() {
-        return function;
+        return role;
     }
 
     public void setFunction(String function) {
-        this.function = function;
+        this.role = function;
     }
 }

@@ -13,12 +13,22 @@ namespace DePosteleinManagement.Services
         IUserRepository _userRepo;
         IMenuRepository _menuRepo;
         IDishRepository _dishRepo;
+        ICustomerRepository _customerRepo;
+        IDelivererRepository _delivererRepo;
+        IEventRepository _eventRepo;
+        IIngredientRepository _ingredientRepo;
 
-        public DataService(IUserRepository userApiRepository, IMenuRepository menuApiRepository, IDishRepository dishApiRepository)
+        public DataService(IUserRepository userApiRepository, IMenuRepository menuApiRepository, IDishRepository dishApiRepository,
+            ICustomerRepository customerApiRepository, IDelivererRepository delivererApiRepository, IEventRepository eventApiRepository,
+            IIngredientRepository ingredientApiRepository)
         {
             _userRepo = userApiRepository;
             _menuRepo = menuApiRepository;
             _dishRepo = dishApiRepository;
+            _customerRepo = customerApiRepository;
+            _delivererRepo = delivererApiRepository;
+            _eventRepo = eventApiRepository;
+            _ingredientRepo = ingredientApiRepository;
         }
 
         public User CheckCredentials(string username, string password)
@@ -26,9 +36,44 @@ namespace DePosteleinManagement.Services
             return _userRepo.GetAll().Where(user => user.Name == username).FirstOrDefault();
         }
 
+        public void DeleteEvent(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteMenu(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteUser(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Customer> GetAllCustomers()
+        {
+            return _customerRepo.GetAll().ToList();
+        }
+
+        public List<Event> GetAllEvents()
+        {
+            return _eventRepo.GetAll().ToList();
+        }
+
+        public List<Ingredient> GetAllIngredientsByDishId(int id)
+        {
+            return _ingredientRepo.GetIngredientsByDishId(id).ToList();
+        }
+
         public List<Menu> GetAllMenus()
         {
             return _menuRepo.GetAll().ToList();
+        }
+
+        public List<User> GetAllUsers()
+        {
+            return _userRepo.GetAll().ToList();
         }
 
         public List<Dish> GetDishesByMenuId(int id)

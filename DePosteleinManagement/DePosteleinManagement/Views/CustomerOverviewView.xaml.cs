@@ -25,6 +25,9 @@ namespace DePostelein.Views
         public CustomerOverviewView()
         {
             this.InitializeComponent();
+
+            var viewModelLocator = (App.Current as App).ViewModelLocator;
+            DataContext = viewModelLocator.CustomerOverviewViewModel;
         }
     }
 }

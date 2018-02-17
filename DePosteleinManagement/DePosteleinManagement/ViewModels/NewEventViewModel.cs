@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DePostelein.ViewModels
 {
-    class NewEventViewModel
+    public class NewEventViewModel
     {
     }
 }

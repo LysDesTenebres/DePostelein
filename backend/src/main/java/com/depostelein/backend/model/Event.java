@@ -6,6 +6,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import java.util.Date;
 
 @Component
 @Entity
@@ -15,6 +16,7 @@ public class Event {
     private int id;
     private int guests;
     private int bread;
+    private Date date;
     private int menuId;
     private int customerId;
 
@@ -22,9 +24,10 @@ public class Event {
 
     }
 
-    public Event(int guests, int bread, int menuId, int customerId) {
+    public Event(int guests, int bread, Date date, int menuId, int customerId) {
         this.guests = guests;
         this.bread = bread;
+        this.date = date;
         this.menuId = menuId;
         this.customerId = customerId;
     }
@@ -52,6 +55,10 @@ public class Event {
     public void setBread(int bread) {
         this.bread = bread;
     }
+
+    public void setDate(Date date) { this.date = date;}
+
+    public Date getDate(){ return date;}
 
     @ManyToOne (cascade = CascadeType.ALL)
     public int getMenuId() {

@@ -25,6 +25,9 @@ namespace DePostelein.Views
         public StaffView()
         {
             this.InitializeComponent();
+
+            var viewModelLocator = (App.Current as App).ViewModelLocator;
+            DataContext = viewModelLocator.StaffViewModel;
         }
     }
 }

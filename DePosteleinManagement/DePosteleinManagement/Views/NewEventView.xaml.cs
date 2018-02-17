@@ -20,11 +20,14 @@ namespace DePostelein.Views
     /// <summary>
     /// Eine leere Seite, die eigenständig verwendet oder zu der innerhalb eines Rahmens navigiert werden kann.
     /// </summary>
-    public sealed partial class New_Event : Page
+    public sealed partial class NewEventView : Page
     {
-        public New_Event()
+        public NewEventView()
         {
             this.InitializeComponent();
+
+            var viewModelLocator = (App.Current as App).ViewModelLocator;
+            DataContext = viewModelLocator.NewEventViewModel;
         }
     }
 }

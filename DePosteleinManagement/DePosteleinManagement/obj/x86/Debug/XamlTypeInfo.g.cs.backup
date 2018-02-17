@@ -180,7 +180,7 @@ namespace DePostelein.DePosteleinManagement_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[28];
+            _typeNameTable = new string[30];
             _typeNameTable[0] = "DePosteleinManagement.Views.LoginView";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
@@ -196,21 +196,23 @@ namespace DePostelein.DePosteleinManagement_XamlTypeInfo
             _typeNameTable[12] = "System.Windows.Input.ICommand";
             _typeNameTable[13] = "Windows.UI.Xaml.Data.IValueConverter";
             _typeNameTable[14] = "DePosteleinManagement.Views.MainView";
-            _typeNameTable[15] = "Microsoft.Xaml.Interactions.Media.ControlStoryboardAction";
-            _typeNameTable[16] = "Microsoft.Xaml.Interactions.Media.ControlStoryboardOption";
-            _typeNameTable[17] = "System.Enum";
-            _typeNameTable[18] = "System.ValueType";
-            _typeNameTable[19] = "Windows.UI.Xaml.Media.Animation.Storyboard";
-            _typeNameTable[20] = "Microsoft.Xaml.Interactions.Core.GoToStateAction";
-            _typeNameTable[21] = "Boolean";
-            _typeNameTable[22] = "Windows.UI.Xaml.FrameworkElement";
-            _typeNameTable[23] = "Microsoft.Xaml.Interactions.Core.IncrementalUpdateBehavior";
-            _typeNameTable[24] = "Int32";
-            _typeNameTable[25] = "Microsoft.Xaml.Interactions.Core.NavigateToPageAction";
-            _typeNameTable[26] = "Microsoft.Xaml.Interactions.Media.PlaySoundAction";
-            _typeNameTable[27] = "Double";
+            _typeNameTable[15] = "DePostelein.Views.NewDish";
+            _typeNameTable[16] = "DePostelein.Views.NewMenu";
+            _typeNameTable[17] = "Microsoft.Xaml.Interactions.Media.ControlStoryboardAction";
+            _typeNameTable[18] = "Microsoft.Xaml.Interactions.Media.ControlStoryboardOption";
+            _typeNameTable[19] = "System.Enum";
+            _typeNameTable[20] = "System.ValueType";
+            _typeNameTable[21] = "Windows.UI.Xaml.Media.Animation.Storyboard";
+            _typeNameTable[22] = "Microsoft.Xaml.Interactions.Core.GoToStateAction";
+            _typeNameTable[23] = "Boolean";
+            _typeNameTable[24] = "Windows.UI.Xaml.FrameworkElement";
+            _typeNameTable[25] = "Microsoft.Xaml.Interactions.Core.IncrementalUpdateBehavior";
+            _typeNameTable[26] = "Int32";
+            _typeNameTable[27] = "Microsoft.Xaml.Interactions.Core.NavigateToPageAction";
+            _typeNameTable[28] = "Microsoft.Xaml.Interactions.Media.PlaySoundAction";
+            _typeNameTable[29] = "Double";
 
-            _typeTable = new global::System.Type[28];
+            _typeTable = new global::System.Type[30];
             _typeTable[0] = typeof(global::DePosteleinManagement.Views.LoginView);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
@@ -226,19 +228,21 @@ namespace DePostelein.DePosteleinManagement_XamlTypeInfo
             _typeTable[12] = typeof(global::System.Windows.Input.ICommand);
             _typeTable[13] = typeof(global::Windows.UI.Xaml.Data.IValueConverter);
             _typeTable[14] = typeof(global::DePosteleinManagement.Views.MainView);
-            _typeTable[15] = typeof(global::Microsoft.Xaml.Interactions.Media.ControlStoryboardAction);
-            _typeTable[16] = typeof(global::Microsoft.Xaml.Interactions.Media.ControlStoryboardOption);
-            _typeTable[17] = typeof(global::System.Enum);
-            _typeTable[18] = typeof(global::System.ValueType);
-            _typeTable[19] = typeof(global::Windows.UI.Xaml.Media.Animation.Storyboard);
-            _typeTable[20] = typeof(global::Microsoft.Xaml.Interactions.Core.GoToStateAction);
-            _typeTable[21] = typeof(global::System.Boolean);
-            _typeTable[22] = typeof(global::Windows.UI.Xaml.FrameworkElement);
-            _typeTable[23] = typeof(global::Microsoft.Xaml.Interactions.Core.IncrementalUpdateBehavior);
-            _typeTable[24] = typeof(global::System.Int32);
-            _typeTable[25] = typeof(global::Microsoft.Xaml.Interactions.Core.NavigateToPageAction);
-            _typeTable[26] = typeof(global::Microsoft.Xaml.Interactions.Media.PlaySoundAction);
-            _typeTable[27] = typeof(global::System.Double);
+            _typeTable[15] = typeof(global::DePostelein.Views.NewDish);
+            _typeTable[16] = typeof(global::DePostelein.Views.NewMenu);
+            _typeTable[17] = typeof(global::Microsoft.Xaml.Interactions.Media.ControlStoryboardAction);
+            _typeTable[18] = typeof(global::Microsoft.Xaml.Interactions.Media.ControlStoryboardOption);
+            _typeTable[19] = typeof(global::System.Enum);
+            _typeTable[20] = typeof(global::System.ValueType);
+            _typeTable[21] = typeof(global::Windows.UI.Xaml.Media.Animation.Storyboard);
+            _typeTable[22] = typeof(global::Microsoft.Xaml.Interactions.Core.GoToStateAction);
+            _typeTable[23] = typeof(global::System.Boolean);
+            _typeTable[24] = typeof(global::Windows.UI.Xaml.FrameworkElement);
+            _typeTable[25] = typeof(global::Microsoft.Xaml.Interactions.Core.IncrementalUpdateBehavior);
+            _typeTable[26] = typeof(global::System.Int32);
+            _typeTable[27] = typeof(global::Microsoft.Xaml.Interactions.Core.NavigateToPageAction);
+            _typeTable[28] = typeof(global::Microsoft.Xaml.Interactions.Media.PlaySoundAction);
+            _typeTable[29] = typeof(global::System.Double);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -279,11 +283,13 @@ namespace DePostelein.DePosteleinManagement_XamlTypeInfo
         private object Activate_9_ActionCollection() { return new global::Microsoft.Xaml.Interactivity.ActionCollection(); }
         private object Activate_11_InvokeCommandAction() { return new global::Microsoft.Xaml.Interactions.Core.InvokeCommandAction(); }
         private object Activate_14_MainView() { return new global::DePosteleinManagement.Views.MainView(); }
-        private object Activate_15_ControlStoryboardAction() { return new global::Microsoft.Xaml.Interactions.Media.ControlStoryboardAction(); }
-        private object Activate_20_GoToStateAction() { return new global::Microsoft.Xaml.Interactions.Core.GoToStateAction(); }
-        private object Activate_23_IncrementalUpdateBehavior() { return new global::Microsoft.Xaml.Interactions.Core.IncrementalUpdateBehavior(); }
-        private object Activate_25_NavigateToPageAction() { return new global::Microsoft.Xaml.Interactions.Core.NavigateToPageAction(); }
-        private object Activate_26_PlaySoundAction() { return new global::Microsoft.Xaml.Interactions.Media.PlaySoundAction(); }
+        private object Activate_15_NewDish() { return new global::DePostelein.Views.NewDish(); }
+        private object Activate_16_NewMenu() { return new global::DePostelein.Views.NewMenu(); }
+        private object Activate_17_ControlStoryboardAction() { return new global::Microsoft.Xaml.Interactions.Media.ControlStoryboardAction(); }
+        private object Activate_22_GoToStateAction() { return new global::Microsoft.Xaml.Interactions.Core.GoToStateAction(); }
+        private object Activate_25_IncrementalUpdateBehavior() { return new global::Microsoft.Xaml.Interactions.Core.IncrementalUpdateBehavior(); }
+        private object Activate_27_NavigateToPageAction() { return new global::Microsoft.Xaml.Interactions.Core.NavigateToPageAction(); }
+        private object Activate_28_PlaySoundAction() { return new global::Microsoft.Xaml.Interactions.Media.PlaySoundAction(); }
         private void VectorAdd_5_BehaviorCollection(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::Windows.UI.Xaml.DependencyObject>)instance;
@@ -400,16 +406,30 @@ namespace DePostelein.DePosteleinManagement_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 15:   //  Microsoft.Xaml.Interactions.Media.ControlStoryboardAction
+            case 15:   //  DePostelein.Views.NewDish
+                userType = new global::DePostelein.DePosteleinManagement_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_15_NewDish;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 16:   //  DePostelein.Views.NewMenu
+                userType = new global::DePostelein.DePosteleinManagement_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_16_NewMenu;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 17:   //  Microsoft.Xaml.Interactions.Media.ControlStoryboardAction
                 userType = new global::DePostelein.DePosteleinManagement_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObject"));
-                userType.Activator = Activate_15_ControlStoryboardAction;
+                userType.Activator = Activate_17_ControlStoryboardAction;
                 userType.AddMemberName("ControlStoryboardOption");
                 userType.AddMemberName("Storyboard");
                 userType.SetIsBindable();
                 xamlType = userType;
                 break;
 
-            case 16:   //  Microsoft.Xaml.Interactions.Media.ControlStoryboardOption
+            case 18:   //  Microsoft.Xaml.Interactions.Media.ControlStoryboardOption
                 userType = new global::DePostelein.DePosteleinManagement_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
                 userType.AddEnumValue("Play", global::Microsoft.Xaml.Interactions.Media.ControlStoryboardOption.Play);
                 userType.AddEnumValue("Stop", global::Microsoft.Xaml.Interactions.Media.ControlStoryboardOption.Stop);
@@ -420,23 +440,23 @@ namespace DePostelein.DePosteleinManagement_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 17:   //  System.Enum
+            case 19:   //  System.Enum
                 userType = new global::DePostelein.DePosteleinManagement_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
                 xamlType = userType;
                 break;
 
-            case 18:   //  System.ValueType
+            case 20:   //  System.ValueType
                 userType = new global::DePostelein.DePosteleinManagement_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 xamlType = userType;
                 break;
 
-            case 19:   //  Windows.UI.Xaml.Media.Animation.Storyboard
+            case 21:   //  Windows.UI.Xaml.Media.Animation.Storyboard
                 xamlType = new global::DePostelein.DePosteleinManagement_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 20:   //  Microsoft.Xaml.Interactions.Core.GoToStateAction
+            case 22:   //  Microsoft.Xaml.Interactions.Core.GoToStateAction
                 userType = new global::DePostelein.DePosteleinManagement_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObject"));
-                userType.Activator = Activate_20_GoToStateAction;
+                userType.Activator = Activate_22_GoToStateAction;
                 userType.AddMemberName("UseTransitions");
                 userType.AddMemberName("StateName");
                 userType.AddMemberName("TargetObject");
@@ -444,46 +464,46 @@ namespace DePostelein.DePosteleinManagement_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 21:   //  Boolean
+            case 23:   //  Boolean
                 xamlType = new global::DePostelein.DePosteleinManagement_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 22:   //  Windows.UI.Xaml.FrameworkElement
+            case 24:   //  Windows.UI.Xaml.FrameworkElement
                 xamlType = new global::DePostelein.DePosteleinManagement_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 23:   //  Microsoft.Xaml.Interactions.Core.IncrementalUpdateBehavior
+            case 25:   //  Microsoft.Xaml.Interactions.Core.IncrementalUpdateBehavior
                 userType = new global::DePostelein.DePosteleinManagement_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObject"));
-                userType.Activator = Activate_23_IncrementalUpdateBehavior;
+                userType.Activator = Activate_25_IncrementalUpdateBehavior;
                 userType.AddMemberName("Phase");
                 userType.AddMemberName("AssociatedObject");
                 userType.SetIsBindable();
                 xamlType = userType;
                 break;
 
-            case 24:   //  Int32
+            case 26:   //  Int32
                 xamlType = new global::DePostelein.DePosteleinManagement_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 25:   //  Microsoft.Xaml.Interactions.Core.NavigateToPageAction
+            case 27:   //  Microsoft.Xaml.Interactions.Core.NavigateToPageAction
                 userType = new global::DePostelein.DePosteleinManagement_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObject"));
-                userType.Activator = Activate_25_NavigateToPageAction;
+                userType.Activator = Activate_27_NavigateToPageAction;
                 userType.AddMemberName("TargetPage");
                 userType.AddMemberName("Parameter");
                 userType.SetIsBindable();
                 xamlType = userType;
                 break;
 
-            case 26:   //  Microsoft.Xaml.Interactions.Media.PlaySoundAction
+            case 28:   //  Microsoft.Xaml.Interactions.Media.PlaySoundAction
                 userType = new global::DePostelein.DePosteleinManagement_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObject"));
-                userType.Activator = Activate_26_PlaySoundAction;
+                userType.Activator = Activate_28_PlaySoundAction;
                 userType.AddMemberName("Volume");
                 userType.AddMemberName("Source");
                 userType.SetIsBindable();
                 xamlType = userType;
                 break;
 
-            case 27:   //  Double
+            case 29:   //  Double
                 xamlType = new global::DePostelein.DePosteleinManagement_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
             }

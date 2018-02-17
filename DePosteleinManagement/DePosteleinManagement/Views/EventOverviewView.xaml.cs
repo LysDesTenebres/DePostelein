@@ -25,6 +25,9 @@ namespace DePostelein.Views
         public EventOverviewView()
         {
             this.InitializeComponent();
+
+            var viewModelLocator = (App.Current as App).ViewModelLocator;
+            DataContext = viewModelLocator.EventOverviewViewModel;
         }
     }
 }
