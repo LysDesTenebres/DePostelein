@@ -32,6 +32,11 @@ namespace DePosteleinManagement.DAL.API
             throw new NotImplementedException();
         }
 
+        public List<Ingredient> GetIngredientsByDishId(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public Ingredient Post(Ingredient t)
         {
             throw new NotImplementedException();

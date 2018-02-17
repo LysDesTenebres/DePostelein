@@ -53,12 +53,12 @@ public class DishService {
         return dishesforMenuId;
     }
 
-    public List<Dish> findDishesByFunctionId(int functionId) {
+    public List<Dish> findDishesByFunctionId(String role) {
         List<Dish> allDishes = dishRepository.findAll();
         List<Dish> dishesforFunctionId = new LinkedList<Dish>();
 
         allDishes.forEach(dish -> {
-            if (dish.getFunctionId() == functionId) {
+            if (dish.getRole() == role) {
                 dishesforFunctionId.add(dish);
             }
         });

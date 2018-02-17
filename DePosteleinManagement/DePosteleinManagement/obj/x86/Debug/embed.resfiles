@@ -1,5 +1,9 @@
 App.xbf
+Views\CustomerOverviewView.xbf
+Views\EventOverviewView.xbf
 Views\LoginView.xbf
 Views\MainView.xbf
-Views\NewDish.xbf
-Views\NewMenu.xbf
+Views\NewDishView.xbf
+Views\NewEventView.xbf
+Views\NewMenuView.xbf
+Views\StaffView.xbf

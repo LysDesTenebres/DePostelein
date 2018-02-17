@@ -19,6 +19,7 @@ public class User {
     private String salt;
     private String name;
     private String login;
+    private boolean enabled = true;
     private String role;
 
     public User() {
@@ -104,4 +105,8 @@ public class User {
     public void setFunction(String function) {
         this.role = function;
     }
+
+    public void isEnabled(boolean enabled) { this.enabled = enabled; }
+
+    public boolean getEnabled(){ return enabled;}
 }

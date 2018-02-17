@@ -36,6 +36,26 @@ namespace DePosteleinManagement.Services
             return _userRepo.GetAll().Where(user => user.Name == username).FirstOrDefault();
         }
 
+        public bool CreateNewDish(string dishName, Menu menu, string function, User loggedInUser)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool CreateNewEvent(string menuName, int guests, int bread, string customer, string location, DateTime date, User loggedInUser)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CreateNewIngredient(string name, int amount, string unit, string deliverer, object dishId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool CreateNewMenu(string menuName, double price, bool variableAmount)
+        {
+            throw new NotImplementedException();
+        }
+
         public void DeleteEvent(int id)
         {
             throw new NotImplementedException();

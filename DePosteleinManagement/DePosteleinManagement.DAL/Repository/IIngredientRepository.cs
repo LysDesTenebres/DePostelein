@@ -5,9 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using DePosteleinManagement.Domain;
 
-namespace DePosteleinManagement.DAL.Repository { 
+namespace DePosteleinManagement.DAL.Repository {
 
     public interface IIngredientRepository : IRepository<Ingredient>
     {
+        List<Ingredient> GetIngredientsByDishId(int id);
     }
 }

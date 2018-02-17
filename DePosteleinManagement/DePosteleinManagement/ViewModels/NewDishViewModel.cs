@@ -10,15 +10,17 @@ using System.Threading.Tasks;
 
 namespace DePostelein.ViewModels
 {
-    class NewDishViewModel : INotifyPropertyChanged
+    public class NewDishViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
         private INavigationService _navigationService;
         private IDataService _dataService;
         private User _loggedInUser;
+        private Menu _menu;
 
         public CustomCommand CreateNewIngredientCommand { get; set; }
+        public CustomCommand CreateNewDishCommand { get; set; }
         public CustomCommand GoBackCommand { get; set; }
 
         private String _dishName;
@@ -143,13 +145,14 @@ namespace DePostelein.ViewModels
         private void LoadCommands()
         {
             CreateNewIngredientCommand = new CustomCommand(CreateNewIngredient, null);
+            CreateNewDishCommand = new CustomCommand(CreateNewDish, null);
             // CreateEventCommand = new CustomCommand(CreateEvent, CheckEventToCreate);
         }
 
         private void CreateNewIngredient(object obj)
         {
             bool result = false;
-            if (_ingredientName != null && _amount != null && _unit != null && _deliverer != null)
+            if (_ingredientName != null && _amount != 0 && _unit != null && _deliverer != null)
             {
                 Ingredient newIngredient = new Ingredient();
                 newIngredient.Name = _ingredientName;
@@ -157,7 +160,12 @@ namespace DePostelein.ViewModels
                 newIngredient.Unit = _unit;
                 newIngredient.Deliverer = _deliverer;
 
-                    result = _dataService.CreateNewEvent(_title, epochStartDate, epochEndDate, _description, _loggedInUser);
+                Ingredients.Add(newIngredient);
+
+                IngredientName = null;
+                Amount = 0;
+                Unit = null;
+                Deliverer = null;
             
 
             }
@@ -165,6 +173,27 @@ namespace DePostelein.ViewModels
             {
                 Messenger.Default.Send<User>(_loggedInUser);
                 _navigationService.NavigateTo("Back");
+            }
+        }
+
+        private void CreateNewDish(object obj)
+        {
+            String dishId = "";
+            bool result = false;
+            if (_ingredients != null && _dishName != null && _function != null)
+            {
+                result = _dataService.CreateNewDish(_dishName, _menu, _function, _loggedInUser);
+                dishId = result.ToString();
+            }
+
+            if (result == true)
+            {
+                foreach (Ingredient ingredient in Ingredients)
+                {
+                    _dataService.CreateNewIngredient(ingredient.Name, ingredient.Amount, ingredient.Unit, ingredient.Deliverer, dishId);
+                }
+                Messenger.Default.Send<User>(_loggedInUser);
+                _navigationService.NavigateTo("NewDish");
             }
         }
 

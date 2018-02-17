@@ -125,14 +125,14 @@
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\NewEvent.xaml.cs">
-      <DependentUpon>NewEvent.xaml</DependentUpon>
+    <Compile Include="Views\NewEventView.xaml.cs">
+      <DependentUpon>NewEventView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\NewDish.xaml.cs">
-      <DependentUpon>NewDish.xaml</DependentUpon>
+    <Compile Include="Views\NewDishView.xaml.cs">
+      <DependentUpon>NewDishView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\NewMenu.xaml.cs">
-      <DependentUpon>NewMenu.xaml</DependentUpon>
+    <Compile Include="Views\NewMenuView.xaml.cs">
+      <DependentUpon>NewMenuView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\StaffView.xaml.cs">
       <DependentUpon>StaffView.xaml</DependentUpon>
@@ -176,15 +176,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\NewEvent.xaml">
+    <Page Include="Views\NewEventView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\NewDish.xaml">
+    <Page Include="Views\NewDishView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\NewMenu.xaml">
+    <Page Include="Views\NewMenuView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

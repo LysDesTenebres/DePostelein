@@ -1,8 +1,6 @@
 package com.depostelein.backend.model;
 
-
 import org.springframework.stereotype.Component;
-
 import javax.persistence.*;
 
 @Component
@@ -12,17 +10,17 @@ public class Dish {
     private int id;
     private String name;
     private int menuId;
-    private int functionId;
+    private String role;
 
 
     public Dish(){
 
     }
 
-    public Dish(String name, int menuId, int functionId){
+    public Dish(String name, int menuId, String functionId){
         this.name = name;
         this.menuId = menuId;
-        this.functionId = functionId;
+        this.role = functionId;
     }
 
     @Id
@@ -43,7 +41,7 @@ public class Dish {
     }
 
 
-    @ManyToOne
+    @ManyToOne (cascade = CascadeType.ALL, targetEntity = Menu.class)
     public int getMenuId() {
         return menuId;
     }
@@ -52,12 +50,11 @@ public class Dish {
         this.menuId = menuId;
     }
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    public int getFunctionId() {
-        return functionId;
+    public String getRole() {
+        return role;
     }
 
-    public void setFunctionId(int functionId) {
-        this.functionId = functionId;
+    public void setRole(String functionId) {
+        this.role = functionId;
     }
 }

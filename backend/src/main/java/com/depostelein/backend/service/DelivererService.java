@@ -14,7 +14,7 @@ public class DelivererService {
     @Autowired
     private DelivererRepository delivererRepository;
 
-    public List<Deliverer> findAllUsers() {
+    public List<Deliverer> findAllDeliverers() {
         return delivererRepository.findAll();
     }
 

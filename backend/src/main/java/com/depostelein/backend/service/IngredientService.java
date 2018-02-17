@@ -1,7 +1,9 @@
 package com.depostelein.backend.service;
 
+import com.depostelein.backend.model.Event;
 import com.depostelein.backend.model.Ingredient;
 import com.depostelein.backend.repository.IngredientRepository;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +26,12 @@ public class IngredientService {
 
     public Ingredient findIngredient(int id) {
         return ingredientRepository.findOne(id);
+    }
+
+    public Ingredient changeIngredient(int id, Ingredient ingredient) {
+        Ingredient existingIngredient = ingredientRepository.findOne(id);
+        BeanUtils.copyProperties(ingredient, existingIngredient);
+        return ingredientRepository.saveAndFlush(existingIngredient);
     }
 
     public Ingredient deleteIngredient(int id) {

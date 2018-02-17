@@ -4,12 +4,14 @@ import org.springframework.stereotype.Component;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Component
 @Entity
 public class Ingredient {
 
+    @Id
     private int id;
     private String name;
     private int amount;
