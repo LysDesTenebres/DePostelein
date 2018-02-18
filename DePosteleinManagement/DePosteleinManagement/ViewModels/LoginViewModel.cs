@@ -71,7 +71,8 @@ namespace DePosteleinManagement.ViewModels
 
         private void Login(object obj)
         {
-            User user = _dataService.CheckCredentials(Username, Password);
+            //User user = _dataService.CheckCredentials(Username, Password);
+            User user = _dataService.CheckCredentials("testadmin", "test");
             if (user != null)
             {
                 _navigationService.NavigateTo("MainView");

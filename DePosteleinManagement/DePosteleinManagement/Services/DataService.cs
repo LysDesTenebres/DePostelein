@@ -33,10 +33,17 @@ namespace DePosteleinManagement.Services
 
         public User CheckCredentials(string username, string password)
         {
+            _userRepo.SetCredentials(username, password);
+            _menuRepo.SetCredentials(username, password);
+            _dishRepo.SetCredentials(username, password);
+            _customerRepo.SetCredentials(username, password);
+            _delivererRepo.SetCredentials(username, password);
+            _eventRepo.SetCredentials(username, password);
+            _ingredientRepo.SetCredentials(username, password);
             return _userRepo.GetAll().Where(user => user.Name == username).FirstOrDefault();
         }
 
-        public bool CreateNewDish(string dishName, Menu menu, string function, User loggedInUser)
+        public Dish CreateNewDish(string dishName, Menu menu, string function, User loggedInUser)
         {
             throw new NotImplementedException();
         }
@@ -51,9 +58,9 @@ namespace DePosteleinManagement.Services
             throw new NotImplementedException();
         }
 
-        public bool CreateNewMenu(string menuName, double price, bool variableAmount)
+        public Menu CreateNewMenu(string menuName, double price, bool variableAmount)
         {
-            throw new NotImplementedException();
+            return _menuRepo.Post(new Menu { Name = menuName, Price = price, VariableAmount = variableAmount });
         }
 
         public void DeleteEvent(int id)
@@ -81,7 +88,7 @@ namespace DePosteleinManagement.Services
             return _eventRepo.GetAll().ToList();
         }
 
-        public List<Ingredient> GetAllIngredientsByDishId(int id)
+        public List<Ingredient> GetIngredientsByDishId(int id)
         {
             return _ingredientRepo.GetIngredientsByDishId(id).ToList();
         }

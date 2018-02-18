@@ -60,7 +60,6 @@ public class Event {
 
     public Date getDate(){ return date;}
 
-    @ManyToOne (cascade = CascadeType.ALL)
     public int getMenuId() {
         return menuId;
     }
@@ -69,7 +68,6 @@ public class Event {
         this.menuId = menuId;
     }
 
-    @ManyToOne(cascade = CascadeType.ALL)
     public int getCustomerId() {
         return customerId;
     }

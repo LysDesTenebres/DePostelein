@@ -81,6 +81,43 @@ namespace DePosteleinManagement.ViewModels
             }
         }
 
+        private Dish _selectedDish;
+        public Dish SelectedDish
+        {
+            get
+            {
+                return _selectedDish;
+            }
+            set
+            {
+                _selectedDish = value;
+                RaisePropertyChanged(nameof(SelectedDish));
+                List<Ingredient> list = _dataService.GetIngredientsByDishId(value.Id);
+                if (list != null)
+                {
+                    Ingredients = list.ToObservableCollection<Ingredient>();
+                }
+                else
+                {
+                    Ingredients = new ObservableCollection<Ingredient>();
+                }
+            }
+        }
+
+        ObservableCollection<Ingredient> _ingredients;
+        public ObservableCollection<Ingredient> Ingredients
+        {
+            get
+            {
+                return _ingredients;
+            }
+            set
+            {
+                _ingredients = value;
+                RaisePropertyChanged(nameof(Ingredients));
+            }
+        }
+
 
         public MainViewModel(INavigationService navigationService, IDataService dataService)
         {

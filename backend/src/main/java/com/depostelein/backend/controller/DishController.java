@@ -15,8 +15,14 @@ public class DishController {    @Autowired
 private DishService dishService;
 
 
-    @RequestMapping(value = "events", method = RequestMethod.POST)
-    @Secured({"ROLE_LECTURER", "ROLE_ADMIN"})
+    @RequestMapping(value = "dishes", method = RequestMethod.GET)
+    @Secured({"ROLE_ADMIN"})
+    public ResponseEntity list() {
+        return ResponseEntity.ok(dishService.findAllUDishes());
+    }
+
+    @RequestMapping(value = "dishes", method = RequestMethod.POST)
+    @Secured({"ROLE_ADMIN"})
     public ResponseEntity create(@RequestBody Dish dish) {
         dishService.addDish(dish);
         return ResponseEntity.created(URI.create("/api/dish/dishes/" + dish.getId())).build();
@@ -28,7 +34,7 @@ private DishService dishService;
         return ResponseEntity.ok(dishService.findDishesByMenuId(id));
     }
 
-    @RequestMapping(value = "dishes/menu/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "dishes/role/{id}", method = RequestMethod.GET)
     @Secured({"ROLE_ADMIN"})
     public ResponseEntity getByFunction(@PathVariable String id) {
         return ResponseEntity.ok(dishService.findDishesByFunctionId(id));

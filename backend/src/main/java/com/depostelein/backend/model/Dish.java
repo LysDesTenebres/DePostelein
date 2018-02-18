@@ -41,7 +41,7 @@ public class Dish {
     }
 
 
-    @ManyToOne (cascade = CascadeType.ALL, targetEntity = Menu.class)
+    //@ManyToOne (cascade = CascadeType.ALL, targetEntity = Menu.class)
     public int getMenuId() {
         return menuId;
     }

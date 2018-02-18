@@ -63,7 +63,6 @@ public class Ingredient {
         this.unit = unit;
     }
 
-    @ManyToOne (cascade = CascadeType.ALL)
     public int getDishId() {
         return dishId;
     }
@@ -72,7 +71,6 @@ public class Ingredient {
         this.dishId = dishId;
     }
 
-    @ManyToOne (cascade = CascadeType.ALL)
     public int getDelivererId() {
         return delivererId;
     }

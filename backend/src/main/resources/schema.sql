@@ -40,9 +40,7 @@ bread BIGINT(5) NOT NULL,
 date DATETIME,
 menu_id BIGINT(20) NOT NULL,
 customer_id BIGINT(20) NOT NULL,
-PRIMARY KEY (id),
-FOREIGN KEY (menu_id) REFERENCES menu (id),
-FOREIGN KEY (customer_id) REFERENCES customer (id)
+PRIMARY KEY (id)
 );
 
 CREATE TABLE IF NOT EXISTS dish(
@@ -50,8 +48,7 @@ id BIGINT(20) NOT  NULL AUTO_INCREMENT,
 name VARCHAR(50) NOT NULL,
 menu_id BIGINT(20) NOT NULL,
 role VARCHAR(50) NOT NULL,
-PRIMARY KEY (id),
-FOREIGN KEY (menu_id) REFERENCES menu (id)
+PRIMARY KEY (id)
 );
 
 CREATE TABLE IF NOT EXISTS ingredient(
@@ -61,9 +58,7 @@ amount BIGINT(20) NOT NULL,
 unit VARCHAR (20) NOT NULL,
 dish_id BIGINT(20) NOT NULL,
 deliverer_id BIGINT(20) NOT NULL,
-PRIMARY KEY (id),
-FOREIGN KEY (dish_id) REFERENCES dish (id),
-FOREIGN KEY (deliverer_id) REFERENCES deliverer (id)
+PRIMARY KEY (id)
 );
 
 

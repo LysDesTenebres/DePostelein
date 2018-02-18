@@ -14,7 +14,7 @@ import java.net.URI;
 public class MenuController {    @Autowired
 private MenuService menuService;
 
-    @RequestMapping(value = "events", method = RequestMethod.GET)
+    @RequestMapping(value = "menus", method = RequestMethod.GET)
     @Secured({"ROLE_ADMIN"})
     public ResponseEntity list() {
         return ResponseEntity.ok(menuService.findAllMenus());
@@ -28,19 +28,19 @@ private MenuService menuService;
     }
 
     @RequestMapping(value = "menus/{id}", method = RequestMethod.GET)
-    @Secured({"ROLE_STUDENT", "ROLE_LECTURER", "ROLE_ADMIN"})
+    @Secured({"ROLE_ADMIN"})
     public ResponseEntity get(@PathVariable int id) {
         return ResponseEntity.ok(menuService.findMenu(id));
     }
 
-    @RequestMapping(value = "events/{id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "menus/{id}", method = RequestMethod.PUT)
     @Secured({"ROLE_ADMIN"})
     public ResponseEntity update(@PathVariable int id, @RequestBody Menu menu) {
         return ResponseEntity.ok(menuService.changeMenu(id, menu));
     }
 
     @RequestMapping(value = "menus/{id}", method = RequestMethod.DELETE)
-    @Secured({"ROLE_LECTURER", "ROLE_ADMIN"})
+    @Secured({"ROLE_ADMIN"})
     public ResponseEntity delete(@PathVariable int id) {
         return ResponseEntity.ok(menuService.deleteMenu(id));
     }

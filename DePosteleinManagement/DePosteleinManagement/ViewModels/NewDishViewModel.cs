@@ -129,7 +129,7 @@ namespace DePostelein.ViewModels
 
         public NewDishViewModel(INavigationService navigationService, IDataService dataService)
         {
-            Messenger.Default.Register<User>(this, OnUserReceived);
+            Messenger.Default.Register<List<object>>(this, OnObjectReceived);
             _dataService = dataService;
             _navigationService = navigationService;
             LoadCommands();
@@ -137,9 +137,10 @@ namespace DePostelein.ViewModels
             GoBackCommand = new CustomCommand(GoBack, null);
         }
 
-        private void OnUserReceived(User user)
+        private void OnObjectReceived(List<object> obj)
         {
-            _loggedInUser = user;
+            _menu = (Menu)obj.ElementAt(0);
+            _loggedInUser = (User)obj.ElementAt(1);
         }
 
         private void LoadCommands()
@@ -178,19 +179,17 @@ namespace DePostelein.ViewModels
 
         private void CreateNewDish(object obj)
         {
-            String dishId = "";
-            bool result = false;
+            Dish _dish = null;
             if (_ingredients != null && _dishName != null && _function != null)
             {
-                result = _dataService.CreateNewDish(_dishName, _menu, _function, _loggedInUser);
-                dishId = result.ToString();
+                _dish = _dataService.CreateNewDish(_dishName, _menu, _function, _loggedInUser);
             }
 
-            if (result == true)
+            if (_dish != null)
             {
                 foreach (Ingredient ingredient in Ingredients)
                 {
-                    _dataService.CreateNewIngredient(ingredient.Name, ingredient.Amount, ingredient.Unit, ingredient.Deliverer, dishId);
+                    _dataService.CreateNewIngredient(ingredient.Name, ingredient.Amount, ingredient.Unit, ingredient.Deliverer, _menu.Id);
                 }
                 Messenger.Default.Send<User>(_loggedInUser);
                 _navigationService.NavigateTo("NewDish");

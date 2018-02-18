@@ -15,7 +15,7 @@ namespace DePosteleinManagement.Domain
         public String Name { get; set; }
         [JsonProperty(PropertyName = "menuId")]
         public int MenuId { get; set; }
-        [JsonProperty(PropertyName = "functionId")]
-        public int FunctionId { get; set; }
+        [JsonProperty(PropertyName = "role")]
+        public String role { get; set; }
     }
 }

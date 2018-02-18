@@ -1,5 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Roots >
+  <Roots.Interfaces>
+    <RootInterface FullName="Windows.UI.Xaml.Data.IValueConverter" />
+  </Roots.Interfaces>
   <Roots.PropertyPathNames>
     <RootPropertyPathName Name="LoadCommand" />
     <RootPropertyPathName Name="ShowMenuDetailsCommand" />
@@ -21,18 +24,28 @@
     <RootPropertyPathName Name="LoginCommand" />
     <RootPropertyPathName Name="Password" />
     <RootPropertyPathName Name="Username" />
+    <RootPropertyPathName Name="Ingredients" />
+    <RootPropertyPathName Name="Deliverer" />
+    <RootPropertyPathName Name="Unit" />
+    <RootPropertyPathName Name="Amount" />
+    <RootPropertyPathName Name="Dishes" />
+    <RootPropertyPathName Name="SelectedDish" />
     <RootPropertyPathName Name="Menus" />
     <RootPropertyPathName Name="SelectedMenu" />
     <RootPropertyPathName Name="Date" />
     <RootPropertyPathName Name="Price" />
     <RootPropertyPathName Name="FunctionId" />
+    <RootPropertyPathName Name="CreateNewMenuCommand" />
     <RootPropertyPathName Name="VariableAmount" />
     <RootPropertyPathName Name="MenuName" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
     <RootType FullName="Windows.UI.Xaml.Application">
       <RootProperty Name="RequestedTheme" />
+      <RootProperty Name="Resources" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.ResourceDictionary" />
+    <RootType FullName="DePosteleinManagement.Converter.DoNothingConverter" />
     <RootType FullName="Windows.UI.Xaml.Controls.Page">
       <RootProperty Name="Content" />
     </RootType>

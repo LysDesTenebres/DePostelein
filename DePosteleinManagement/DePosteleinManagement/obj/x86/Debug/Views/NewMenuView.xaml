@@ -46,7 +46,7 @@
             <CheckBox Grid.Column="2" Grid.Row="5" IsChecked="{Binding VariableAmount, Mode=TwoWay}"></CheckBox>
         </Grid>
 
-        <Button Grid.Row="2" HorizontalAlignment="Right" >Add Menu</Button>
+        <Button Grid.Row="2" HorizontalAlignment="Right" Command="{Binding CreateNewMenuCommand}">Add Menu</Button>
     </Grid>
 </Page>
 

@@ -13,7 +13,7 @@ namespace DePosteleinManagement.DAL.API
     public class MenuRepository : IMenuRepository
     {
         private HttpClient _httpClient;
-        string url = "api/menu/menua";
+        string url = "api/menu/menus";
 
         private string _username = "";
         private string _password = "";
@@ -25,7 +25,16 @@ namespace DePosteleinManagement.DAL.API
 
         public bool Delete(Menu t)
         {
-            throw new NotImplementedException();
+            string deleteUrl = url + "/" + t.Id;
+
+            HttpResponseMessage responseMessage = _httpClient.DeleteAsync(deleteUrl).Result;
+
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            else
+                return false;
         }
 
         public IList<Menu> GetAll()
@@ -43,12 +52,25 @@ namespace DePosteleinManagement.DAL.API
 
         public Menu GetById(int id)
         {
-            throw new NotImplementedException();
+            Menu _menu = null;
+            HttpResponseMessage responseMessage = _httpClient.GetAsync(url).Result;
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var result = responseMessage.Content.ReadAsAsync<IEnumerable<Menu>>().Result as List<Menu>;
+                _menu = result.Where(e => e.Id == id).FirstOrDefault();
+            }
+            return _menu;
         }
 
         public Menu Post(Menu t)
         {
-            throw new NotImplementedException();
+            Menu result = null;
+            HttpResponseMessage responseMessage = _httpClient.PostAsJsonAsync(url, t).Result;
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                result = responseMessage.Content.ReadAsAsync<IEnumerable<Menu>>().Result as Menu;
+            }
+            return result;
         }
 
         public void SetCredentials(string username, string password)
@@ -59,7 +81,7 @@ namespace DePosteleinManagement.DAL.API
             HttpClientHandler _handler = new HttpClientHandler { Credentials = _credentials };
             _httpClient = new HttpClient(_handler)
             {
-                BaseAddress = new Uri("http://167.114.17.246:8080/api")
+                BaseAddress = new Uri("http://localhost:8910")
             };
             _httpClient.DefaultRequestHeaders.Accept.Clear();
             _httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
@@ -68,7 +90,7 @@ namespace DePosteleinManagement.DAL.API
 
         public void Update(Menu t)
         {
-            throw new NotImplementedException();
+            HttpResponseMessage responseMessage = _httpClient.PutAsJsonAsync(url + "/" + t.Id, t).Result;
         }
     }
 }

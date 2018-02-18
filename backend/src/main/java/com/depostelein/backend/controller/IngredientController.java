@@ -15,6 +15,12 @@ public class IngredientController {    @Autowired
 private IngredientService ingredientService;
 
 
+    @RequestMapping(value = "ingredients", method = RequestMethod.GET)
+    @Secured({"ROLE_ADMIN"})
+    public ResponseEntity list() {
+        return ResponseEntity.ok(ingredientService.findAllIngredients());
+    }
+
     @RequestMapping(value = "ingredient", method = RequestMethod.POST)
     @Secured({"ROLE_ADMIN"})
     public ResponseEntity create(@RequestBody Ingredient ingredient) {

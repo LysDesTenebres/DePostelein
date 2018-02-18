@@ -10,5 +10,6 @@ namespace DePosteleinManagement.DAL.Repository
     public interface IDishRepository : IRepository<Dish>
     {
         IList<Dish> GetDishesByMenuId(int id);
+        IList<Dish> GetDishesByFunctionId(String id);
     }
 }

@@ -76,6 +76,7 @@ namespace DePostelein.ViewModels
             _navigationService = navigationService;
             LoadCommands();
 
+            CreateNewMenuCommand = new CustomCommand(CreateNewMenu, null);
             GoBackCommand = new CustomCommand(GoBack, null);
         }
 
@@ -92,19 +93,21 @@ namespace DePostelein.ViewModels
 
         private void CreateNewMenu(object obj)
         {
-            bool result = false;
             if (_menuName != null && _price != 0)
             {
-                result = _dataService.CreateNewMenu(_menuName, _price, _variableAmount);
+                _menu = _dataService.CreateNewMenu(_menuName, _price, _variableAmount);
             }
-            if (result == true)
+            if (_menu == null)
             {
-                Messenger.Default.Send<User>(_loggedInUser);
+                List<object> objList = new List<object>();
+                objList.Add(_menu);
+                objList.Add(_loggedInUser);
+                Messenger.Default.Send(objList);
                 _navigationService.NavigateTo("NewDish");
             }
         }
 
-
+        
         private void GoBack(object obj)
         {
             Messenger.Default.Send<User>(_loggedInUser);
