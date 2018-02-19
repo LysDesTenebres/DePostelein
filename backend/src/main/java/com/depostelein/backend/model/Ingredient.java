@@ -2,16 +2,14 @@ package com.depostelein.backend.model;
 
 import org.springframework.stereotype.Component;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Component
 @Entity
 public class Ingredient {
 
     @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int id;
     private String name;
     private int amount;

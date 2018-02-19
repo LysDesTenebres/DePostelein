@@ -48,7 +48,7 @@
 
         <ListView             Name="EventListView" 
                               ItemsSource="{Binding Menus}"
-                              SelectedItem="{Binding Dishes, Mode=TwoWay}"
+                              SelectedItem="{Binding SelectedMenu, Mode=TwoWay}"
                               Grid.Column="0" Grid.Row="1" Grid.RowSpan="2"
                               HorizontalAlignment="Left">
             <ListView.ItemTemplate>

@@ -51,13 +51,14 @@ namespace DePosteleinManagement.DAL.API
 
         public Dish Post(Dish t)
         {
+            Dish result = null;
             HttpResponseMessage responseMessage = _httpClient.PostAsJsonAsync(url, t).Result;
             if (responseMessage.IsSuccessStatusCode)
             {
-                return t;
+                result = responseMessage.Content.ReadAsAsync<Dish>().Result;
+                //result = resultHttp.FirstOrDefault();
             }
-            else
-                return null;
+            return result;
         }
 
         public void SetCredentials(string username, string password)

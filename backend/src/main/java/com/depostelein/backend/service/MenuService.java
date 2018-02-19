@@ -21,7 +21,7 @@ public class MenuService {
     }
 
     public Menu addMenu(Menu menu) {
-        return menuRepository.saveAndFlush(menu);
+        return menuRepository.save(menu);
     }
 
     public Menu findMenu(int id) {

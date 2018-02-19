@@ -2,10 +2,7 @@ package com.depostelein.backend.model;
 
 import org.springframework.stereotype.Component;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.util.Date;
 
 @Component
@@ -13,6 +10,7 @@ import java.util.Date;
 public class Event {
 
     @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int id;
     private int guests;
     private int bread;

@@ -24,8 +24,8 @@ private DishService dishService;
     @RequestMapping(value = "dishes", method = RequestMethod.POST)
     @Secured({"ROLE_ADMIN"})
     public ResponseEntity create(@RequestBody Dish dish) {
-        dishService.addDish(dish);
-        return ResponseEntity.created(URI.create("/api/dish/dishes/" + dish.getId())).build();
+        dish = dishService.addDish(dish);
+        return ResponseEntity.ok(dish);
     }
 
     @RequestMapping(value = "dishes/menu/{id}", method = RequestMethod.GET)

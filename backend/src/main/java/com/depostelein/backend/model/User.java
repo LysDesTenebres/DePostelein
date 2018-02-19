@@ -3,6 +3,8 @@ package com.depostelein.backend.model;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
@@ -14,6 +16,7 @@ import java.util.Random;
 public class User {
 
     @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int id;
     private String password;
     private String salt;

@@ -7,6 +7,8 @@ import javax.persistence.*;
 @Entity
 public class Dish {
 
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int id;
     private String name;
     private int menuId;
@@ -23,7 +25,6 @@ public class Dish {
         this.role = functionId;
     }
 
-    @Id
     public int getId() {
         return id;
     }

@@ -68,10 +68,12 @@ namespace DePosteleinManagement.DAL.API
             HttpResponseMessage responseMessage = _httpClient.PostAsJsonAsync(url, t).Result;
             if (responseMessage.IsSuccessStatusCode)
             {
-                result = responseMessage.Content.ReadAsAsync<IEnumerable<Menu>>().Result as Menu;
+                result = responseMessage.Content.ReadAsAsync<Menu>().Result;
+                //result = resultHttp.FirstOrDefault();
             }
             return result;
         }
+
 
         public void SetCredentials(string username, string password)
         {

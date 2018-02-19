@@ -18,9 +18,11 @@ namespace DePostelein.ViewModels
         private IDataService _dataService;
         private User _loggedInUser;
         private Menu _menu;
+        private List<Ingredient> _ingredients = new List<Ingredient>();
 
         public CustomCommand CreateNewIngredientCommand { get; set; }
         public CustomCommand CreateNewDishCommand { get; set; }
+        public CustomCommand FinishMenuCommand { get; set; }
         public CustomCommand GoBackCommand { get; set; }
 
         private String _dishName;
@@ -108,17 +110,17 @@ namespace DePostelein.ViewModels
             }
         }
 
-        private List<Ingredient> _ingredients;
-        public List <Ingredient> Ingredients
+        private String _ingredientText;
+        public String IngredientText
         {
             get
             {
-                return _ingredients;
+                return _ingredientText;
             }
             set
             {
-                _ingredients = value;
-                RaisePropertyChanged(nameof(Ingredient));
+                _ingredientText = value;
+                RaisePropertyChanged(nameof(IngredientText));
             }
         }
 
@@ -147,21 +149,18 @@ namespace DePostelein.ViewModels
         {
             CreateNewIngredientCommand = new CustomCommand(CreateNewIngredient, null);
             CreateNewDishCommand = new CustomCommand(CreateNewDish, null);
-            // CreateEventCommand = new CustomCommand(CreateEvent, CheckEventToCreate);
+            FinishMenuCommand = new CustomCommand(FinishMenu, null);
         }
 
         private void CreateNewIngredient(object obj)
         {
-            bool result = false;
             if (_ingredientName != null && _amount != 0 && _unit != null && _deliverer != null)
             {
-                Ingredient newIngredient = new Ingredient();
-                newIngredient.Name = _ingredientName;
-                newIngredient.Amount = _amount;
-                newIngredient.Unit = _unit;
-                newIngredient.Deliverer = _deliverer;
 
-                Ingredients.Add(newIngredient);
+                _ingredients.Add(new Ingredient { Name = _ingredientName, Amount = _amount, Unit = _unit, Deliverer = _deliverer, DishId = 0 });
+
+               IngredientText = _ingredientText + _ingredientName + "\r\n";
+                RaisePropertyChanged(nameof(IngredientText));
 
                 IngredientName = null;
                 Amount = 0;
@@ -169,11 +168,6 @@ namespace DePostelein.ViewModels
                 Deliverer = null;
             
 
-            }
-            if (result == true)
-            {
-                Messenger.Default.Send<User>(_loggedInUser);
-                _navigationService.NavigateTo("Back");
             }
         }
 
@@ -187,12 +181,35 @@ namespace DePostelein.ViewModels
 
             if (_dish != null)
             {
-                foreach (Ingredient ingredient in Ingredients)
+                foreach (Ingredient ingredient in _ingredients)
                 {
-                    _dataService.CreateNewIngredient(ingredient.Name, ingredient.Amount, ingredient.Unit, ingredient.Deliverer, _menu.Id);
+                    _dataService.CreateNewIngredient(ingredient.Name, ingredient.Amount, ingredient.Unit, ingredient.Deliverer, _dish.Id);
                 }
-                Messenger.Default.Send<User>(_loggedInUser);
+                List<object> objList = new List<object>();
+                objList.Add(_menu);
+                objList.Add(_loggedInUser);
+                Messenger.Default.Send(objList);
                 _navigationService.NavigateTo("NewDish");
+            }
+        }
+
+        private void FinishMenu(object obj)
+        {
+            Dish _dish = null;
+            if (_ingredients != null && _dishName != null && _function != null)
+            {
+                _dish = _dataService.CreateNewDish(_dishName, _menu, _function, _loggedInUser);
+            }
+
+            if (_dish != null)
+            {
+                foreach (Ingredient ingredient in _ingredients)
+                {
+                    _dataService.CreateNewIngredient(ingredient.Name, ingredient.Amount, ingredient.Unit, ingredient.Deliverer, _dish.Id);
+                }
+
+                Messenger.Default.Send<User>(_loggedInUser);
+                _navigationService.NavigateTo("MainView");
             }
         }
 

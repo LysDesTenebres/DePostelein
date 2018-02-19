@@ -23,7 +23,7 @@
                    Source="http://www.depostelein.com/img/backgrounds/logo.png" />
         </StackPanel>
         <Grid x:ConnectionId='2' Grid.Row="2" x:Name="createDishes" RelativePanel.Below="banner" RelativePanel.AlignLeftWithPanel="True"
-                      MinWidth="80" Margin="0,0,0,10" DataContext="Dish">
+                      MinWidth="80" Margin="0,0,0,10">
             <Grid Grid.Column="0">
                 <Grid>
                     <Grid.RowDefinitions>
@@ -31,11 +31,12 @@
                         <RowDefinition Height="0.95*"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.01*"/>
                         <ColumnDefinition Width="0.9*"/>
                         <ColumnDefinition Width="0.1*"/>
                         <ColumnDefinition Width="0.01*"/>
                     </Grid.ColumnDefinitions>
-                    <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
+                    <Grid Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="17.5*"/>
                             <ColumnDefinition Width="80*"/>
@@ -64,14 +65,14 @@
                                     <RowDefinition Height="2*" />
                                     <RowDefinition Height="0.5*"/>
                                 </Grid.RowDefinitions>
-                                <TextBox Grid.Row="0" Text="{Binding Name, Mode=TwoWay}"/>
+                                <TextBox Grid.Row="0" Text="{Binding DishName, Mode=TwoWay}"/>
                                 <TextBlock Grid.Row ="1"></TextBlock>
-                                <TextBox Grid.Row="2" Text="{Binding FunctionId, Mode=TwoWay}"/>
+                                <TextBox Grid.Row="2" Text="{Binding Function, Mode=TwoWay}"/>
                                 <TextBlock Grid.Row ="3"></TextBlock>
                             </Grid>
                         </StackPanel>
                     </Grid>
-                    <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" DataContext="Ingredients">
+                    <Grid Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="0.6*"/>
                             <ColumnDefinition Width="0.01*"/>
@@ -109,6 +110,10 @@
                             </StackPanel>
                             <StackPanel Grid.Column="1">
                                 <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50*"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="2*" />
                                         <RowDefinition Height="0.5*"/>
@@ -120,27 +125,27 @@
                                         <RowDefinition Height="0.5*"/>
                                         <RowDefinition Height="4*"/>
                                     </Grid.RowDefinitions>
-                                    <TextBox Grid.Row="0" Text="{Binding Name, Mode=TwoWay}"/>
-                                    <TextBlock Grid.Row ="1"></TextBlock>
-                                    <TextBox Grid.Row="2" Text="{Binding FunctionId, Mode=TwoWay}"/>
-                                    <TextBlock Grid.Row ="3"></TextBlock>
-                                    <TextBox Grid.Row="4" Text="{Binding FunctionId, Mode=TwoWay}"/>
-                                    <TextBlock Grid.Row ="5"></TextBlock>
-                                    <TextBox Grid.Row="6" Text="{Binding FunctionId, Mode=TwoWay}"/>
-                                    <TextBlock Grid.Row ="7"></TextBlock>
-                                    <Button Grid.Row="8" HorizontalAlignment="Right" VerticalAlignment="Bottom">Add Ingredient</Button>
+                                    <TextBox Grid.Row="0" Text="{Binding IngredientName, Mode=TwoWay}" Grid.ColumnSpan="2"/>
+                                    <TextBlock Grid.Row ="1" Grid.ColumnSpan="2"></TextBlock>
+                                    <TextBox Grid.Row="2" Text="{Binding Amount, Mode=TwoWay}" Grid.ColumnSpan="2"/>
+                                    <TextBlock Grid.Row ="3" Grid.ColumnSpan="2"></TextBlock>
+                                    <TextBox Grid.Row="4" Text="{Binding Unit, Mode=TwoWay}" Grid.ColumnSpan="2"/>
+                                    <TextBlock Grid.Row ="5" Grid.ColumnSpan="2"></TextBlock>
+                                    <TextBox Grid.Row="6" Text="{Binding Deliverer, Mode=TwoWay}" Grid.ColumnSpan="2"/>
+                                    <TextBlock Grid.Row ="7" Grid.ColumnSpan="2"></TextBlock>
+                                    <Button Grid.Row="8" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Command="{Binding CreateNewIngredientCommand}">Add Ingredient</Button>
                                 </Grid>
                             </StackPanel>
                         </Grid>
                         <Grid Grid.Column="2">
-                            <TextBox></TextBox>
+                            <TextBox Text="{Binding IngredientText, Mode=TwoWay}" AcceptsReturn="True"></TextBox>
                         </Grid>
                     </Grid>
                 </Grid>
             </Grid>
         </Grid>
-        <Button Grid.Row="3" HorizontalAlignment="Right" Margin=" 0, 0, 150, 0">Add Another Dish</Button>
-        <Button Grid.Row="3" HorizontalAlignment="Right" Margin=" 0, 0, 10, 0">Finish Menu</Button>
+        <Button Grid.Row="3" HorizontalAlignment="Right" Margin=" 0, 0, 150, 0" Command="{Binding CreateNewDishCommand}" >Add Another Dish</Button>
+        <Button Grid.Row="3" HorizontalAlignment="Right" Margin=" 0, 0, 10, 0" Command="{Binding FinishMenuCommand}">Finish Menu</Button>
     </Grid>
 </Page>
 

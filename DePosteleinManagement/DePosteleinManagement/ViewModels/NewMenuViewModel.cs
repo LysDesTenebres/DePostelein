@@ -88,7 +88,6 @@ namespace DePostelein.ViewModels
         private void LoadCommands()
         {
             CreateNewMenuCommand = new CustomCommand(CreateNewMenu, null);
-            // CreateEventCommand = new CustomCommand(CreateEvent, CheckEventToCreate);
         }
 
         private void CreateNewMenu(object obj)
@@ -97,7 +96,7 @@ namespace DePostelein.ViewModels
             {
                 _menu = _dataService.CreateNewMenu(_menuName, _price, _variableAmount);
             }
-            if (_menu == null)
+            if (_menu != null)
             {
                 List<object> objList = new List<object>();
                 objList.Add(_menu);

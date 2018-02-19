@@ -19,7 +19,7 @@ namespace DePosteleinManagement.Services
         void DeleteUser(int id);
         void DeleteMenu(int id);
         void DeleteEvent(int id);
-        void CreateNewIngredient(string name, int amount, string unit, string deliverer, object dishId);
+        void CreateNewIngredient(string name, int amount, string unit, string deliverer, int dishId);
         Dish CreateNewDish(string dishName, Menu menu, string function, User loggedInUser);
         Menu CreateNewMenu(string menuName, double price, bool variableAmount);
         bool CreateNewEvent(string menuName, int guests, int bread, string customer, string location, DateTime date, User loggedInUser);

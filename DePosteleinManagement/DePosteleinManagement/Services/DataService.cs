@@ -45,7 +45,7 @@ namespace DePosteleinManagement.Services
 
         public Dish CreateNewDish(string dishName, Menu menu, string function, User loggedInUser)
         {
-            throw new NotImplementedException();
+            return _dishRepo.Post(new Dish { Name = dishName, role = function, MenuId = menu.Id });
         }
 
         public bool CreateNewEvent(string menuName, int guests, int bread, string customer, string location, DateTime date, User loggedInUser)
@@ -53,9 +53,9 @@ namespace DePosteleinManagement.Services
             throw new NotImplementedException();
         }
 
-        public void CreateNewIngredient(string name, int amount, string unit, string deliverer, object dishId)
+        public void CreateNewIngredient(string name, int amount, string unit, string deliverer, int dishId)
         {
-            throw new NotImplementedException();
+             _ingredientRepo.Post(new Ingredient { Name = name, Amount = amount, Unit = unit, Deliverer = deliverer, DishId = dishId });
         }
 
         public Menu CreateNewMenu(string menuName, double price, bool variableAmount)

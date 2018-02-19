@@ -21,7 +21,7 @@ private IngredientService ingredientService;
         return ResponseEntity.ok(ingredientService.findAllIngredients());
     }
 
-    @RequestMapping(value = "ingredient", method = RequestMethod.POST)
+    @RequestMapping(value = "ingredients", method = RequestMethod.POST)
     @Secured({"ROLE_ADMIN"})
     public ResponseEntity create(@RequestBody Ingredient ingredient) {
         ingredientService.addIngredient(ingredient);

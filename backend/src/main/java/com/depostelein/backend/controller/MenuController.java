@@ -23,8 +23,7 @@ private MenuService menuService;
     @RequestMapping(value = "menus", method = RequestMethod.POST)
     @Secured({"ROLE_ADMIN"})
     public ResponseEntity create(@RequestBody Menu menu) {
-        menuService.addMenu(menu);
-        return ResponseEntity.created(URI.create("/api/menu/menus/" + menu.getId())).build();
+        return ResponseEntity.ok(menuService.addMenu(menu));
     }
 
     @RequestMapping(value = "menus/{id}", method = RequestMethod.GET)

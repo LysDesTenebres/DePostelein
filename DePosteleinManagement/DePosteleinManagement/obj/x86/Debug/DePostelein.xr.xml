@@ -34,7 +34,13 @@
     <RootPropertyPathName Name="SelectedMenu" />
     <RootPropertyPathName Name="Date" />
     <RootPropertyPathName Name="Price" />
-    <RootPropertyPathName Name="FunctionId" />
+    <RootPropertyPathName Name="FinishMenuCommand" />
+    <RootPropertyPathName Name="CreateNewDishCommand" />
+    <RootPropertyPathName Name="IngredientText" />
+    <RootPropertyPathName Name="CreateNewIngredientCommand" />
+    <RootPropertyPathName Name="IngredientName" />
+    <RootPropertyPathName Name="Function" />
+    <RootPropertyPathName Name="DishName" />
     <RootPropertyPathName Name="CreateNewMenuCommand" />
     <RootPropertyPathName Name="VariableAmount" />
     <RootPropertyPathName Name="MenuName" />
@@ -185,6 +191,7 @@
       <RootProperty Name="Text" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Width" />
+      <RootProperty Name="AcceptsReturn" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.PasswordBox">
       <RootProperty Name="Password" />
