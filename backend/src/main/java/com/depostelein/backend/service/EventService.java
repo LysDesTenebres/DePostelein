@@ -41,12 +41,12 @@ public class EventService {
         return existingEvent;
     }
 
-    public List<Event> findEventsByCustomer(int customerId) {
+    public List<Event> findEventsByCustomer(String customerId) {
         List<Event> allEvents = eventRepository.findAll();
         List<Event> eventsForCustomerId = new LinkedList<Event>();
 
         allEvents.forEach(event -> {
-            if (event.getCustomerId() == customerId) {
+            if (event.getCustomer() == customerId) {
                 eventsForCustomerId.add(event);
             }
         });

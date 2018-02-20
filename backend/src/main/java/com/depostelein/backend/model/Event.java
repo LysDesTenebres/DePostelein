@@ -16,18 +16,19 @@ public class Event {
     private int bread;
     private Date date;
     private int menuId;
-    private int customerId;
+    private String customer;
+    private String location;
 
     public Event(){
 
     }
 
-    public Event(int guests, int bread, Date date, int menuId, int customerId) {
+    public Event(int guests, int bread, Date date, int menuId, String customer) {
         this.guests = guests;
         this.bread = bread;
         this.date = date;
         this.menuId = menuId;
-        this.customerId = customerId;
+        this.customer = customer;
     }
 
     public int getId() {
@@ -66,11 +67,23 @@ public class Event {
         this.menuId = menuId;
     }
 
-    public int getCustomerId() {
-        return customerId;
+    public String getCustomer() {
+        return customer;
     }
 
     public void setCustomerId(int customerId) {
-        this.customerId = customerId;
+        this.customer = customer;
+    }
+
+    public void setCustomer(String customer) {
+        this.customer = customer;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 }

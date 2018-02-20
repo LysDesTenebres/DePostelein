@@ -5,8 +5,16 @@
     xmlns:local="using:DePostelein.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:Interactions="using:Microsoft.Xaml.Interactions.Core"
     mc:Ignorable="d">
 
+    <Interactivity:Interaction.Behaviors>
+        <Interactions:EventTriggerBehavior EventName="Loaded">
+            <Interactions:InvokeCommandAction Command="{Binding LoadCommand}"></Interactions:InvokeCommandAction>
+        </Interactions:EventTriggerBehavior>
+    </Interactivity:Interaction.Behaviors>
+    
     <Grid Background="LightGoldenrodYellow">
 
         <Grid.RowDefinitions>
@@ -21,8 +29,8 @@
                    HorizontalAlignment="Left"
                    Source="http://www.depostelein.com/img/backgrounds/logo.png" />
         </StackPanel>
-        <Grid Grid.Row="1" x:Name="createNewMenu" RelativePanel.Below="banner" RelativePanel.AlignLeftWithPanel="True"
-                      MinWidth="80" Margin="0,0,0,10" DataContext="Menu">
+        <Grid Grid.Row="1" x:Name="createNewEvent" RelativePanel.Below="banner" RelativePanel.AlignLeftWithPanel="True"
+                      MinWidth="80" Margin="0,0,0,10" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.30*" />
                 <ColumnDefinition Width="0.025*" />
@@ -45,18 +53,24 @@
                 <RowDefinition Height="10*"/>
             </Grid.RowDefinitions>
             <TextBlock Grid.Column="0" Grid.Row="1" FontSize="23px" HorizontalAlignment="Right">Menu</TextBlock>
-            <TextBox Grid.Column="2" Grid.Row="1" Text="{Binding Name, Mode=TwoWay}"/>
+            <ComboBox HorizontalAlignment="Left"   
+                          Grid.Column="2" Grid.Row="1"
+                  VerticalAlignment="Center"   
+                  Width="120"   
+                  ItemsSource="{Binding Path=Menus}"    
+                  SelectedItem="{Binding Path=MenuName, Mode=TwoWay}"  
+                  DisplayMemberPath="Name"/>
             <TextBlock Grid.Column="0" Grid.Row="3" FontSize="23px" HorizontalAlignment="Right">Guests</TextBlock>
-            <TextBox Grid.Column="2" Grid.Row="3" Text="{Binding Price, Mode=TwoWay}"/>
+            <TextBox Grid.Column="2" Grid.Row="3" Text="{Binding Guests, Mode=TwoWay}"/>
             <TextBlock Grid.Column="0" Grid.Row="5" FontSize="23px" HorizontalAlignment="Right" VerticalAlignment="Center">Broodjes</TextBlock>
-            <TextBox Grid.Column="2" Grid.Row="5" Text="{Binding Price, Mode=TwoWay}"/>
+            <TextBox Grid.Column="2" Grid.Row="5" Text="{Binding Bread, Mode=TwoWay}"/>
             <TextBlock Grid.Column="0" Grid.Row="7" FontSize="23px" HorizontalAlignment="Right" VerticalAlignment="Center">Customer</TextBlock>
-            <TextBox Grid.Column="2" Grid.Row="7" Text="{Binding Price, Mode=TwoWay}"/>
+            <TextBox Grid.Column="2" Grid.Row="7" Text="{Binding Customer, Mode=TwoWay}"/>
             <TextBlock Grid.Column="0" Grid.Row="9" FontSize="23px" HorizontalAlignment="Right" VerticalAlignment="Center">Locatie</TextBlock>
-            <TextBox Grid.Column="2" Grid.Row="9" Text="{Binding Price, Mode=TwoWay}"/>
+            <TextBox Grid.Column="2" Grid.Row="9" Text="{Binding Location, Mode=TwoWay}"/>
             <TextBlock Grid.Column="0" Grid.Row="11" FontSize="23px" HorizontalAlignment="Right" VerticalAlignment="Center">Datum</TextBlock>
             <DatePicker Grid.Column="2" Grid.Row="11" Date="{Binding Date, Mode=TwoWay}"></DatePicker>
         </Grid>
-        <Button Grid.Row="2" HorizontalAlignment="Right" >Add Event</Button>
+        <Button Grid.Row="2" HorizontalAlignment="Right"  Command="{Binding CreateNewEventCommand}" >Add Event</Button>
     </Grid>
 </Page>

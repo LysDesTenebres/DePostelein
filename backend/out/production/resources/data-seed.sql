@@ -10,8 +10,8 @@ VALUES (NULL, 'Testdeliverer');
 INSERT INTO menu (id, name, price, variable_amount)
 VALUES (NULL, 'Testmenu', 14.5, FALSE);
 
-INSERT INTO event (id, guests, bread, date, menu_id, customer_id)
-VALUES (NULL, 50, 100, NULL, 1, 1);
+INSERT INTO event (id, guests, bread, date, menu_id, customer, location)
+VALUES (NULL, 50, 100, NULL, 1, 'somecustomer', 'somelocation');
 
 INSERT INTO dish(id, name, menu_id, role)
 VALUES (NULL, 'testdish', 1,'ROLE_ADMIN');

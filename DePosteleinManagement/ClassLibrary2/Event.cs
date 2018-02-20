@@ -17,7 +17,11 @@ namespace DePosteleinManagement.Domain
         public int Bread { get; set; }
         [JsonProperty(PropertyName = "menuId")]
         public int MenuId { get; set; }
-        [JsonProperty(PropertyName = "customerId")]
-        public int CustomerId { get; set; }
+        [JsonProperty(PropertyName = "customer")]
+        public String Customer { get; set; }
+        [JsonProperty(PropertyName = "location")]
+        public String Location { get; set; }
+        [JsonProperty(PropertyName = "date")]
+        public DateTime Date { get; set; }
     }
 }

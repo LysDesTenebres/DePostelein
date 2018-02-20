@@ -48,9 +48,9 @@ namespace DePosteleinManagement.Services
             return _dishRepo.Post(new Dish { Name = dishName, role = function, MenuId = menu.Id });
         }
 
-        public bool CreateNewEvent(string menuName, int guests, int bread, string customer, string location, DateTime date, User loggedInUser)
+        public Event CreateNewEvent(Menu menuName, int guests, int bread, string customer, string location, DateTime date, User loggedInUser)
         {
-            throw new NotImplementedException();
+            return _eventRepo.Post(new Event { Guests = guests, Bread = bread, Customer = customer, Location = location, Date = date, MenuId = menuName.Id });
         }
 
         public void CreateNewIngredient(string name, int amount, string unit, string deliverer, int dishId)

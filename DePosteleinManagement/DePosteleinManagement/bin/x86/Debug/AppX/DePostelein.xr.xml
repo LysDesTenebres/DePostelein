@@ -32,8 +32,13 @@
     <RootPropertyPathName Name="SelectedDish" />
     <RootPropertyPathName Name="Menus" />
     <RootPropertyPathName Name="SelectedMenu" />
+    <RootPropertyPathName Name="CreateNewEventCommand" />
     <RootPropertyPathName Name="Date" />
-    <RootPropertyPathName Name="Price" />
+    <RootPropertyPathName Name="Location" />
+    <RootPropertyPathName Name="Customer" />
+    <RootPropertyPathName Name="Bread" />
+    <RootPropertyPathName Name="Guests" />
+    <RootPropertyPathName Name="MenuName" />
     <RootPropertyPathName Name="FinishMenuCommand" />
     <RootPropertyPathName Name="CreateNewDishCommand" />
     <RootPropertyPathName Name="IngredientText" />
@@ -43,7 +48,7 @@
     <RootPropertyPathName Name="DishName" />
     <RootPropertyPathName Name="CreateNewMenuCommand" />
     <RootPropertyPathName Name="VariableAmount" />
-    <RootPropertyPathName Name="MenuName" />
+    <RootPropertyPathName Name="Price" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
     <RootType FullName="Windows.UI.Xaml.Application">
@@ -78,7 +83,6 @@
       <RootProperty Name="Children" />
       <RootProperty Name="MinWidth" />
       <RootProperty Name="Margin" />
-      <RootProperty Name="DataContext" />
       <RootMethod Name="GetRow" />
       <RootMethod Name="SetRow" />
       <RootMethod Name="GetColumn" />
@@ -202,6 +206,14 @@
     </RootType>
     <RootType FullName="DePosteleinManagement.Views.LoginView" />
     <RootType FullName="DePosteleinManagement.Views.MainView" />
+    <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="ItemsSource" />
+      <RootProperty Name="SelectedItem" />
+      <RootProperty Name="DisplayMemberPath" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.DatePicker">
       <RootProperty Name="Date" />
     </RootType>

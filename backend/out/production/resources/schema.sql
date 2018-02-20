@@ -39,7 +39,8 @@ guests BIGINT(5) NOT NULL,
 bread BIGINT(5) NOT NULL,
 date DATETIME,
 menu_id BIGINT(20) NOT NULL,
-customer_id BIGINT(20) NOT NULL,
+customer VARCHAR(50) NOT NULL,
+location VARCHAR(50) NOT NULL,
 PRIMARY KEY (id)
 );
 

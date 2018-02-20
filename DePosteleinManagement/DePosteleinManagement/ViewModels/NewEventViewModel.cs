@@ -1,8 +1,10 @@
 ﻿using DePosteleinManagement.Domain;
+using DePosteleinManagement.Extensions;
 using DePosteleinManagement.Services;
 using DePosteleinManagement.Utility;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -18,11 +20,26 @@ namespace DePostelein.ViewModels
         private IDataService _dataService;
         private User _loggedInUser;
 
+        public CustomCommand LoadCommand {get; set;}
         public CustomCommand CreateNewEventCommand { get; set; }
         public CustomCommand GoBackCommand { get; set; }
 
-        private String _menuName;
-        public String MenuName
+        private ObservableCollection<Menu> _menus;
+        public ObservableCollection<Menu> Menus
+        {
+            get
+            {
+                return _menus;
+            }
+            set
+            {
+                _menus = value;
+                RaisePropertyChanged(nameof(Menus));
+            }
+        }
+
+        private Menu _menuName;
+        public Menu MenuName
         {
             get
             {
@@ -116,8 +133,7 @@ namespace DePostelein.ViewModels
             _dataService = dataService;
             _navigationService = navigationService;
             LoadCommands();
-
-            GoBackCommand = new CustomCommand(GoBack, null);
+       
         }
 
         private void OnUserReceived(User user)
@@ -127,18 +143,36 @@ namespace DePostelein.ViewModels
 
         private void LoadCommands()
         {
+            LoadCommand = new CustomCommand((obj) => {
+                LoadData();
+            }, null);
+
             CreateNewEventCommand = new CustomCommand(CreateNewEvent, null);
+            GoBackCommand = new CustomCommand(GoBack, null);
             // CreateEventCommand = new CustomCommand(CreateEvent, CheckEventToCreate);
+        }
+
+        private void LoadData()
+        {
+            List<Menu> list = _dataService.GetAllMenus();
+            if (list != null)
+            {
+                Menus = list.ToObservableCollection();
+            }
+            else
+            {
+                Menus = new ObservableCollection<Menu>();
+            }
         }
 
         private void CreateNewEvent(object obj)
         {
-            bool result = false;
-            if (_menuName != null && _guests != 0 && _bread != 0 && _customer != null && _location != null )
+            Event result = null;
+            if (_menuName != null && _guests != 0 && _customer != null && _location != null )
             {
                 result = _dataService.CreateNewEvent(_menuName, _guests, _bread, _customer, _location, _date, _loggedInUser);
             }
-            if (result == true)
+            if (result != null)
             {
                 Messenger.Default.Send<User>(_loggedInUser);
                 _navigationService.NavigateTo("MainView");

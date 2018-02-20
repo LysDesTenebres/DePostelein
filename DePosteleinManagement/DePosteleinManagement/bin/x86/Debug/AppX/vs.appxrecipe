@@ -31,13 +31,13 @@
     <AppXManifest Include="D:\GitHub\DePostelein\DePosteleinManagement\DePosteleinManagement\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-02-19T21:00:43.109</Modified>
+      <Modified>2018-02-20T21:08:05.350</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="D:\GitHub\DePostelein\DePosteleinManagement\DePosteleinManagement\bin\x86\Debug\DePostelein.exe">
       <PackagePath>entrypoint\DePostelein.exe</PackagePath>
-      <Modified>2018-02-19T21:00:42.150</Modified>
+      <Modified>2018-02-20T21:08:04.020</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Verena\.nuget\packages\microsoft.applicationinsights\2.5.0\lib\netstandard1.3\Microsoft.ApplicationInsights.dll">
       <PackagePath>Microsoft.ApplicationInsights.dll</PackagePath>
@@ -553,11 +553,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\GitHub\DePostelein\DePosteleinManagement\ClassLibrary2\bin\x86\Debug\ClassLibrary2.dll">
       <PackagePath>ClassLibrary2.dll</PackagePath>
-      <Modified>2018-02-19T17:07:05.329</Modified>
+      <Modified>2018-02-20T16:38:29.869</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\GitHub\DePostelein\DePosteleinManagement\DePosteleinManagement.DAL\bin\x86\Debug\DePosteleinManagement.DAL.dll">
       <PackagePath>DePosteleinManagement.DAL.dll</PackagePath>
-      <Modified>2018-02-19T20:12:33.263</Modified>
+      <Modified>2018-02-20T16:38:30.458</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Verena\.nuget\packages\microsoft.xaml.behaviors.uwp.native\1.0.4\lib\uap10.0\Microsoft.Xaml.Interactions.winmd">
       <PackagePath>Microsoft.Xaml.Interactions.winmd</PackagePath>
@@ -611,7 +611,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\GitHub\DePostelein\DePosteleinManagement\DePosteleinManagement\bin\x86\Debug\DePostelein.xr.xml">
       <PackagePath>DePostelein.xr.xml</PackagePath>
-      <Modified>2018-02-19T21:00:41.967</Modified>
+      <Modified>2018-02-20T21:08:03.776</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.16299.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -620,11 +620,11 @@
     <AppxPackagedFile Include="D:\GitHub\DePostelein\DePosteleinManagement\DePosteleinManagement\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-02-19T21:00:42.788</Modified>
+      <Modified>2018-02-20T21:08:04.813</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\GitHub\DePostelein\DePosteleinManagement\DePosteleinManagement\bin\x86\Debug\Core\DePostelein.exe">
       <PackagePath>DePostelein.exe</PackagePath>
-      <Modified>2018-02-19T21:00:43.105</Modified>
+      <Modified>2018-02-20T21:08:05.344</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
