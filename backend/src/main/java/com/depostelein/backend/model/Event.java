@@ -15,7 +15,7 @@ public class Event {
     private int guests;
     private int bread;
     private Date date;
-    private int menuId;
+    private String menu;
     private String customer;
     private String location;
 
@@ -23,11 +23,11 @@ public class Event {
 
     }
 
-    public Event(int guests, int bread, Date date, int menuId, String customer) {
+    public Event(int guests, int bread, Date date, String menu, String customer) {
         this.guests = guests;
         this.bread = bread;
         this.date = date;
-        this.menuId = menuId;
+        this.menu = menu;
         this.customer = customer;
     }
 
@@ -59,12 +59,12 @@ public class Event {
 
     public Date getDate(){ return date;}
 
-    public int getMenuId() {
-        return menuId;
+    public String getMenu() {
+        return menu;
     }
 
-    public void setMenuId(int menuId) {
-        this.menuId = menuId;
+    public void setMenu(String menu) {
+        this.menu = menu;
     }
 
     public String getCustomer() {

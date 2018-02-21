@@ -8,6 +8,8 @@
     <Application.Resources>
         <ResourceDictionary>
             <converters:DoNothingConverter x:Key="myDoNothingConverter"></converters:DoNothingConverter>
+            <converters:DateConverter x:Key="myDateConverter"></converters:DateConverter>
+            <converters:RoleConverter x:Key="myRoleConverter"></converters:RoleConverter>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

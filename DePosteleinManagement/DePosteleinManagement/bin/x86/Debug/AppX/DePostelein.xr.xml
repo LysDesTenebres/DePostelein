@@ -21,6 +21,14 @@
     <RootPropertyPathName Name="EventlistCommand" />
     <RootPropertyPathName Name="CreateEventCommand" />
     <RootPropertyPathName Name="CreateMenuCommand" />
+    <RootPropertyPathName Name="GoBackCommand" />
+    <RootPropertyPathName Name="Date" />
+    <RootPropertyPathName Name="Location" />
+    <RootPropertyPathName Name="Customer" />
+    <RootPropertyPathName Name="Bread" />
+    <RootPropertyPathName Name="Guests" />
+    <RootPropertyPathName Name="Menu" />
+    <RootPropertyPathName Name="LoggedInUser" />
     <RootPropertyPathName Name="LoginCommand" />
     <RootPropertyPathName Name="Password" />
     <RootPropertyPathName Name="Username" />
@@ -33,11 +41,7 @@
     <RootPropertyPathName Name="Menus" />
     <RootPropertyPathName Name="SelectedMenu" />
     <RootPropertyPathName Name="CreateNewEventCommand" />
-    <RootPropertyPathName Name="Date" />
-    <RootPropertyPathName Name="Location" />
-    <RootPropertyPathName Name="Customer" />
-    <RootPropertyPathName Name="Bread" />
-    <RootPropertyPathName Name="Guests" />
+    <RootPropertyPathName Name="EventDate" />
     <RootPropertyPathName Name="MenuName" />
     <RootPropertyPathName Name="FinishMenuCommand" />
     <RootPropertyPathName Name="CreateNewDishCommand" />
@@ -49,6 +53,7 @@
     <RootPropertyPathName Name="CreateNewMenuCommand" />
     <RootPropertyPathName Name="VariableAmount" />
     <RootPropertyPathName Name="Price" />
+    <RootPropertyPathName Name="Users" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
     <RootType FullName="Windows.UI.Xaml.Application">
@@ -57,6 +62,8 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.ResourceDictionary" />
     <RootType FullName="DePosteleinManagement.Converter.DoNothingConverter" />
+    <RootType FullName="DePosteleinManagement.Converter.DateConverter" />
+    <RootType FullName="DePosteleinManagement.Converter.RoleConverter" />
     <RootType FullName="Windows.UI.Xaml.Controls.Page">
       <RootProperty Name="Content" />
     </RootType>
@@ -132,6 +139,8 @@
       <RootProperty Name="SelectedItem" />
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="ItemTemplate" />
+      <RootProperty Name="HorizontalContentAlignment" />
+      <RootProperty Name="ItemContainerStyle" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.RelativePanel">
       <RootProperty Name="Children" />
@@ -161,6 +170,15 @@
       <RootProperty Name="Template" />
     </RootType>
     <RootType FullName="DePostelein.Views.CustomerOverviewView" />
+    <RootType FullName="Windows.UI.Xaml.Controls.ListViewItem" />
+    <RootType FullName="Windows.UI.Xaml.Controls.Control">
+      <RootProperty Name="HorizontalContentAlignment" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Setter">
+      <RootProperty Name="Property" />
+      <RootProperty Name="Value" />
+      <RootProperty Name="Target" />
+    </RootType>
     <RootType FullName="DePostelein.Views.EventOverviewView" />
     <RootType FullName="Windows.UI.Xaml.VisualStateManager">
       <RootMethod Name="GetVisualStateGroups" />
@@ -180,10 +198,6 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.AdaptiveTrigger">
       <RootProperty Name="MinWindowWidth" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Setter">
-      <RootProperty Name="Target" />
-      <RootProperty Name="Value" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Media.SolidColorBrush">
       <RootProperty Name="Color" />
@@ -214,7 +228,7 @@
       <RootProperty Name="SelectedItem" />
       <RootProperty Name="DisplayMemberPath" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.DatePicker">
+    <RootType FullName="Windows.UI.Xaml.Controls.CalendarDatePicker">
       <RootProperty Name="Date" />
     </RootType>
     <RootType FullName="DePostelein.Views.NewEventView" />

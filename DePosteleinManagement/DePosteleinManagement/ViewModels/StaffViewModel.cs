@@ -45,21 +45,6 @@ namespace DePostelein.ViewModels
             }
         }
 
-        private User _selectedUser;
-        public User SelectedUser
-        {
-            get
-            {
-                return _selectedUser;
-            }
-            set
-            {
-                _selectedUser = value;
-                RaisePropertyChanged(nameof(SelectedUser));
-            }
-        }
-
-
         public StaffViewModel(INavigationService navigationService, IDataService dataService)
         {
             Messenger.Default.Register<User>(this, OnUserReceived);
@@ -84,8 +69,7 @@ namespace DePostelein.ViewModels
             {
                 Users = new ObservableCollection<User>();
             }
-            if (Users.Count > 0)
-                SelectedUser = Users.First();
+;
         }
 
         private void LoadCommands()

@@ -19,7 +19,6 @@ namespace DePostelein.ViewModels
         private User _loggedInUser;
 
         public CustomCommand LoadCommand { get; set; }
-        public CustomCommand CreateMenuCommand { get; set; }
         public CustomCommand LogOutCommand { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -28,7 +27,6 @@ namespace DePostelein.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
 
 
         private ObservableCollection<Event> _events;
@@ -42,20 +40,6 @@ namespace DePostelein.ViewModels
             {
                 _events = value;
                 RaisePropertyChanged(nameof(Events));
-            }
-        }
-
-        private Event _selectedEvent;
-        public Event SelectedEvent
-        {
-            get
-            {
-                return _selectedEvent;
-            }
-            set
-            {
-                _selectedEvent = value;
-                RaisePropertyChanged(nameof(SelectedEvent));
             }
         }
 
@@ -78,14 +62,15 @@ namespace DePostelein.ViewModels
             List<Event> list = _dataService.GetAllEvents();
             if (list != null)
             {
-                Events = list.ToObservableCollection();
+                DateTime dateNow = DateTime.Now;
+                long epocheDate = (dateNow.Ticks - 621355968000000000) / 10000;
+                List<Event> SortedList = list.OrderBy(o => o.Date).Where(o => o.Date > epocheDate).ToList();
+                Events = SortedList.ToObservableCollection();
             }
             else
             {
                 Events = new ObservableCollection<Event>();
             }
-            if (Events.Count > 0)
-                SelectedEvent = Events.First();
         }
 
         private void LoadCommands()
@@ -93,7 +78,6 @@ namespace DePostelein.ViewModels
             LoadCommand = new CustomCommand((obj) => {
                 LoadData();
             }, null);
-            CreateMenuCommand = new CustomCommand(CreateMenu, null);
             LogOutCommand = new CustomCommand(LogOut, null);
         }
 

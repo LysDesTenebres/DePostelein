@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -108,8 +109,8 @@ namespace DePostelein.ViewModels
             }
         }
 
-        private DateTime _date;
-        public DateTime Date
+        private DateTimeOffset _date = DateTime.Now;
+        public DateTimeOffset EventDate
         {
             get
             {
@@ -118,7 +119,7 @@ namespace DePostelein.ViewModels
             set
             {
                 _date = value;
-                RaisePropertyChanged(nameof(Date));
+                RaisePropertyChanged(nameof(EventDate));
             }
         }
 
@@ -168,9 +169,11 @@ namespace DePostelein.ViewModels
         private void CreateNewEvent(object obj)
         {
             Event result = null;
-            if (_menuName != null && _guests != 0 && _customer != null && _location != null )
+            if (_menuName != null && _guests != 0 && _customer != null && _location != null)
             {
-                result = _dataService.CreateNewEvent(_menuName, _guests, _bread, _customer, _location, _date, _loggedInUser);
+                    long epocheDate = (_date.Ticks - 621355968000000000) / 10000;
+                    result = _dataService.CreateNewEvent(_menuName, _guests, _bread, _customer, _location, epocheDate, _loggedInUser);
+
             }
             if (result != null)
             {

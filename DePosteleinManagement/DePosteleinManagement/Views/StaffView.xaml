@@ -15,14 +15,15 @@
         </Interactions:EventTriggerBehavior>
     </Interactivity:Interaction.Behaviors>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="LightGoldenrodYellow">
         <Grid.RowDefinitions>
-            <RowDefinition Height="100" />
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="20"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
@@ -41,50 +42,51 @@
             <Button Height="100"   Background="White" Content="LogOut" Command="{Binding LogOutCommand}"></Button>
         </StackPanel>
 
-        <TextBlock Text="{Binding SelectedEvent.Title, Mode=OneWay}" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"/>
-
-        <ListView             Name="EventListView" 
-                              ItemsSource="{Binding Events}"
-                              SelectedItem="{Binding SelectedEvent, Mode=TwoWay}"
-                              Grid.Column="0" Grid.Row="1" Grid.RowSpan="2"
-                              HorizontalAlignment="Left">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <Rectangle Fill="{Binding Path=Status, Converter={StaticResource myStatusConverter}}"></Rectangle>
-                        <TextBlock Text="{Binding Path=Title, Converter={StaticResource myDoNothingConverter}}"></TextBlock>
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-        <RelativePanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">
-            <Grid x:Name="detailGrid">
+        <StackPanel           Grid.Row="1"
+                              Grid.Column="1">
+            <TextBlock Text="{Binding LoggedInUser.Name, Mode=OneWay}" ></TextBlock>
+            <Grid>
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="80"></RowDefinition>
                     <RowDefinition Height="*"></RowDefinition>
-                    <RowDefinition Height="auto"></RowDefinition>
                 </Grid.RowDefinitions>
-                <ScrollViewer>
-                    <StackPanel>
-                        <TextBlock Text="Description"></TextBlock>
-                        <TextBlock Text="{Binding SelectedEvent.Description, Converter={StaticResource myDoNothingConverter}}" TextWrapping="Wrap"></TextBlock>
-                        <TextBlock Text="Type"></TextBlock>
-                        <TextBlock Text="{Binding SelectedEvent.Type, Converter={StaticResource myTypeConverter}}"></TextBlock>
-                        <TextBlock Text="Start Date"></TextBlock>
-                        <TextBlock Text="{Binding SelectedEvent.StartDate, Converter={StaticResource myDateConverter}}"></TextBlock>
-                        <TextBlock Text="Start Time"></TextBlock>
-                        <TextBlock Text="{Binding SelectedEvent.StartDate, Converter={StaticResource myTimeConverter}}"></TextBlock>
-                        <TextBlock Text="End Date"></TextBlock>
-                        <TextBlock Text="{Binding SelectedEvent.EndDate, Converter={StaticResource myDateConverter}}"></TextBlock>
-                        <TextBlock Text="End Time"></TextBlock>
-                        <TextBlock Text="{Binding SelectedEvent.EndDate, Converter={StaticResource myTimeConverter}}"></TextBlock>
-                        <TextBlock Text="Creator"></TextBlock>
-                        <TextBlock Text="{Binding SelectedEvent.Creator.Name, Converter={StaticResource myDoNothingConverter}}"></TextBlock>
-                    </StackPanel>
-                </ScrollViewer>
-                <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">
-                    <Button Command="{Binding ShowMenuDetailsCommand}" Content="Show Menu Details" Margin="8,0,0,0"/>
-                </StackPanel>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="Name"></TextBlock>
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="Function"></TextBlock>
             </Grid>
-        </RelativePanel>
+
+        </StackPanel>
+        <Grid   Grid.Row="2" Grid.Column="1" >
+            <ListView  Name="CheckInListView" 
+                              ItemsSource="{Binding Users}" 
+                       HorizontalContentAlignment="Stretch"
+                       HorizontalAlignment="Stretch"
+                              >
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment"  Value="Stretch"></Setter>
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.ItemTemplate >
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock  Grid.Column="0" Text="{Binding Path=Name, Converter={StaticResource myDoNothingConverter}}"></TextBlock>
+                            <TextBlock  Grid.Column="1" Text="{Binding Path=Function, Converter={StaticResource myRoleConverter}}"></TextBlock>
+                            <Button Grid.Column="2" CommandParameter="{Binding Path= Id}" > Edit </Button>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+        <Button Grid.Column="1" Grid.Row="3" Command="{Binding GoBackCommand}" Margin="8" Content="Back" />
     </Grid>
 </Page>
