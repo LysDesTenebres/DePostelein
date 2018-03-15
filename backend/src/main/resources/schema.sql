@@ -6,6 +6,7 @@ password VARCHAR(500) NOT NULL,
 salt     VARCHAR(50) NOT NULL,
 role VARCHAR(50) NOT NULL,
 enabled  BOOLEAN NOT NULL,
+userRole VARCHAR(50) NOT NULL,
 PRIMARY KEY (id)
 );
 

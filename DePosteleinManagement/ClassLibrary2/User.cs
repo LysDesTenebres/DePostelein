@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using ClassLibrary2.Enums;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,5 +22,7 @@ namespace DePosteleinManagement.Domain
         public string Login { get; set; }
         [JsonProperty(PropertyName = "function")]
         public string Function { get; set; }
+        [JsonProperty(PropertyName = "userRole")]
+        public UserRole UserRole { get; set; }
     }
 }

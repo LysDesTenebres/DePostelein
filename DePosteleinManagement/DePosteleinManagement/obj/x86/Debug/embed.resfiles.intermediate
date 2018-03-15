@@ -3,6 +3,7 @@ Views\CustomerOverviewView.xbf
 Views\EventOverviewView.xbf
 Views\LoginView.xbf
 Views\MainView.xbf
+Views\NewCustomerView.xbf
 Views\NewDishView.xbf
 Views\NewEventView.xbf
 Views\NewMenuView.xbf

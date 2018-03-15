@@ -5,30 +5,28 @@
   </Roots.Interfaces>
   <Roots.PropertyPathNames>
     <RootPropertyPathName Name="LoadCommand" />
-    <RootPropertyPathName Name="ShowMenuDetailsCommand" />
-    <RootPropertyPathName Name="SelectedEvent" />
-    <RootPropertyPathName Name="Creator" />
+    <RootPropertyPathName Name="NewCustomerCommand" />
+    <RootPropertyPathName Name="GoBackCommand" />
+    <RootPropertyPathName Name="Customers" />
+    <RootPropertyPathName Name="Postcode" />
+    <RootPropertyPathName Name="City" />
+    <RootPropertyPathName Name="Adress" />
+    <RootPropertyPathName Name="Surname" />
     <RootPropertyPathName Name="Name" />
-    <RootPropertyPathName Name="EndDate" />
-    <RootPropertyPathName Name="StartDate" />
-    <RootPropertyPathName Name="Type" />
-    <RootPropertyPathName Name="Description" />
-    <RootPropertyPathName Name="Events" />
-    <RootPropertyPathName Name="Title" />
-    <RootPropertyPathName Name="Status" />
+    <RootPropertyPathName Name="LoggedInUser" />
     <RootPropertyPathName Name="LogOutCommand" />
+    <RootPropertyPathName Name="CustomersCommand" />
     <RootPropertyPathName Name="WorkersCommand" />
     <RootPropertyPathName Name="EventlistCommand" />
     <RootPropertyPathName Name="CreateEventCommand" />
     <RootPropertyPathName Name="CreateMenuCommand" />
-    <RootPropertyPathName Name="GoBackCommand" />
+    <RootPropertyPathName Name="Events" />
     <RootPropertyPathName Name="Date" />
     <RootPropertyPathName Name="Location" />
     <RootPropertyPathName Name="Customer" />
     <RootPropertyPathName Name="Bread" />
     <RootPropertyPathName Name="Guests" />
     <RootPropertyPathName Name="Menu" />
-    <RootPropertyPathName Name="LoggedInUser" />
     <RootPropertyPathName Name="LoginCommand" />
     <RootPropertyPathName Name="Password" />
     <RootPropertyPathName Name="Username" />
@@ -40,6 +38,7 @@
     <RootPropertyPathName Name="SelectedDish" />
     <RootPropertyPathName Name="Menus" />
     <RootPropertyPathName Name="SelectedMenu" />
+    <RootPropertyPathName Name="CreateNewCustomerCommand" />
     <RootPropertyPathName Name="CreateNewEventCommand" />
     <RootPropertyPathName Name="EventDate" />
     <RootPropertyPathName Name="MenuName" />
@@ -53,6 +52,8 @@
     <RootPropertyPathName Name="CreateNewMenuCommand" />
     <RootPropertyPathName Name="VariableAmount" />
     <RootPropertyPathName Name="Price" />
+    <RootPropertyPathName Name="StaffCommand" />
+    <RootPropertyPathName Name="DeleteStaffCommand" />
     <RootPropertyPathName Name="Users" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
@@ -79,9 +80,9 @@
       <RootProperty Name="Command" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Data.Binding">
+      <RootProperty Name="Path" />
       <RootProperty Name="Converter" />
       <RootProperty Name="Mode" />
-      <RootProperty Name="Path" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Grid">
       <RootProperty Name="Background" />
@@ -99,7 +100,6 @@
       <RootMethod Name="GetRowSpan" />
       <RootMethod Name="SetRowSpan" />
     </RootType>
-    <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.ThemeResourceExtension" />
     <RootType FullName="Windows.UI.Xaml.Controls.RowDefinition">
       <RootProperty Name="Height" />
     </RootType>
@@ -125,51 +125,24 @@
       <RootProperty Name="Children" />
       <RootProperty Name="Background" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
-      <RootProperty Name="Text" />
-      <RootProperty Name="TextWrapping" />
-      <RootProperty Name="FontSize" />
+    <RootType FullName="Windows.UI.Xaml.Controls.Button">
+      <RootProperty Name="Command" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Content" />
       <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="Inlines" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="Background" />
       <RootProperty Name="VerticalAlignment" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ListView">
       <RootProperty Name="Name" />
       <RootProperty Name="ItemsSource" />
-      <RootProperty Name="SelectedItem" />
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="ItemTemplate" />
       <RootProperty Name="HorizontalContentAlignment" />
+      <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="ItemContainerStyle" />
+      <RootProperty Name="ItemTemplate" />
+      <RootProperty Name="SelectedItem" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.RelativePanel">
-      <RootProperty Name="Children" />
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="Margin" />
-      <RootMethod Name="GetBelow" />
-      <RootMethod Name="SetBelow" />
-      <RootMethod Name="GetRightOf" />
-      <RootMethod Name="SetRightOf" />
-      <RootMethod Name="GetAlignLeftWithPanel" />
-      <RootMethod Name="SetAlignLeftWithPanel" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.ScrollViewer">
-      <RootProperty Name="Content" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.Button">
-      <RootProperty Name="Command" />
-      <RootProperty Name="Content" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="Height" />
-      <RootProperty Name="Background" />
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="VerticalAlignment" />
-    </RootType>
-    <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.StaticResourceExtension" />
-    <RootType FullName="Windows.UI.Xaml.DataTemplate">
-      <RootProperty Name="Template" />
-    </RootType>
-    <RootType FullName="DePostelein.Views.CustomerOverviewView" />
     <RootType FullName="Windows.UI.Xaml.Controls.ListViewItem" />
     <RootType FullName="Windows.UI.Xaml.Controls.Control">
       <RootProperty Name="HorizontalContentAlignment" />
@@ -179,6 +152,19 @@
       <RootProperty Name="Value" />
       <RootProperty Name="Target" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.DataTemplate">
+      <RootProperty Name="Template" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
+      <RootProperty Name="Text" />
+      <RootProperty Name="TextWrapping" />
+      <RootProperty Name="FontSize" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Inlines" />
+      <RootProperty Name="VerticalAlignment" />
+    </RootType>
+    <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.StaticResourceExtension" />
+    <RootType FullName="DePostelein.Views.CustomerOverviewView" />
     <RootType FullName="DePostelein.Views.EventOverviewView" />
     <RootType FullName="Windows.UI.Xaml.VisualStateManager">
       <RootMethod Name="GetVisualStateGroups" />
@@ -198,6 +184,17 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.AdaptiveTrigger">
       <RootProperty Name="MinWindowWidth" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.RelativePanel">
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Children" />
+      <RootMethod Name="GetBelow" />
+      <RootMethod Name="SetBelow" />
+      <RootMethod Name="GetRightOf" />
+      <RootMethod Name="SetRightOf" />
+      <RootMethod Name="GetAlignLeftWithPanel" />
+      <RootMethod Name="SetAlignLeftWithPanel" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Media.SolidColorBrush">
       <RootProperty Name="Color" />
@@ -219,7 +216,9 @@
       <RootProperty Name="Width" />
     </RootType>
     <RootType FullName="DePosteleinManagement.Views.LoginView" />
+    <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.ThemeResourceExtension" />
     <RootType FullName="DePosteleinManagement.Views.MainView" />
+    <RootType FullName="DePostelein.Views.NewCustomerView" />
     <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="VerticalAlignment" />

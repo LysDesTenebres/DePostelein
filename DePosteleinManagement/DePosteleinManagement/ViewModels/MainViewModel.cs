@@ -17,12 +17,12 @@ namespace DePosteleinManagement.ViewModels
         private IDataService _dataService;
         private User _loggedInUser;
 
-
         public CustomCommand LoadCommand { get; set; }
         public CustomCommand CreateMenuCommand { get; set; }
         public CustomCommand CreateEventCommand { get; set; }
         public CustomCommand EventlistCommand { get; set; }
         public CustomCommand WorkersCommand { get; set; }
+        public CustomCommand CustomersCommand { get; set; }
         public CustomCommand LogOutCommand { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -59,6 +59,15 @@ namespace DePosteleinManagement.ViewModels
             {
                 _selectedMenu = value;
                 RaisePropertyChanged(nameof(SelectedMenu));
+                List<Dish> list = _dataService.GetDishesByMenuId(value.Id);
+                if (list != null)
+                {
+                    Dishes = list.ToObservableCollection<Dish>();
+                }
+                else
+                {
+                    Dishes = new ObservableCollection<Dish>();
+                }
             }
         }
 
@@ -151,6 +160,7 @@ namespace DePosteleinManagement.ViewModels
             CreateEventCommand = new CustomCommand(CreateEvent, null);
             EventlistCommand = new CustomCommand(Eventlist, null);
             WorkersCommand = new CustomCommand(Workers, null);
+            CustomersCommand = new CustomCommand(Customers, null);
             LogOutCommand = new CustomCommand(LogOut, null);
         }
 
@@ -181,6 +191,11 @@ namespace DePosteleinManagement.ViewModels
         {
             Messenger.Default.Send(_loggedInUser);
             _navigationService.NavigateTo("Staff");
+        }
+        private void Customers(object obj)
+        {
+            Messenger.Default.Send(_loggedInUser);
+            _navigationService.NavigateTo("CustomerOverview");
         }
     }
 }

@@ -28798,26 +28798,21 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Verena\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {}
+    "C:\\Users\\Lys\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\GitHub\\DePostelein\\DePosteleinManagement\\DePosteleinManagement\\DePosteleinManagement.csproj",
+      "projectUniqueName": "C:\\GitHub\\DePostelein\\DePosteleinManagement\\DePosteleinManagement\\DePosteleinManagement.csproj",
       "projectName": "DePosteleinManagement",
-      "projectPath": "D:\\GitHub\\DePostelein\\DePosteleinManagement\\DePosteleinManagement\\DePosteleinManagement.csproj",
-      "packagesPath": "C:\\Users\\Verena\\.nuget\\packages\\",
-      "outputPath": "D:\\GitHub\\DePostelein\\DePosteleinManagement\\DePosteleinManagement\\obj\\",
+      "projectPath": "C:\\GitHub\\DePostelein\\DePosteleinManagement\\DePosteleinManagement\\DePosteleinManagement.csproj",
+      "packagesPath": "C:\\Users\\Lys\\.nuget\\packages\\",
+      "outputPath": "C:\\GitHub\\DePostelein\\DePosteleinManagement\\DePosteleinManagement\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Verena\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
+        "C:\\Users\\Lys\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "uap10.0.14393"
@@ -28829,11 +28824,11 @@
       "frameworks": {
         "uap10.0.14393": {
           "projectReferences": {
-            "D:\\GitHub\\DePostelein\\DePosteleinManagement\\ClassLibrary2\\DePosteleinManagement.Domain.csproj": {
-              "projectPath": "D:\\GitHub\\DePostelein\\DePosteleinManagement\\ClassLibrary2\\DePosteleinManagement.Domain.csproj"
+            "C:\\GitHub\\DePostelein\\DePosteleinManagement\\ClassLibrary2\\DePosteleinManagement.Domain.csproj": {
+              "projectPath": "C:\\GitHub\\DePostelein\\DePosteleinManagement\\ClassLibrary2\\DePosteleinManagement.Domain.csproj"
             },
-            "D:\\GitHub\\DePostelein\\DePosteleinManagement\\DePosteleinManagement.DAL\\DePosteleinManagement.DAL.csproj": {
-              "projectPath": "D:\\GitHub\\DePostelein\\DePosteleinManagement\\DePosteleinManagement.DAL\\DePosteleinManagement.DAL.csproj"
+            "C:\\GitHub\\DePostelein\\DePosteleinManagement\\DePosteleinManagement.DAL\\DePosteleinManagement.DAL.csproj": {
+              "projectPath": "C:\\GitHub\\DePostelein\\DePosteleinManagement\\DePosteleinManagement.DAL\\DePosteleinManagement.DAL.csproj"
             }
           }
         }
@@ -28844,23 +28839,23 @@
         "dependencies": {
           "Microsoft.ApplicationInsights": {
             "target": "Package",
-            "version": "[2.5.0, )"
+            "version": "2.5.0"
           },
           "Microsoft.ApplicationInsights.PersistenceChannel": {
             "target": "Package",
-            "version": "[1.2.3, )"
+            "version": "1.2.3"
           },
           "Microsoft.ApplicationInsights.WindowsApps": {
             "target": "Package",
-            "version": "[1.1.1, )"
+            "version": "1.1.1"
           },
           "Microsoft.NETCore.UniversalWindowsPlatform": {
             "target": "Package",
-            "version": "[6.0.6, )"
+            "version": "6.0.6"
           },
           "Microsoft.Xaml.Behaviors.Uwp.Native": {
             "target": "Package",
-            "version": "[1.0.4, )"
+            "version": "1.0.4"
           }
         }
       }
@@ -28891,7 +28886,7 @@
       "code": "NU1608",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Erkannte Paketversion außerhalb der Abhängigkeitseinschränkung: \"Microsoft.ApplicationInsights.WindowsApps 1.1.1\" erfordert Microsoft.ApplicationInsights (= 1.2.3), aber es wurde Version Microsoft.ApplicationInsights 2.5.0 aufgelöst.",
+      "message": "Detected package version outside of dependency constraint: Microsoft.ApplicationInsights.WindowsApps 1.1.1 requires Microsoft.ApplicationInsights (= 1.2.3) but version Microsoft.ApplicationInsights 2.5.0 was resolved.",
       "libraryId": "Microsoft.ApplicationInsights",
       "targetGraphs": [
         "UAP,Version=v10.0.14393",

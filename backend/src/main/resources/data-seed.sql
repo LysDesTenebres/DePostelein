@@ -1,5 +1,5 @@
-INSERT INTO user (id, name, login, password, salt, role, enabled)
-VALUES (NULL, 'testadmin', 'testadmin', '9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08', 'salt', 'ROLE_ADMIN', TRUE);
+INSERT INTO user (id, name, login, password, salt, role, enabled, userRole)
+VALUES (NULL, 'testadmin', 'testadmin', '9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08', 'salt', 'ROLE_ADMIN', TRUE, 'Admin');
 
 INSERT INTO customer (id, name, surname, adress, city, postcode)
 VALUES (NULL, 'Max', 'Testman', 'Teststreet 5', 'Testcity', 2345);

@@ -28,6 +28,7 @@
                    MaxHeight="100"
                    HorizontalAlignment="Left"
                    Source="http://www.depostelein.com/img/backgrounds/logo.png" />
+
         </StackPanel>
         <Grid x:ConnectionId='2' Grid.Row="1" x:Name="createNewEvent" RelativePanel.Below="banner" RelativePanel.AlignLeftWithPanel="True"
                       MinWidth="80" Margin="0,0,0,10" >

@@ -109,6 +109,7 @@
     <Compile Include="Customer.cs" />
     <Compile Include="Deliverer.cs" />
     <Compile Include="Dish.cs" />
+    <Compile Include="Enums\UserRole.cs" />
     <Compile Include="Event.cs" />
     <Compile Include="Ingredient.cs" />
     <Compile Include="Menu.cs" />

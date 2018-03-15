@@ -27438,26 +27438,21 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Verena\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {}
+    "C:\\Users\\Lys\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\GitHub\\DePostelein\\DePosteleinManagement\\ClassLibrary2\\DePosteleinManagement.Domain.csproj",
+      "projectUniqueName": "C:\\GitHub\\DePostelein\\DePosteleinManagement\\ClassLibrary2\\DePosteleinManagement.Domain.csproj",
       "projectName": "DePosteleinManagement.Domain",
-      "projectPath": "D:\\GitHub\\DePostelein\\DePosteleinManagement\\ClassLibrary2\\DePosteleinManagement.Domain.csproj",
-      "packagesPath": "C:\\Users\\Verena\\.nuget\\packages\\",
-      "outputPath": "D:\\GitHub\\DePostelein\\DePosteleinManagement\\ClassLibrary2\\obj\\",
+      "projectPath": "C:\\GitHub\\DePostelein\\DePosteleinManagement\\ClassLibrary2\\DePosteleinManagement.Domain.csproj",
+      "packagesPath": "C:\\Users\\Lys\\.nuget\\packages\\",
+      "outputPath": "C:\\GitHub\\DePostelein\\DePosteleinManagement\\ClassLibrary2\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Verena\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
+        "C:\\Users\\Lys\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "uap10.0.14393"
@@ -27477,11 +27472,11 @@
         "dependencies": {
           "Microsoft.NETCore.UniversalWindowsPlatform": {
             "target": "Package",
-            "version": "[6.0.6, )"
+            "version": "6.0.6"
           },
           "Newtonsoft.Json": {
             "target": "Package",
-            "version": "[10.0.3, )"
+            "version": "10.0.3"
           }
         }
       }

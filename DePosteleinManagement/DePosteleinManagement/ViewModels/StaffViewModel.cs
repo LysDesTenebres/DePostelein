@@ -20,7 +20,12 @@ namespace DePostelein.ViewModels
 
         public CustomCommand LoadCommand { get; set; }
         public CustomCommand CreateMenuCommand { get; set; }
+        public CustomCommand CreateEventCommand { get; set; }
+        public CustomCommand EventlistCommand { get; set; }
+        public CustomCommand WorkersCommand { get; set; }
+        public CustomCommand CustomersCommand { get; set; }
         public CustomCommand LogOutCommand { get; set; }
+        public CustomCommand StaffCommand { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -78,7 +83,12 @@ namespace DePostelein.ViewModels
                 LoadData();
             }, null);
             CreateMenuCommand = new CustomCommand(CreateMenu, null);
+            CreateEventCommand = new CustomCommand(CreateEvent, null);
+            EventlistCommand = new CustomCommand(Eventlist, null);
+            WorkersCommand = new CustomCommand(Workers, null);
+            CustomersCommand = new CustomCommand(Customers, null);
             LogOutCommand = new CustomCommand(LogOut, null);
+            StaffCommand = new CustomCommand(Staff, null);
         }
 
         private void LogOut(object obj)
@@ -90,6 +100,36 @@ namespace DePostelein.ViewModels
         {
             Messenger.Default.Send(_loggedInUser);
             _navigationService.NavigateTo("NewMenu");
+        }
+
+        private void CreateEvent(object obj)
+        {
+            Messenger.Default.Send(_loggedInUser);
+            _navigationService.NavigateTo("NewEvent");
+        }
+
+        private void Eventlist(object obj)
+        {
+            Messenger.Default.Send(_loggedInUser);
+            _navigationService.NavigateTo("EventOverview");
+        }
+
+        private void Workers(object obj)
+        {
+            Messenger.Default.Send(_loggedInUser);
+            _navigationService.NavigateTo("Staff");
+        }
+
+        private void Customers(object obj)
+        {
+            Messenger.Default.Send<User>(_loggedInUser);
+            _navigationService.NavigateTo("CustomerOverview");
+        }
+
+        private void Staff(object obj)
+        {
+            Messenger.Default.Send<User>(_loggedInUser);
+            _navigationService.NavigateTo("NewStaff");
         }
     }
 }

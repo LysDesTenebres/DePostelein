@@ -1,5 +1,6 @@
 package com.depostelein.backend.model;
 
+import com.depostelein.backend.model.Enums.UserRole;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.Entity;
@@ -24,11 +25,12 @@ public class User {
     private String login;
     private boolean enabled = true;
     private String role;
+    private UserRole userRole;
 
     public User() {
     }
 
-    public User(int id, String password, String name, String login, String function) {
+    public User(int id, String password, String name, String login, String function, String userRole) {
         this.id = id;
         this.password = password;
         this.name = name;
@@ -40,6 +42,12 @@ public class User {
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
+        if (userRole.equals(UserRole.Admin.name())){
+            this.userRole = UserRole.Admin;
+        } else if (userRole.equals(UserRole.Cold.name())) {
+            this.userRole = UserRole.Cold;
+        }
+
     }
 
     public String GenerateSalt() {

@@ -41,6 +41,7 @@
             <Button   Height="100"  Background="White" Content="Create Event" Command="{Binding CreateEventCommand}"></Button>
             <Button   Height="100"  Background="White" Content="Eventlist" Command="{Binding EventlistCommand}"></Button>
             <Button   Height="100"  Background="White" Content="Medewerkers" Command="{Binding WorkersCommand}"></Button>
+            <Button   Height="100"  Background="White" Content="Customers" Command="{Binding CustomersCommand}"></Button>
             <Button   Height="100"  Background="White" Content="LogOut" Command="{Binding LogOutCommand}"></Button>
         </StackPanel>
 

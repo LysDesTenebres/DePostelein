@@ -107,5 +107,10 @@ namespace DePosteleinManagement.Services
         {
             return _dishRepo.GetDishesByMenuId(id).ToList();
         }
+
+        public Customer CreateNewCustomer(string name, string surname, string adress, string city, int postcode, User loggedInUser)
+        {
+            return _customerRepo.Post(new Customer { Name = name, Surname = surname, Adress = adress, City = city, Postcode = postcode });
+        }
     }
 }

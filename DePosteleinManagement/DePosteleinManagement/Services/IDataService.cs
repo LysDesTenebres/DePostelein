@@ -23,5 +23,6 @@ namespace DePosteleinManagement.Services
         Dish CreateNewDish(string dishName, Menu menu, string function, User loggedInUser);
         Menu CreateNewMenu(string menuName, double price, bool variableAmount);
         Event CreateNewEvent(Menu menuName, int guests, int bread, string customer, string location, long date, User loggedInUser);
+        Customer CreateNewCustomer(string name, string surname, string adress, string city, int postcode, User loggedInUser);
     }
 }

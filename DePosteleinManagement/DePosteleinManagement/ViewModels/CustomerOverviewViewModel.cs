@@ -20,6 +20,10 @@ namespace DePostelein.ViewModels
 
         public CustomCommand LoadCommand { get; set; }
         public CustomCommand CreateMenuCommand { get; set; }
+        public CustomCommand CreateEventCommand { get; set; }
+        public CustomCommand EventlistCommand { get; set; }
+        public CustomCommand WorkersCommand { get; set; }
+        public CustomCommand CustomersCommand { get; set; }
         public CustomCommand LogOutCommand { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -28,7 +32,6 @@ namespace DePostelein.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
 
 
         private ObservableCollection<Customer> _customers;
@@ -42,20 +45,6 @@ namespace DePostelein.ViewModels
             {
                 _customers = value;
                 RaisePropertyChanged(nameof(Customers));
-            }
-        }
-
-        private Customer _selectedCustomer;
-        public Customer SelectedCustomer
-        {
-            get
-            {
-                return _selectedCustomer;
-            }
-            set
-            {
-                _selectedCustomer = value;
-                RaisePropertyChanged(nameof(SelectedCustomer));
             }
         }
 
@@ -77,15 +66,13 @@ namespace DePostelein.ViewModels
         {
             List<Customer> list = _dataService.GetAllCustomers();
             if (list != null)
-            {
+            { 
                 Customers = list.ToObservableCollection();
             }
             else
             {
                 Customers = new ObservableCollection<Customer>();
             }
-            if (Customers.Count > 0)
-                SelectedCustomer = Customers.First();
         }
 
         private void LoadCommands()
@@ -94,6 +81,10 @@ namespace DePostelein.ViewModels
                 LoadData();
             }, null);
             CreateMenuCommand = new CustomCommand(CreateMenu, null);
+            CreateEventCommand = new CustomCommand(CreateEvent, null);
+            EventlistCommand = new CustomCommand(Eventlist, null);
+            WorkersCommand = new CustomCommand(Workers, null);
+            CustomersCommand = new CustomCommand(Customer, null);
             LogOutCommand = new CustomCommand(LogOut, null);
         }
 
@@ -106,6 +97,29 @@ namespace DePostelein.ViewModels
         {
             Messenger.Default.Send(_loggedInUser);
             _navigationService.NavigateTo("NewMenu");
+        }
+
+        private void CreateEvent(object obj)
+        {
+            Messenger.Default.Send(_loggedInUser);
+            _navigationService.NavigateTo("NewEvent");
+        }
+
+        private void Eventlist(object obj)
+        {
+            Messenger.Default.Send(_loggedInUser);
+            _navigationService.NavigateTo("EventOverview");
+        }
+
+        private void Workers(object obj)
+        {
+            Messenger.Default.Send(_loggedInUser);
+            _navigationService.NavigateTo("Staff");
+        }
+        private void Customer(object obj)
+        {
+            Messenger.Default.Send(_loggedInUser);
+            _navigationService.NavigateTo("CustomerOverview");
         }
     }
 }
