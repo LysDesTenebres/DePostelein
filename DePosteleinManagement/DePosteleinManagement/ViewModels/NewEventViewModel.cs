@@ -23,7 +23,7 @@ namespace DePostelein.ViewModels
 
         public CustomCommand LoadCommand {get; set;}
         public CustomCommand CreateNewEventCommand { get; set; }
-        public CustomCommand GoBackCommand { get; set; }
+        public CustomCommand BackCommand { get; set; }
 
         private ObservableCollection<Menu> _menus;
         public ObservableCollection<Menu> Menus
@@ -149,7 +149,7 @@ namespace DePostelein.ViewModels
             }, null);
 
             CreateNewEventCommand = new CustomCommand(CreateNewEvent, null);
-            GoBackCommand = new CustomCommand(GoBack, null);
+            BackCommand = new CustomCommand(GoBack, null);
             // CreateEventCommand = new CustomCommand(CreateEvent, CheckEventToCreate);
         }
 
@@ -186,7 +186,7 @@ namespace DePostelein.ViewModels
         private void GoBack(object obj)
         {
             Messenger.Default.Send<User>(_loggedInUser);
-            _navigationService.NavigateTo("Back");
+            _navigationService.NavigateTo("EventOverview");
         }
 
     }

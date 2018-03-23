@@ -22,6 +22,7 @@ namespace DePosteleinManagement.ViewModels
         public CustomCommand CreateEventCommand { get; set; }
         public CustomCommand EventlistCommand { get; set; }
         public CustomCommand WorkersCommand { get; set; }
+        public CustomCommand DeliverersCommand { get; set; }
         public CustomCommand CustomersCommand { get; set; }
         public CustomCommand LogOutCommand { get; set; }
 
@@ -160,6 +161,7 @@ namespace DePosteleinManagement.ViewModels
             CreateEventCommand = new CustomCommand(CreateEvent, null);
             EventlistCommand = new CustomCommand(Eventlist, null);
             WorkersCommand = new CustomCommand(Workers, null);
+            DeliverersCommand = new CustomCommand(Deliverers, null);
             CustomersCommand = new CustomCommand(Customers, null);
             LogOutCommand = new CustomCommand(LogOut, null);
         }
@@ -185,6 +187,12 @@ namespace DePosteleinManagement.ViewModels
         {
             Messenger.Default.Send(_loggedInUser);
             _navigationService.NavigateTo("EventOverview");
+        }
+
+        private void Deliverers(object obj)
+        {
+            Messenger.Default.Send(_loggedInUser);
+            _navigationService.NavigateTo("Deliverer");
         }
 
         private void Workers(object obj)

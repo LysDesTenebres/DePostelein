@@ -25,6 +25,9 @@ namespace DePostelein.ViewModels
         public CustomCommand WorkersCommand { get; set; }
         public CustomCommand CustomersCommand { get; set; }
         public CustomCommand LogOutCommand { get; set; }
+        public CustomCommand DeliverersCommand { get; set; }
+        public CustomCommand EditStaffCommand { get; set; }
+        public CustomCommand DeleteStaffCommand { get; set; }
         public CustomCommand StaffCommand { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -48,6 +51,20 @@ namespace DePostelein.ViewModels
                 _users = value;
                 RaisePropertyChanged(nameof(Users));
             }
+        }
+
+        private User _selectedUser ;
+        public User SelectedUser 
+        {
+            get
+            {
+                return _selectedUser;
+            }
+            set
+            {
+                _selectedUser = value;
+                RaisePropertyChanged(nameof(SelectedUser));
+}
         }
 
         public StaffViewModel(INavigationService navigationService, IDataService dataService)
@@ -87,7 +104,10 @@ namespace DePostelein.ViewModels
             EventlistCommand = new CustomCommand(Eventlist, null);
             WorkersCommand = new CustomCommand(Workers, null);
             CustomersCommand = new CustomCommand(Customers, null);
+            DeliverersCommand = new CustomCommand(Deliverers, null);
             LogOutCommand = new CustomCommand(LogOut, null);
+            EditStaffCommand = new CustomCommand(EditStaff, null);
+            DeleteStaffCommand = new CustomCommand(DeleteStaff, null);
             StaffCommand = new CustomCommand(Staff, null);
         }
 
@@ -120,6 +140,12 @@ namespace DePostelein.ViewModels
             _navigationService.NavigateTo("Staff");
         }
 
+        private void Deliverers(object obj)
+        {
+            Messenger.Default.Send(_loggedInUser);
+            _navigationService.NavigateTo("Deliverer");
+        }
+
         private void Customers(object obj)
         {
             Messenger.Default.Send<User>(_loggedInUser);
@@ -130,6 +156,30 @@ namespace DePostelein.ViewModels
         {
             Messenger.Default.Send<User>(_loggedInUser);
             _navigationService.NavigateTo("NewStaff");
+        }
+
+        private void EditStaff(object obj)
+        {
+            if (_selectedUser != null)
+            {
+                List<object> objList = new List<object>();
+                objList.Add(_selectedUser);
+                objList.Add(_loggedInUser);
+                Messenger.Default.Send(objList);
+                _navigationService.NavigateTo("EditStaff");
+            }
+        }
+
+        private void DeleteStaff(object obj)
+        {
+            if (_selectedUser != null)
+            {
+
+                _dataService.DeleteUser(_selectedUser);
+
+                Messenger.Default.Send(_loggedInUser);
+                _navigationService.NavigateTo("Staff");
+            }
         }
     }
 }

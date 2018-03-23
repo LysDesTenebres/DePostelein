@@ -1,8 +1,11 @@
-﻿using DePosteleinManagement.Domain;
+﻿using DePosteleinManagement.DAL;
+using DePosteleinManagement.Domain;
+using DePosteleinManagement.Extensions;
 using DePosteleinManagement.Services;
 using DePosteleinManagement.Utility;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -23,7 +26,36 @@ namespace DePostelein.ViewModels
         public CustomCommand CreateNewIngredientCommand { get; set; }
         public CustomCommand CreateNewDishCommand { get; set; }
         public CustomCommand FinishMenuCommand { get; set; }
-        public CustomCommand GoBackCommand { get; set; }
+        public CustomCommand BackCommand { get; set; }
+        public CustomCommand LoadCommand { get; set; }
+
+        private ObservableCollection<Deliverer> _deliverers;
+        public ObservableCollection<Deliverer> Deliverers
+        {
+            get
+            {
+                return _deliverers;
+            }
+            set
+            {
+                _deliverers = value;
+                RaisePropertyChanged(nameof(Deliverers));
+            }
+        }
+
+        private Deliverer _selectedDeliverer;
+        public Deliverer SelectedDeliverer
+        {
+            get
+            {
+                return _selectedDeliverer;
+            }
+            set
+            {
+                _selectedDeliverer = value;
+                RaisePropertyChanged(nameof(SelectedDeliverer));
+            }
+        }
 
         private String _dishName;
         public String DishName
@@ -96,20 +128,6 @@ namespace DePostelein.ViewModels
             }
         }
 
-        private String _deliverer;
-        public String Deliverer
-        {
-            get
-            {
-                return _deliverer;
-            }
-            set
-            {
-                _deliverer = value;
-                RaisePropertyChanged(nameof(Deliverer));
-            }
-        }
-
         private String _ingredientText;
         public String IngredientText
         {
@@ -136,28 +154,48 @@ namespace DePostelein.ViewModels
             _navigationService = navigationService;
             LoadCommands();
 
-            GoBackCommand = new CustomCommand(GoBack, null);
+            BackCommand = new CustomCommand(GoBack, null);
         }
 
         private void OnObjectReceived(List<object> obj)
         {
-            _menu = (Menu)obj.ElementAt(0);
+            if (obj.ElementAt(0) is Menu)
+            {
+                _menu = (Menu)obj.ElementAt(0);
+            }
+            
             _loggedInUser = (User)obj.ElementAt(1);
         }
 
         private void LoadCommands()
         {
+            LoadCommand = new CustomCommand((obj) => {
+                LoadData();
+            }, null);
             CreateNewIngredientCommand = new CustomCommand(CreateNewIngredient, null);
             CreateNewDishCommand = new CustomCommand(CreateNewDish, null);
             FinishMenuCommand = new CustomCommand(FinishMenu, null);
         }
 
+        private void LoadData()
+        {
+            List<Deliverer> list = _dataService.GetAllDeliverers().ToList();
+            if (list != null)
+            {
+                Deliverers = list.ToObservableCollection();
+            }
+            else
+            {
+                Deliverers = new ObservableCollection<Deliverer>();
+            }
+        }
+
         private void CreateNewIngredient(object obj)
         {
-            if (_ingredientName != null && _amount != 0 && _unit != null && _deliverer != null)
+            if (_ingredientName != null && _amount != 0 && _unit != null && _selectedDeliverer != null)
             {
 
-                _ingredients.Add(new Ingredient { Name = _ingredientName, Amount = _amount, Unit = _unit, Deliverer = _deliverer, DishId = 0 });
+                _ingredients.Add(new Ingredient { Name = _ingredientName, Amount = _amount, Unit = _unit, DelivererId = _selectedDeliverer.Id, DishId = 0 });
 
                IngredientText = _ingredientText + _ingredientName + "\r\n";
                 RaisePropertyChanged(nameof(IngredientText));
@@ -165,7 +203,6 @@ namespace DePostelein.ViewModels
                 IngredientName = null;
                 Amount = 0;
                 Unit = null;
-                Deliverer = null;
             
 
             }
@@ -183,7 +220,7 @@ namespace DePostelein.ViewModels
             {
                 foreach (Ingredient ingredient in _ingredients)
                 {
-                    _dataService.CreateNewIngredient(ingredient.Name, ingredient.Amount, ingredient.Unit, ingredient.Deliverer, _dish.Id);
+                    _dataService.CreateNewIngredient(ingredient.Name, ingredient.Amount, ingredient.Unit, ingredient.DelivererId, _dish.Id);
                 }
                 List<object> objList = new List<object>();
                 objList.Add(_menu);
@@ -205,7 +242,7 @@ namespace DePostelein.ViewModels
             {
                 foreach (Ingredient ingredient in _ingredients)
                 {
-                    _dataService.CreateNewIngredient(ingredient.Name, ingredient.Amount, ingredient.Unit, ingredient.Deliverer, _dish.Id);
+                    _dataService.CreateNewIngredient(ingredient.Name, ingredient.Amount, ingredient.Unit, ingredient.DelivererId, _dish.Id);
                 }
 
                 Messenger.Default.Send<User>(_loggedInUser);
@@ -216,7 +253,7 @@ namespace DePostelein.ViewModels
         private void GoBack(object obj)
         {
             Messenger.Default.Send<User>(_loggedInUser);
-            _navigationService.NavigateTo("Back");
+            _navigationService.NavigateTo("MainView");
         }
 
     }

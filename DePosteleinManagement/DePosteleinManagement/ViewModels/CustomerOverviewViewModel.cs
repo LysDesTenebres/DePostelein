@@ -23,7 +23,10 @@ namespace DePostelein.ViewModels
         public CustomCommand CreateEventCommand { get; set; }
         public CustomCommand EventlistCommand { get; set; }
         public CustomCommand WorkersCommand { get; set; }
+        public CustomCommand DeliverersCommand { get; set; }
         public CustomCommand CustomersCommand { get; set; }
+        public CustomCommand EditCustomerCommand { get; set; }
+        public CustomCommand DeleteCustomerCommand { get; set; }
         public CustomCommand LogOutCommand { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -45,6 +48,20 @@ namespace DePostelein.ViewModels
             {
                 _customers = value;
                 RaisePropertyChanged(nameof(Customers));
+            }
+        }
+
+        private Customer _selectedCustomer;
+        public Customer SelectedCustomer
+        {
+            get
+            {
+                return _selectedCustomer;
+            }
+            set
+            {
+                _selectedCustomer = value;
+                RaisePropertyChanged(nameof(SelectedCustomer));
             }
         }
 
@@ -84,7 +101,10 @@ namespace DePostelein.ViewModels
             CreateEventCommand = new CustomCommand(CreateEvent, null);
             EventlistCommand = new CustomCommand(Eventlist, null);
             WorkersCommand = new CustomCommand(Workers, null);
+            DeliverersCommand = new CustomCommand(Deliverers, null);
             CustomersCommand = new CustomCommand(Customer, null);
+            EditCustomerCommand = new CustomCommand(EditCustomer, null);
+            DeleteCustomerCommand = new CustomCommand(DeleteCustomer, null);
             LogOutCommand = new CustomCommand(LogOut, null);
         }
 
@@ -111,6 +131,12 @@ namespace DePostelein.ViewModels
             _navigationService.NavigateTo("EventOverview");
         }
 
+        private void Deliverers(object obj)
+        {
+            Messenger.Default.Send(_loggedInUser);
+            _navigationService.NavigateTo("Deliverer");
+        }
+
         private void Workers(object obj)
         {
             Messenger.Default.Send(_loggedInUser);
@@ -120,6 +146,30 @@ namespace DePostelein.ViewModels
         {
             Messenger.Default.Send(_loggedInUser);
             _navigationService.NavigateTo("CustomerOverview");
+        }
+
+        private void EditCustomer(object obj)
+        {
+            if (_selectedCustomer != null)
+            {
+                List<object> objList = new List<object>();
+                objList.Add(_selectedCustomer);
+                objList.Add(_loggedInUser);
+                Messenger.Default.Send(objList);
+                _navigationService.NavigateTo("EditCustomer");
+            }
+        }
+
+        private void DeleteCustomer(object obj)
+        {
+            if (_selectedCustomer != null)
+            {
+
+                 _dataService.DeleteCustomer(_selectedCustomer);
+
+                Messenger.Default.Send(_loggedInUser);
+                _navigationService.NavigateTo("CustomerOverview");
+            }
         }
     }
 }

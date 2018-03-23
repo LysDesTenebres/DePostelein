@@ -49,6 +49,18 @@ namespace DePosteleinManagement.DAL.API
             return _ingredient;
         }
 
+        public List<Ingredient> GetIngredientsByDelivererId(int id)
+        {
+            List<Ingredient> ingredients = null;
+            HttpResponseMessage responseMessage = _httpClient.GetAsync(url).Result;
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var result = responseMessage.Content.ReadAsAsync<IEnumerable<Ingredient>>().Result as List<Ingredient>;
+                ingredients = result.Where(e => e.DelivererId == id).ToList();
+            }
+            return ingredients;
+        }
+
         public List<Ingredient> GetIngredientsByDishId(int id)
         {
             List<Ingredient> ingredients = null;

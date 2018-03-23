@@ -17,7 +17,7 @@
         </Interactions:EventTriggerBehavior>
     </Interactivity:Interaction.Behaviors>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="LightGoldenrodYellow">
         <Grid.RowDefinitions>
             <RowDefinition Height="100" />
             <RowDefinition Height="auto" />
@@ -41,6 +41,7 @@
             <Button   Height="100"  Background="White" Content="Create Event" Command="{Binding CreateEventCommand}"></Button>
             <Button   Height="100"  Background="White" Content="Eventlist" Command="{Binding EventlistCommand}"></Button>
             <Button   Height="100"  Background="White" Content="Medewerkers" Command="{Binding WorkersCommand}"></Button>
+            <Button   Height="100"  Background="White" Content="Leveranciers" Command="{Binding DeliverersCommand}"></Button>
             <Button   Height="100"  Background="White" Content="Customers" Command="{Binding CustomersCommand}"></Button>
             <Button   Height="100"  Background="White" Content="LogOut" Command="{Binding LogOutCommand}"></Button>
         </StackPanel>

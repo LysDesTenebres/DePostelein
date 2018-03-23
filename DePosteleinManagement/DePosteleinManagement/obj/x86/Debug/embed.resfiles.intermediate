@@ -1,10 +1,17 @@
 App.xbf
 Views\CustomerOverviewView.xbf
+Views\DelivererOverview.xbf
+Views\EditCustomerView.xbf
+Views\EditDelivererView.xbf
+Views\EditEventView.xbf
+Views\EditStaffView.xbf
 Views\EventOverviewView.xbf
 Views\LoginView.xbf
 Views\MainView.xbf
 Views\NewCustomerView.xbf
+Views\NewDelivererView.xbf
 Views\NewDishView.xbf
 Views\NewEventView.xbf
 Views\NewMenuView.xbf
+Views\NewStaffView.xbf
 Views\StaffView.xbf

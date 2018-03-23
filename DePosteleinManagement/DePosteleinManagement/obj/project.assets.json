@@ -2,6 +2,15 @@
   "version": 3,
   "targets": {
     "UAP,Version=v10.0.14393": {
+      "lightbuzz-smtp/1.8.0": {
+        "type": "package",
+        "compile": {
+          "lib/netcore/LightBuzz.SMTP.dll": {}
+        },
+        "runtime": {
+          "lib/netcore/LightBuzz.SMTP.dll": {}
+        }
+      },
       "Microsoft.ApplicationInsights/2.5.0": {
         "type": "package",
         "dependencies": {
@@ -2645,6 +2654,15 @@
       }
     },
     "UAP,Version=v10.0.14393/win10-arm": {
+      "lightbuzz-smtp/1.8.0": {
+        "type": "package",
+        "compile": {
+          "lib/netcore/LightBuzz.SMTP.dll": {}
+        },
+        "runtime": {
+          "lib/netcore/LightBuzz.SMTP.dll": {}
+        }
+      },
       "Microsoft.ApplicationInsights/2.5.0": {
         "type": "package",
         "dependencies": {
@@ -5281,6 +5299,15 @@
       }
     },
     "UAP,Version=v10.0.14393/win10-arm-aot": {
+      "lightbuzz-smtp/1.8.0": {
+        "type": "package",
+        "compile": {
+          "lib/netcore/LightBuzz.SMTP.dll": {}
+        },
+        "runtime": {
+          "lib/netcore/LightBuzz.SMTP.dll": {}
+        }
+      },
       "Microsoft.ApplicationInsights/2.5.0": {
         "type": "package",
         "dependencies": {
@@ -7953,6 +7980,15 @@
       }
     },
     "UAP,Version=v10.0.14393/win10-x64": {
+      "lightbuzz-smtp/1.8.0": {
+        "type": "package",
+        "compile": {
+          "lib/netcore/LightBuzz.SMTP.dll": {}
+        },
+        "runtime": {
+          "lib/netcore/LightBuzz.SMTP.dll": {}
+        }
+      },
       "Microsoft.ApplicationInsights/2.5.0": {
         "type": "package",
         "dependencies": {
@@ -10598,6 +10634,15 @@
       }
     },
     "UAP,Version=v10.0.14393/win10-x64-aot": {
+      "lightbuzz-smtp/1.8.0": {
+        "type": "package",
+        "compile": {
+          "lib/netcore/LightBuzz.SMTP.dll": {}
+        },
+        "runtime": {
+          "lib/netcore/LightBuzz.SMTP.dll": {}
+        }
+      },
       "Microsoft.ApplicationInsights/2.5.0": {
         "type": "package",
         "dependencies": {
@@ -13279,6 +13324,15 @@
       }
     },
     "UAP,Version=v10.0.14393/win10-x86": {
+      "lightbuzz-smtp/1.8.0": {
+        "type": "package",
+        "compile": {
+          "lib/netcore/LightBuzz.SMTP.dll": {}
+        },
+        "runtime": {
+          "lib/netcore/LightBuzz.SMTP.dll": {}
+        }
+      },
       "Microsoft.ApplicationInsights/2.5.0": {
         "type": "package",
         "dependencies": {
@@ -15924,6 +15978,15 @@
       }
     },
     "UAP,Version=v10.0.14393/win10-x86-aot": {
+      "lightbuzz-smtp/1.8.0": {
+        "type": "package",
+        "compile": {
+          "lib/netcore/LightBuzz.SMTP.dll": {}
+        },
+        "runtime": {
+          "lib/netcore/LightBuzz.SMTP.dll": {}
+        }
+      },
       "Microsoft.ApplicationInsights/2.5.0": {
         "type": "package",
         "dependencies": {
@@ -18606,6 +18669,21 @@
     }
   },
   "libraries": {
+    "lightbuzz-smtp/1.8.0": {
+      "sha512": "nbzQySqAwx1ydjVyEWZw6psSBrOvEreBnoepaJgE8gGW6SarH2eoBup6GsqHkRZfOQzqMzd/L4qj5PJ5UQ6PGQ==",
+      "type": "package",
+      "path": "lightbuzz-smtp/1.8.0",
+      "files": [
+        "build/netcore/LightBuzz.SMTP.dll",
+        "build/netcore/LightBuzz.SMTP.pdb",
+        "build/netcore/LightBuzz.SMTP.pri",
+        "lib/netcore/LightBuzz.SMTP.dll",
+        "lib/netcore/LightBuzz.SMTP.pdb",
+        "lib/netcore/LightBuzz.SMTP.pri",
+        "lightbuzz-smtp.1.8.0.nupkg.sha512",
+        "lightbuzz-smtp.nuspec"
+      ]
+    },
     "Microsoft.ApplicationInsights/2.5.0": {
       "sha512": "VZ2ph/D4ggrx+tkhRZLIn9Za9kZGIS/RT6Q4PRdY3gnB5ny4ZGB6CDWijly1Jwx59apf7uU2SGhVAArW0CNKHg==",
       "type": "package",
@@ -28794,7 +28872,8 @@
       "Microsoft.ApplicationInsights.PersistenceChannel >= 1.2.3",
       "Microsoft.ApplicationInsights.WindowsApps >= 1.1.1",
       "Microsoft.NETCore.UniversalWindowsPlatform >= 6.0.6",
-      "Microsoft.Xaml.Behaviors.Uwp.Native >= 1.0.4"
+      "Microsoft.Xaml.Behaviors.Uwp.Native >= 1.0.4",
+      "lightbuzz-smtp >= 1.8.0"
     ]
   },
   "packageFolders": {
@@ -28837,6 +28916,10 @@
     "frameworks": {
       "uap10.0.14393": {
         "dependencies": {
+          "lightbuzz-smtp": {
+            "target": "Package",
+            "version": "1.8.0"
+          },
           "Microsoft.ApplicationInsights": {
             "target": "Package",
             "version": "2.5.0"

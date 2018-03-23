@@ -21,7 +21,7 @@ namespace DePostelein.ViewModels
 
         public CustomCommand LoadCommand { get; set; }
         public CustomCommand CreateNewCustomerCommand { get; set; }
-        public CustomCommand GoBackCommand { get; set; }
+        public CustomCommand BackCommand { get; set; }
 
         private String _name;
         public String Name
@@ -120,7 +120,7 @@ namespace DePostelein.ViewModels
             }, null);
 
             CreateNewCustomerCommand = new CustomCommand(CreateNewCustomer, null);
-            GoBackCommand = new CustomCommand(GoBack, null);
+            BackCommand = new CustomCommand(GoBack, null);
             // CreateEventCommand = new CustomCommand(CreateEvent, CheckEventToCreate);
         }
 
@@ -147,7 +147,7 @@ namespace DePostelein.ViewModels
         private void GoBack(object obj)
         {
             Messenger.Default.Send<User>(_loggedInUser);
-            _navigationService.NavigateTo("Back");
+            _navigationService.NavigateTo("CustomerOverview");
         }
 
     }

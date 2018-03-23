@@ -39,6 +39,7 @@
             <Button   Height="100"  Background="White" Content="Create Event" Command="{Binding CreateEventCommand}"></Button>
             <Button   Height="100"  Background="White" Content="Eventlist" Command="{Binding EventlistCommand}"></Button>
             <Button   Height="100"  Background="White" Content="Medewerkers" Command="{Binding WorkersCommand}"></Button>
+            <Button   Height="100"  Background="White" Content="Leveranciers" Command="{Binding DeliverersCommand}"></Button>
             <Button   Height="100"  Background="White" Content="Customers" Command="{Binding CustomersCommand}"></Button>
             <Button Height="100"   Background="White" Content="LogOut" Command="{Binding LogOutCommand}"></Button>
         </StackPanel>
@@ -48,21 +49,26 @@
             <TextBlock Text="{Binding LoggedInUser.Name, Mode=OneWay}" ></TextBlock>
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="80"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
                     <RowDefinition Height="*"></RowDefinition>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.Row="0" Grid.Column="0" Text="Name"></TextBlock>
                 <TextBlock Grid.Row="0" Grid.Column="1" Text="Function"></TextBlock>
+                <TextBlock Grid.Row="0" Grid.Column="2" Text="Email"></TextBlock>
+                <TextBlock Grid.Row="0" Grid.Column="3" Text="Positie"></TextBlock>
             </Grid>
 
         </StackPanel>
         <Grid   Grid.Row="2" Grid.Column="1" >
             <ListView  Name="CheckInListView" 
                               ItemsSource="{Binding Users}" 
+                       SelectedItem="{Binding SelectedUser, Mode=TwoWay}"
                        HorizontalContentAlignment="Stretch"
                        HorizontalAlignment="Stretch"
                               >
@@ -77,14 +83,19 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition></ColumnDefinition>
                                 <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
                             </Grid.ColumnDefinitions>
                             <TextBlock  Grid.Column="0" Text="{Binding Path=Name, Converter={StaticResource myDoNothingConverter}}"></TextBlock>
                             <TextBlock  Grid.Column="1" Text="{Binding Path=Function, Converter={StaticResource myRoleConverter}}"></TextBlock>
+                            <TextBlock  Grid.Column="2" Text="{Binding Path=EMail, Converter={StaticResource myDoNothingConverter}}"></TextBlock>
+                            <TextBlock  Grid.Column="3" Text="{Binding Path=UserRole, Converter={StaticResource myDoNothingConverter}}"></TextBlock>
                         </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
         </Grid>
+        <Button Grid.Column="1" Grid.Row="3" Command="{Binding EditStaffCommand}" HorizontalAlignment="Right" Margin="8,0,350,0" Content="Editeren" />
         <Button Grid.Column="1" Grid.Row="3" Command="{Binding DeleteStaffCommand}" HorizontalAlignment="Right" Margin="8,0,200,0" Content="Verwijderen" />
         <Button Grid.Column="1" Grid.Row="3" Command="{Binding StaffCommand}" HorizontalAlignment="Right" Margin="8" Content="Nieuwe Medewerker" />
     </Grid>

@@ -19,14 +19,15 @@ public class UserController {
     @RequestMapping(value = "users", method = RequestMethod.GET)
     @Secured({"ROLE_STUDENT", "ROLE_LECTURER", "ROLE_ADMIN"})
     public ResponseEntity getAllUsers() {
+
         return ResponseEntity.ok(userService.findAllUsers());
     }
 
     @RequestMapping(value = "users", method = RequestMethod.POST)
     @Secured({"ROLE_ADMIN"})
     public ResponseEntity postUser(@RequestBody User user) {
-        userService.addUser(user);
-        return ResponseEntity.created(URI.create("/api/user/users/" + user.getId())).build();
+
+            return ResponseEntity.ok(userService.addUser(user));
     }
 
     @RequestMapping(value = "users/{id}", method = RequestMethod.GET)

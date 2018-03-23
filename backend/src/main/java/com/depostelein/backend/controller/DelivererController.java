@@ -24,8 +24,8 @@ public class DelivererController {
     @RequestMapping(value = "deliverer", method = RequestMethod.POST)
     @Secured({"ROLE_ADMIN"})
     public ResponseEntity create(@RequestBody Deliverer deliverer) {
-        delivererService.addDeliverer(deliverer);
-        return ResponseEntity.created(URI.create("/api/deliverer/deliverers/" + deliverer.getId())).build();
+
+        return ResponseEntity.ok(delivererService.addDeliverer(deliverer));
     }
 
     @RequestMapping(value = "deliverer/{id}", method = RequestMethod.GET)
@@ -34,13 +34,13 @@ public class DelivererController {
         return ResponseEntity.ok(delivererService.findDeliverer(id));
     }
 
-    @RequestMapping(value = "deliverers/{id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "deliverer/{id}", method = RequestMethod.PUT)
     @Secured({"ROLE_ADMIN"})
     public ResponseEntity update(@PathVariable int id, @RequestBody Deliverer deliverer) {
         return ResponseEntity.ok(delivererService.changeDeliverer(id, deliverer));
     }
 
-    @RequestMapping(value = "deliverers/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "deliverer/{id}", method = RequestMethod.DELETE)
     @Secured({"ROLE_ADMIN"})
     public ResponseEntity delete(@PathVariable int id) {
         return ResponseEntity.ok(delivererService.deleteDeliverer(id));

@@ -72,7 +72,8 @@
             <TextBlock Grid.Column="0" Grid.Row="11" FontSize="23px" HorizontalAlignment="Right" VerticalAlignment="Center">Datum</TextBlock>
             <CalendarDatePicker Grid.Column="2" Grid.Row="11" Date="{Binding EventDate, Mode=TwoWay}" ></CalendarDatePicker>
         </Grid>
-        <Button Grid.Row="2" HorizontalAlignment="Right"  Command="{Binding CreateNewEventCommand}" >Add Event</Button>
+        <Button Grid.Row="2" HorizontalAlignment="Left"  Command="{Binding BackCommand}" Margin="8" >Annuleren</Button>
+        <Button Grid.Row="2" HorizontalAlignment="Right"  Command="{Binding CreateNewEventCommand}" Margin="0,0,8,0" >Add Event</Button>
     </Grid>
 </Page>
 

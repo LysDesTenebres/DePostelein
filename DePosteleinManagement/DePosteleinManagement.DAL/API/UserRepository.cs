@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DePosteleinManagement.DAL.Repository;
 using DePosteleinManagement.Domain;
+using Newtonsoft.Json;
 
 namespace DePosteleinManagement.DAL.API
 {
@@ -39,6 +40,8 @@ namespace DePosteleinManagement.DAL.API
             if (responseMessage.IsSuccessStatusCode)
             {
                 var result = responseMessage.Content.ReadAsAsync<IEnumerable<User>>().Result as List<User>;
+                var txtBlock = responseMessage.Content.ReadAsStringAsync().Result; //right!
+                //allUsers = JsonConvert.DeserializeObject<List<User>>(txtBlock);
                 allUsers = result;
             }
             return allUsers;
@@ -60,13 +63,14 @@ namespace DePosteleinManagement.DAL.API
 
         public User Post(User t)
         {
+            User result = null;
             HttpResponseMessage responseMessage = _httpClient.PostAsJsonAsync(url, t).Result;
             if (responseMessage.IsSuccessStatusCode)
             {
-                return t;
+                result = responseMessage.Content.ReadAsAsync<User>().Result;
+                
             }
-            else
-                return null;
+            return result;
         }
 
         public void SetCredentials(string username, string password)

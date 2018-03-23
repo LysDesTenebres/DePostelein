@@ -37,7 +37,6 @@ D:\GitHub\DePostelein\DePosteleinManagement\ClassLibrary2\obj\x86\Debug\Multiple
 C:\GitHub\DePostelein\DePosteleinManagement\ClassLibrary2\bin\x86\Debug\ClassLibrary2.dll
 C:\GitHub\DePostelein\DePosteleinManagement\ClassLibrary2\bin\x86\Debug\ClassLibrary2.pdb
 C:\GitHub\DePostelein\DePosteleinManagement\ClassLibrary2\bin\x86\Debug\ClassLibrary2.pri
-C:\GitHub\DePostelein\DePosteleinManagement\ClassLibrary2\obj\x86\Debug\DePosteleinManagement.Domain.csprojResolveAssemblyReference.cache
 C:\GitHub\DePostelein\DePosteleinManagement\ClassLibrary2\obj\x86\Debug\DePosteleinManagement.Domain.csproj.CoreCompileInputs.cache
 C:\GitHub\DePostelein\DePosteleinManagement\ClassLibrary2\obj\x86\Debug\ClassLibrary2.dll
 C:\GitHub\DePostelein\DePosteleinManagement\ClassLibrary2\obj\x86\Debug\ClassLibrary2.pdb
@@ -52,3 +51,4 @@ C:\GitHub\DePostelein\DePosteleinManagement\ClassLibrary2\obj\x86\Debug\pri.resf
 C:\GitHub\DePostelein\DePosteleinManagement\ClassLibrary2\obj\x86\Debug\qualifiers.txt
 C:\GitHub\DePostelein\DePosteleinManagement\ClassLibrary2\obj\x86\Debug\qualifiers.txt.intermediate
 C:\GitHub\DePostelein\DePosteleinManagement\ClassLibrary2\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
+C:\GitHub\DePostelein\DePosteleinManagement\ClassLibrary2\obj\x86\Debug\DePosteleinManagement.Domain.csprojResolveAssemblyReference.cache

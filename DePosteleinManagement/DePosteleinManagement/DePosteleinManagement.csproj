@@ -99,6 +99,8 @@
     <Compile Include="Converter\DoNothingConverter.cs" />
     <Compile Include="Converter\RoleConverter.cs" />
     <Compile Include="Extensions\ListExtensions.cs" />
+    <Compile Include="Services\EmailService.cs" />
+    <Compile Include="Services\PasswordGeneratorService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\DataService.cs" />
     <Compile Include="Services\IDataService.cs" />
@@ -108,16 +110,38 @@
     <Compile Include="Utility\Messenger.cs" />
     <Compile Include="ViewModelLocator.cs" />
     <Compile Include="ViewModels\CustomerOverviewViewModel.cs" />
+    <Compile Include="ViewModels\DelivererOverviewViewModel.cs" />
+    <Compile Include="ViewModels\EditCustomerViewModel.cs" />
+    <Compile Include="ViewModels\EditDelivererViewModel.cs" />
+    <Compile Include="ViewModels\EditEventViewModel.cs" />
+    <Compile Include="ViewModels\EditStaffViewModel.cs" />
     <Compile Include="ViewModels\EventOverviewViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\NewCustomerViewModel.cs" />
+    <Compile Include="ViewModels\NewDelivererViewModel.cs" />
     <Compile Include="ViewModels\NewDishViewModel.cs" />
     <Compile Include="ViewModels\NewEventViewModel.cs" />
     <Compile Include="ViewModels\NewMenuViewModel.cs" />
+    <Compile Include="ViewModels\NewStaffViewModel.cs" />
     <Compile Include="ViewModels\StaffViewModel.cs" />
     <Compile Include="Views\CustomerOverviewView.xaml.cs">
       <DependentUpon>CustomerOverviewView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DelivererOverview.xaml.cs">
+      <DependentUpon>DelivererOverview.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditCustomerView.xaml.cs">
+      <DependentUpon>EditCustomerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditDelivererView.xaml.cs">
+      <DependentUpon>EditDelivererView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditEventView.xaml.cs">
+      <DependentUpon>EditEventView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditStaffView.xaml.cs">
+      <DependentUpon>EditStaffView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\EventOverviewView.xaml.cs">
       <DependentUpon>EventOverviewView.xaml</DependentUpon>
@@ -131,6 +155,9 @@
     <Compile Include="Views\NewCustomerView.xaml.cs">
       <DependentUpon>NewCustomerView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\NewDelivererView.xaml.cs">
+      <DependentUpon>NewDelivererView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\NewEventView.xaml.cs">
       <DependentUpon>NewEventView.xaml</DependentUpon>
     </Compile>
@@ -139,6 +166,9 @@
     </Compile>
     <Compile Include="Views\NewMenuView.xaml.cs">
       <DependentUpon>NewMenuView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NewStaffView.xaml.cs">
+      <DependentUpon>NewStaffView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\StaffView.xaml.cs">
       <DependentUpon>StaffView.xaml</DependentUpon>
@@ -170,6 +200,26 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\DelivererOverview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EditCustomerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EditDelivererView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EditEventView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EditStaffView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\EventOverviewView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -186,6 +236,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\NewDelivererView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\NewEventView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -198,12 +252,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\NewStaffView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\StaffView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="lightbuzz-smtp">
+      <Version>1.8.0</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.ApplicationInsights">
       <Version>2.5.0</Version>
     </PackageReference>

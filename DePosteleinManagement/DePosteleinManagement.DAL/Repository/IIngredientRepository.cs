@@ -10,5 +10,6 @@ namespace DePosteleinManagement.DAL.Repository {
     public interface IIngredientRepository : IRepository<Ingredient>
     {
         List<Ingredient> GetIngredientsByDishId(int id);
+        List<Ingredient> GetIngredientsByDelivererId(int id);
     }
 }

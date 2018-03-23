@@ -12,7 +12,7 @@ namespace DePosteleinManagement.DAL.API
     public class DelivererRepository : IDelivererRepository
     {
         private HttpClient _httpClient;
-        string url = "api/deliverer/deliverers";
+        string url = "api/delivery/deliverer";
 
         private string _username = "";
         private string _password = "";
@@ -57,13 +57,14 @@ namespace DePosteleinManagement.DAL.API
 
         public Deliverer Post(Deliverer t)
         {
+            Deliverer result = null;
             HttpResponseMessage responseMessage = _httpClient.PostAsJsonAsync(url, t).Result;
             if (responseMessage.IsSuccessStatusCode)
             {
-                return t;
+                result = responseMessage.Content.ReadAsAsync<Deliverer>().Result;
+
             }
-            else
-                return null;
+            return result;
         }
 
         public void SetCredentials(string username, string password)

@@ -20,7 +20,7 @@ namespace DePostelein.ViewModels
         private Menu _menu;
 
         public CustomCommand CreateNewMenuCommand { get; set; }
-        public CustomCommand GoBackCommand { get; set; }
+        public CustomCommand BackCommand { get; set; }
 
         private String _menuName;
         public String MenuName
@@ -77,7 +77,7 @@ namespace DePostelein.ViewModels
             LoadCommands();
 
             CreateNewMenuCommand = new CustomCommand(CreateNewMenu, null);
-            GoBackCommand = new CustomCommand(GoBack, null);
+            BackCommand = new CustomCommand(GoBack, null);
         }
 
         private void OnUserReceived(User user)
@@ -110,7 +110,7 @@ namespace DePostelein.ViewModels
         private void GoBack(object obj)
         {
             Messenger.Default.Send<User>(_loggedInUser);
-            _navigationService.NavigateTo("Back");
+            _navigationService.NavigateTo("MainView");
         }
 
     }

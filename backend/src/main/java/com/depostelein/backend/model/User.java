@@ -3,10 +3,7 @@ package com.depostelein.backend.model;
 import com.depostelein.backend.model.Enums.UserRole;
 import org.springframework.stereotype.Component;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -23,30 +20,36 @@ public class User {
     private String salt;
     private String name;
     private String login;
+    private String email;
     private boolean enabled = true;
     private String role;
+    @Enumerated(EnumType.STRING)
     private UserRole userRole;
+    @Transient
+    private String help;
 
     public User() {
     }
 
-    public User(int id, String password, String name, String login, String function, String userRole) {
-        this.id = id;
+    public User(String password, String name, String login, String email, String role, String userRole) {
         this.password = password;
         this.name = name;
         this.login = login;
-        this.role = function;
+        this.email = email;
+        this.role = role;
         this.salt = GenerateSalt();
         try {
             this.password = HashPassword(password, this.salt);
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
-        if (userRole.equals(UserRole.Admin.name())){
-            this.userRole = UserRole.Admin;
-        } else if (userRole.equals(UserRole.Cold.name())) {
-            this.userRole = UserRole.Cold;
+        if (userRole.equals(UserRole.ADMIN.name())){
+            this.userRole = UserRole.ADMIN;
+        } else if (userRole.equals(UserRole.COLD.name())) {
+            this.userRole = UserRole.COLD;
         }
+
+        this.help = userRole;
 
     }
 
@@ -101,6 +104,14 @@ public class User {
         this.name = name;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getLogin() {
         return login;
     }
@@ -109,12 +120,31 @@ public class User {
         this.login = login;
     }
 
-    public String getFunction() {
+    public String getUserRole() {
+        return userRole.toString();
+    }
+
+    public void setHelp (String help){
+        this.help = help;
+    }
+    public String getHelperUserRole(){
+        return help;
+    }
+
+    public void setUserRole(String userRole) {
+        if (userRole.equals(UserRole.ADMIN.name())){
+            this.userRole = UserRole.ADMIN;
+        } else if (userRole.equals(UserRole.COLD.name())) {
+            this.userRole = UserRole.COLD;
+        }
+    }
+
+    public String getRole() {
         return role;
     }
 
-    public void setFunction(String function) {
-        this.role = function;
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public void isEnabled(boolean enabled) { this.enabled = enabled; }

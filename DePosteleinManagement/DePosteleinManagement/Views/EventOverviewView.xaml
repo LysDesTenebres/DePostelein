@@ -39,6 +39,7 @@
             <Button   Height="100"  Background="White" Content="Create Event" Command="{Binding CreateEventCommand}"></Button>
             <Button   Height="100"  Background="White" Content="Eventlist" Command="{Binding EventlistCommand}"></Button>
             <Button   Height="100"  Background="White" Content="Medewerkers" Command="{Binding WorkersCommand}"></Button>
+            <Button   Height="100"  Background="White" Content="Leveranciers" Command="{Binding DeliverersCommand}"></Button>
             <Button   Height="100"  Background="White" Content="Customers" Command="{Binding CustomersCommand}"></Button>
             <Button Height="100"   Background="White" Content="LogOut" Command="{Binding LogOutCommand}"></Button>
         </StackPanel>
@@ -72,6 +73,7 @@
         <Grid   Grid.Row="2" Grid.Column="1" >
             <ListView  Name="CheckInListView" 
                               ItemsSource="{Binding Events}" 
+                       SelectedItem="{Binding SelectedEvent, Mode=TwoWay}"
                        HorizontalContentAlignment="Stretch"
                        HorizontalAlignment="Stretch"
                               >
@@ -102,6 +104,7 @@
                 </ListView.ItemTemplate>
             </ListView>
         </Grid>
-        <Button Grid.Column="1" Grid.Row="3" Command="{Binding GoBackCommand}" Margin="8" Content="Back" />
+        <Button Grid.Column="1" Grid.Row="3" Command="{Binding EditEventCommand}" HorizontalAlignment="Right" Margin="8,0,150,0" Content="Editeren" />
+        <Button Grid.Column="1" Grid.Row="3" Command="{Binding DeleteEventCommand}" HorizontalAlignment="Right" Margin="8,0,8,0" Content="Verwijderen" />
     </Grid>
 </Page>

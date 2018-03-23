@@ -41,6 +41,27 @@ namespace DePosteleinManagement.Services
                 case "Staff":
                     rootFrame.Navigate(typeof(StaffView));
                     break;
+                case "NewStaff":
+                    rootFrame.Navigate(typeof(NewStaffView));
+                    break;
+                case "Deliverer":
+                    rootFrame.Navigate(typeof(DelivererOverview));
+                    break;
+                case "NewDeliverer":
+                    rootFrame.Navigate(typeof(NewDelivererView));
+                    break;
+                case "EditCustomer":
+                    rootFrame.Navigate(typeof(EditCustomerView));
+                    break;
+                case "EditDeliverer":
+                    rootFrame.Navigate(typeof(EditDelivererView));
+                    break;
+                case "EditEvent":
+                    rootFrame.Navigate(typeof(EditEventView));
+                    break;
+                case "EditStaff":
+                    rootFrame.Navigate(typeof(EditStaffView));
+                    break;
                 case "Back":
                     rootFrame.GoBack();
                     break;

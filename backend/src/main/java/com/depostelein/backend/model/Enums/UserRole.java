@@ -1,8 +1,8 @@
 package com.depostelein.backend.model.Enums;
 
 public enum UserRole {
-    Admin ("Admin"),
-    Cold ("Cold");
-    
+    ADMIN ("ADMIN"),
+    COLD ("COLD");
+
     UserRole (String type) {type = type;}
 }

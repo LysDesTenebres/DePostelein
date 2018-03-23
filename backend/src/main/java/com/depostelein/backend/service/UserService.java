@@ -15,11 +15,15 @@ public class UserService {
     private UserRepository userRepository;
 
     public List<User> findAllUsers() {
-        return userRepository.findAll();
+        List <User> user = userRepository.findAll();
+        return user;
     }
 
     public User addUser(User user) {
-        return userRepository.saveAndFlush(user);
+
+        String helper = "ROLE_" + user.getRole();
+        User newUser = new User(user.getPassword(), user.getName(), user.getLogin(), user.getEmail(), helper, user.getHelperUserRole());
+        return userRepository.saveAndFlush(newUser);
     }
 
     public User findUser(int id) {

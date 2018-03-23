@@ -19,7 +19,7 @@ namespace DePosteleinManagement.Domain
         public String Unit { get; set; }
         [JsonProperty(PropertyName = "dishId")]
         public int DishId { get; set; }
-        [JsonProperty(PropertyName = "deliverer")]
-        public String Deliverer { get; set; }
+        [JsonProperty(PropertyName = "delivererId")]
+        public int DelivererId { get; set; }
     }
 }

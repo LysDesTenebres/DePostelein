@@ -28,6 +28,9 @@
     <AppxPackagedFile Include="C:\GitHub\DePostelein\DePosteleinManagement\DePosteleinManagement\bin\x86\Debug\DePostelein.exe">
       <PackagePath>entrypoint\DePostelein.exe</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Lys\.nuget\packages\lightbuzz-smtp\1.8.0\lib\netcore\LightBuzz.SMTP.dll">
+      <PackagePath>LightBuzz.SMTP.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Lys\.nuget\packages\microsoft.applicationinsights\2.5.0\lib\netstandard1.3\Microsoft.ApplicationInsights.dll">
       <PackagePath>Microsoft.ApplicationInsights.dll</PackagePath>
     </AppxPackagedFile>
