@@ -35,8 +35,8 @@
             <Grid Grid.Column="0">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="0.20*"/>
-                        <RowDefinition Height="0.95*"/>
+                        <RowDefinition Height="120"/>
+                        <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="0.01*"/>
@@ -75,7 +75,12 @@
                                 </Grid.RowDefinitions>
                                 <TextBox Grid.Row="0" Text="{Binding DishName, Mode=TwoWay}"/>
                                 <TextBlock Grid.Row ="1"></TextBlock>
-                                <TextBox Grid.Row="2" Text="{Binding Function, Mode=TwoWay}"/>
+                                <ComboBox HorizontalAlignment="Left"   
+                                    Grid.Row="2"
+                                    VerticalAlignment="Center"   
+                                    Width="120"   
+                                    ItemsSource="{Binding Path=UserRoles}"    
+                                    SelectedItem="{Binding Path=UserRole, Mode=TwoWay}" />
                                 <TextBlock Grid.Row ="3"></TextBlock>
                             </Grid>
                         </StackPanel>
@@ -111,7 +116,7 @@
                                     <TextBlock Grid.Row ="1"></TextBlock>
                                     <TextBlock Grid.Row ="2" FontSize="23px">Hoeveelheid</TextBlock>
                                     <TextBlock Grid.Row ="3"></TextBlock>
-                                    <TextBlock Grid.Row ="4" FontSize="23px">unit</TextBlock>
+                                    <TextBlock Grid.Row ="4" FontSize="23px">Eenheid</TextBlock>
                                     <TextBlock Grid.Row ="5"></TextBlock>
                                     <TextBlock Grid.Row ="6" FontSize="23px">Leverancier</TextBlock>
                                 </Grid>
@@ -152,7 +157,7 @@
                                         </ComboBox.ItemTemplate>
                                     </ComboBox>
                                     <TextBlock Grid.Row ="7" Grid.ColumnSpan="2"></TextBlock>
-                                    <Button Grid.Row="8" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Command="{Binding CreateNewIngredientCommand}">Add Ingredient</Button>
+                                    <Button Grid.Row="8" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Command="{Binding CreateNewIngredientCommand}">Ingredient toevoegen</Button>
                                 </Grid>
                             </StackPanel>
                         </Grid>
@@ -164,7 +169,7 @@
             </Grid>
         </Grid>
         <Button Grid.Row="3" HorizontalAlignment="Left"  Command="{Binding BackCommand}" Margin="8" >Annuleren</Button>
-        <Button Grid.Row="3" HorizontalAlignment="Right" Margin=" 0, 0, 150, 0" Command="{Binding CreateNewDishCommand}" >Add Another Dish</Button>
-        <Button Grid.Row="3" HorizontalAlignment="Right" Margin=" 0, 0, 10, 0" Command="{Binding FinishMenuCommand}">Finish Menu</Button>
+        <Button Grid.Row="3" HorizontalAlignment="Right" Margin=" 0, 0, 150, 0" Command="{Binding CreateNewDishCommand}" >Gerecht toevoegen</Button>
+        <Button Grid.Row="3" HorizontalAlignment="Right" Margin=" 0, 0, 10, 0" Command="{Binding FinishMenuCommand}">Menu afsluiten</Button>
     </Grid>
 </Page>

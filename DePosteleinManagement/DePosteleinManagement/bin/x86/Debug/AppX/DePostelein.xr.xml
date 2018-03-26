@@ -34,7 +34,7 @@
     <RootPropertyPathName Name="CreateNewEventCommand" />
     <RootPropertyPathName Name="EventDate" />
     <RootPropertyPathName Name="Location" />
-    <RootPropertyPathName Name="Customer" />
+    <RootPropertyPathName Name="CustomerName" />
     <RootPropertyPathName Name="Bread" />
     <RootPropertyPathName Name="Guests" />
     <RootPropertyPathName Name="Menus" />
@@ -49,11 +49,16 @@
     <RootPropertyPathName Name="Events" />
     <RootPropertyPathName Name="SelectedEvent" />
     <RootPropertyPathName Name="Date" />
+    <RootPropertyPathName Name="Customer" />
     <RootPropertyPathName Name="Menu" />
     <RootPropertyPathName Name="LoginCommand" />
     <RootPropertyPathName Name="Password" />
     <RootPropertyPathName Name="Username" />
+    <RootPropertyPathName Name="DeleteIngredientCommand" />
+    <RootPropertyPathName Name="DeleteDishCommand" />
+    <RootPropertyPathName Name="DeleteMenuCommand" />
     <RootPropertyPathName Name="Ingredients" />
+    <RootPropertyPathName Name="SelectedIngredient" />
     <RootPropertyPathName Name="Unit" />
     <RootPropertyPathName Name="Amount" />
     <RootPropertyPathName Name="Dishes" />
@@ -65,7 +70,6 @@
     <RootPropertyPathName Name="CreateNewIngredientCommand" />
     <RootPropertyPathName Name="Deliverers" />
     <RootPropertyPathName Name="IngredientName" />
-    <RootPropertyPathName Name="Function" />
     <RootPropertyPathName Name="DishName" />
     <RootPropertyPathName Name="CreateNewMenuCommand" />
     <RootPropertyPathName Name="VariableAmount" />
@@ -75,6 +79,7 @@
     <RootPropertyPathName Name="EditStaffCommand" />
     <RootPropertyPathName Name="Users" />
     <RootPropertyPathName Name="SelectedUser" />
+    <RootPropertyPathName Name="Function" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
     <RootType FullName="Windows.UI.Xaml.Application">

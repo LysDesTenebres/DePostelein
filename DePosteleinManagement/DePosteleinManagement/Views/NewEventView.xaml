@@ -61,18 +61,24 @@
                   ItemsSource="{Binding Path=Menus}"    
                   SelectedItem="{Binding Path=MenuName, Mode=TwoWay}"  
                   DisplayMemberPath="Name"/>
-            <TextBlock Grid.Column="0" Grid.Row="3" FontSize="23px" HorizontalAlignment="Right">Guests</TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="3" FontSize="23px" HorizontalAlignment="Right">Gasten</TextBlock>
             <TextBox Grid.Column="2" Grid.Row="3" Text="{Binding Guests, Mode=TwoWay}"/>
             <TextBlock Grid.Column="0" Grid.Row="5" FontSize="23px" HorizontalAlignment="Right" VerticalAlignment="Center">Broodjes</TextBlock>
             <TextBox Grid.Column="2" Grid.Row="5" Text="{Binding Bread, Mode=TwoWay}"/>
-            <TextBlock Grid.Column="0" Grid.Row="7" FontSize="23px" HorizontalAlignment="Right" VerticalAlignment="Center">Customer</TextBlock>
-            <TextBox Grid.Column="2" Grid.Row="7" Text="{Binding Customer, Mode=TwoWay}"/>
+            <TextBlock Grid.Column="0" Grid.Row="7" FontSize="23px" HorizontalAlignment="Right" VerticalAlignment="Center">Klant</TextBlock>
+            <ComboBox HorizontalAlignment="Left"   
+                          Grid.Column="2" Grid.Row="7"
+                  VerticalAlignment="Center"   
+                  Width="120"   
+                  ItemsSource="{Binding Path=Customers}"    
+                  SelectedItem="{Binding Path=CustomerName, Mode=TwoWay}"  
+                  DisplayMemberPath="Name"/>
             <TextBlock Grid.Column="0" Grid.Row="9" FontSize="23px" HorizontalAlignment="Right" VerticalAlignment="Center">Locatie</TextBlock>
             <TextBox Grid.Column="2" Grid.Row="9" Text="{Binding Location, Mode=TwoWay}"/>
             <TextBlock Grid.Column="0" Grid.Row="11" FontSize="23px" HorizontalAlignment="Right" VerticalAlignment="Center">Datum</TextBlock>
             <CalendarDatePicker Grid.Column="2" Grid.Row="11" Date="{Binding EventDate, Mode=TwoWay}" ></CalendarDatePicker>
         </Grid>
         <Button Grid.Row="2" HorizontalAlignment="Left"  Command="{Binding BackCommand}" Margin="8" >Annuleren</Button>
-        <Button Grid.Row="2" HorizontalAlignment="Right"  Command="{Binding CreateNewEventCommand}" Margin="0,0,8,0" >Add Event</Button>
+        <Button Grid.Row="2" HorizontalAlignment="Right"  Command="{Binding CreateNewEventCommand}" Margin="0,0,8,0" >Event toevoegen</Button>
     </Grid>
 </Page>

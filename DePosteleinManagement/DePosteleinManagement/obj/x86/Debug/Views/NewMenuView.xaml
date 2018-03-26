@@ -38,15 +38,15 @@
                 <RowDefinition Height="2*"/>
                 <RowDefinition Height="10*"/>
             </Grid.RowDefinitions>
-            <TextBlock Grid.Column="0" Grid.Row="1" FontSize="23px" HorizontalAlignment="Right">Menu naam</TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="1" FontSize="23px" HorizontalAlignment="Right">Naam Menu</TextBlock>
             <TextBox Grid.Column="2" Grid.Row="1" Text="{Binding MenuName, Mode=TwoWay}"/>
             <TextBlock Grid.Column="0" Grid.Row="3" FontSize="23px" HorizontalAlignment="Right">Prijs</TextBlock>
             <TextBox Grid.Column="2" Grid.Row="3" Text="{Binding Price, Mode=TwoWay}"/>
-            <TextBlock Grid.Column="0" Grid.Row="5" FontSize="23px" HorizontalAlignment="Right" VerticalAlignment="Center">Variable Amount</TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="5" FontSize="23px" HorizontalAlignment="Right" VerticalAlignment="Center">-</TextBlock>
             <CheckBox Grid.Column="2" Grid.Row="5" IsChecked="{Binding VariableAmount, Mode=TwoWay}"></CheckBox>
         </Grid>
         <Button Grid.Row="2" HorizontalAlignment="Left"  Command="{Binding BackCommand}" Margin="8" >Annuleren</Button>
-        <Button Grid.Row="2" HorizontalAlignment="Right" Command="{Binding CreateNewMenuCommand}" Margin="0,0,8,0">Add Menu</Button>
+        <Button Grid.Row="2" HorizontalAlignment="Right" Command="{Binding CreateNewMenuCommand}" Margin="0,0,8,0">Menu toevoegen</Button>
     </Grid>
 </Page>
 

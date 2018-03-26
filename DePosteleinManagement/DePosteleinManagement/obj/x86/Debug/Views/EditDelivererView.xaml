@@ -40,7 +40,7 @@
 
         </Grid>
         <Button Grid.Row="2" HorizontalAlignment="Left"  Command="{Binding BackCommand}" Margin="8" >Annuleren</Button>
-        <Button Grid.Row="2" HorizontalAlignment="Right"  Command="{Binding CreateNewDelivererCommand}" >Leverancier veranderen</Button>
+        <Button Grid.Row="2" HorizontalAlignment="Right"  Command="{Binding CreateNewDelivererCommand}" Margin="0,0,8,0" >Leverancier aanpassen</Button>
     </Grid>
 </Page>
 

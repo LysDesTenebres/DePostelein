@@ -6,7 +6,9 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
+import java.util.Random;
 
 @Service
 public class UserService {
@@ -31,8 +33,13 @@ public class UserService {
     }
 
     public User changeUser(int id, User user) {
-        User existingUser = findUser(id);
-        BeanUtils.copyProperties(user, existingUser);
+       // User existingUser = findUser(id);
+        //BeanUtils.copyProperties(user, existingUser);
+
+        String helper = "ROLE_" + user.getRole();
+
+        User existingUser = new User(user.getPassword(), user.getName(), user.getLogin(), user.getEmail(), helper, user.getUserRole());
+        existingUser.setId(id);
         return userRepository.saveAndFlush(existingUser);
     }
 

@@ -29,5 +29,6 @@ namespace DePostelein.Views
             var viewModelLocator = (App.Current as App).ViewModelLocator;
             DataContext = viewModelLocator.EditCustomerViewModel;
         }
+
     }
 }

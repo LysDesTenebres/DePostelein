@@ -35,12 +35,12 @@
                Grid.RowSpan="1"
                    Source="http://www.depostelein.com/img/backgrounds/logo.png" />
         <StackPanel Orientation="Horizontal"  HorizontalAlignment="Right" Grid.Row="0" Grid.Column="2">
-            <Button   Height="100"  Background="White" Content="Create Menu" Command="{Binding CreateMenuCommand}"></Button>
-            <Button   Height="100"  Background="White" Content="Create Event" Command="{Binding CreateEventCommand}"></Button>
-            <Button   Height="100"  Background="White" Content="Eventlist" Command="{Binding EventlistCommand}"></Button>
+            <Button   Height="100"  Background="White" Content="Menu creëren" Command="{Binding CreateMenuCommand}"></Button>
+            <Button   Height="100"  Background="White" Content="Event creëren" Command="{Binding CreateEventCommand}"></Button>
+            <Button   Height="100"  Background="White" Content="Eventlijst" Command="{Binding EventlistCommand}"></Button>
             <Button   Height="100"  Background="White" Content="Medewerkers" Command="{Binding WorkersCommand}"></Button>
             <Button   Height="100"  Background="White" Content="Leveranciers" Command="{Binding DeliverersCommand}"></Button>
-            <Button   Height="100"  Background="White" Content="Customers" Command="{Binding CustomersCommand}"></Button>
+            <Button   Height="100"  Background="White" Content="Klanten" Command="{Binding CustomersCommand}"></Button>
             <Button Height="100"   Background="White" Content="LogOut" Command="{Binding LogOutCommand}"></Button>
         </StackPanel>
 
@@ -49,7 +49,7 @@
             <TextBlock Text="{Binding LoggedInUser.Name, Mode=OneWay}" ></TextBlock>
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="80"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
                     <RowDefinition Height="*"></RowDefinition>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
@@ -62,9 +62,9 @@
                 </Grid.ColumnDefinitions>
 
                 <TextBlock Grid.Row="0" Grid.Column="0" Text="Menu"></TextBlock>
-                <TextBlock Grid.Row="0" Grid.Column="1" Text="Guests"></TextBlock>
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="Gasten"></TextBlock>
                 <TextBlock Grid.Row="0" Grid.Column="2" Text="Broodjes"></TextBlock>
-                <TextBlock Grid.Row="0" Grid.Column="3" Text="Customer"></TextBlock>
+                <TextBlock Grid.Row="0" Grid.Column="3" Text="Klant"></TextBlock>
                 <TextBlock Grid.Row="0" Grid.Column="4" Text="Locatie"></TextBlock>
                 <TextBlock Grid.Row="0" Grid.Column="5" Text="Date"></TextBlock>
             </Grid>
@@ -104,7 +104,7 @@
                 </ListView.ItemTemplate>
             </ListView>
         </Grid>
-        <Button Grid.Column="1" Grid.Row="3" Command="{Binding EditEventCommand}" HorizontalAlignment="Right" Margin="8,0,150,0" Content="Editeren" />
+        <Button Grid.Column="1" Grid.Row="3" Command="{Binding EditEventCommand}" HorizontalAlignment="Right" Margin="8,0,130,0" Content="Aanpassen" />
         <Button Grid.Column="1" Grid.Row="3" Command="{Binding DeleteEventCommand}" HorizontalAlignment="Right" Margin="8,0,8,0" Content="Verwijderen" />
     </Grid>
 </Page>

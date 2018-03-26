@@ -26,6 +26,10 @@ namespace DePosteleinManagement.ViewModels
         public CustomCommand CustomersCommand { get; set; }
         public CustomCommand LogOutCommand { get; set; }
 
+        public CustomCommand DeleteMenuCommand { get; set; }
+        public CustomCommand DeleteDishCommand { get; set; }
+        public CustomCommand DeleteIngredientCommand { get; set; }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void RaisePropertyChanged(string propertyName)
@@ -60,14 +64,30 @@ namespace DePosteleinManagement.ViewModels
             {
                 _selectedMenu = value;
                 RaisePropertyChanged(nameof(SelectedMenu));
-                List<Dish> list = _dataService.GetDishesByMenuId(value.Id);
-                if (list != null)
+                if (_selectedMenu != null)
                 {
-                    Dishes = list.ToObservableCollection<Dish>();
-                }
-                else
-                {
-                    Dishes = new ObservableCollection<Dish>();
+                    List<Dish> list = _dataService.GetDishesByMenuId(value.Id);
+                    if (list != null)
+                    {
+                        Dishes = list.ToObservableCollection<Dish>();
+                    }
+                    else
+                    {
+                        Dishes = new ObservableCollection<Dish>();
+                    }
+
+                    if (Dishes != null)
+                    {
+                        List<Ingredient> iList = _dataService.GetIngredientsByDishId(Dishes.FirstOrDefault().Id);
+                        if (list != null)
+                        {
+                            Ingredients = iList.ToObservableCollection<Ingredient>();
+                        }
+                        else
+                        {
+                            Ingredients = new ObservableCollection<Ingredient>();
+                        }
+                    }
                 }
             }
         }
@@ -97,15 +117,19 @@ namespace DePosteleinManagement.ViewModels
             {
                 _selectedDish = value;
                 RaisePropertyChanged(nameof(SelectedDish));
-                List<Ingredient> list = _dataService.GetIngredientsByDishId(value.Id);
-                if (list != null)
+                if (_selectedDish != null)
                 {
-                    Ingredients = list.ToObservableCollection<Ingredient>();
+                    List<Ingredient> list = _dataService.GetIngredientsByDishId(value.Id);
+                    if (list != null)
+                    {
+                        Ingredients = list.ToObservableCollection<Ingredient>();
+                    }
+                    else
+                    {
+                        Ingredients = new ObservableCollection<Ingredient>();
+                    }
                 }
-                else
-                {
-                    Ingredients = new ObservableCollection<Ingredient>();
-                }
+               
             }
         }
 
@@ -120,6 +144,20 @@ namespace DePosteleinManagement.ViewModels
             {
                 _ingredients = value;
                 RaisePropertyChanged(nameof(Ingredients));
+            }
+        }
+
+        private Ingredient _selectedIngredient;
+        public Ingredient SelectedIngredient
+        {
+            get
+            {
+                return _selectedIngredient;
+            }
+            set
+            {
+                _selectedIngredient = value;
+                RaisePropertyChanged(nameof(SelectedIngredient));
             }
         }
 
@@ -164,6 +202,9 @@ namespace DePosteleinManagement.ViewModels
             DeliverersCommand = new CustomCommand(Deliverers, null);
             CustomersCommand = new CustomCommand(Customers, null);
             LogOutCommand = new CustomCommand(LogOut, null);
+            DeleteMenuCommand = new CustomCommand(DeleteMenu, null);
+            DeleteDishCommand = new CustomCommand(DeleteDish, null);
+            DeleteIngredientCommand = new CustomCommand(DeleteIngredient, null);
         }
 
         private void LogOut(object obj)
@@ -204,6 +245,49 @@ namespace DePosteleinManagement.ViewModels
         {
             Messenger.Default.Send(_loggedInUser);
             _navigationService.NavigateTo("CustomerOverview");
+        }
+
+        private void DeleteMenu(object obj)
+        {
+            if (_selectedMenu != null)
+            {
+
+                _dataService.DeleteMenu(_selectedMenu);
+
+                Dishes = null;
+                SelectedDish = null;
+                Ingredients = null;
+                SelectedIngredient = null;
+
+                Messenger.Default.Send(_loggedInUser);
+                _navigationService.NavigateTo("MainView");
+            }
+        }
+
+        private void DeleteDish(object obj)
+        {
+            if (_selectedDish != null)
+            {
+
+                _dataService.DeleteDish(_selectedDish);
+                Ingredients = null;
+                SelectedIngredient = null;
+
+                Messenger.Default.Send(_loggedInUser);
+                _navigationService.NavigateTo("MainView");
+            }
+        }
+
+        private void DeleteIngredient(object obj)
+        {
+            if (_selectedIngredient != null)
+            {
+
+                _dataService.DeleteIngredient(_selectedIngredient);
+
+                Messenger.Default.Send(_loggedInUser);
+                _navigationService.NavigateTo("MainView");
+            }
         }
     }
 }

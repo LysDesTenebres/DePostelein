@@ -45,14 +45,14 @@ namespace DePosteleinManagement.Services
             return _userRepo.GetAll().Where(user => user.Name == username).FirstOrDefault();
         }
 
-        public Dish CreateNewDish(string dishName, Menu menu, string function, User loggedInUser)
+        public Dish CreateNewDish(string dishName, Menu menu, UserRole function, User loggedInUser)
         {
-            return _dishRepo.Post(new Dish { Name = dishName, role = function, MenuId = menu.Id });
+            return _dishRepo.Post(new Dish { Name = dishName, role = function.ToString(), MenuId = menu.Id });
         }
 
-        public Event CreateNewEvent(Menu menuName, int guests, int bread, string customer, string location, long date, User loggedInUser)
+        public Event CreateNewEvent(string menuName, int guests, int bread, string customer, string location, long date, User loggedInUser)
         {
-            return _eventRepo.Post(new Event { Guests = guests, Bread = bread, Customer = customer, Location = location, Date = date, Menu = menuName.Name});
+            return _eventRepo.Post(new Event { Guests = guests, Bread = bread, Customer = customer, Location = location, Date = date, Menu = menuName});
         }
 
         public void CreateNewIngredient(string name, int amount, string unit, int deliverer, int dishId)
@@ -72,7 +72,12 @@ namespace DePosteleinManagement.Services
 
         public void DeleteMenu(Menu menu)
         {
-           _menuRepo.Delete(menu);
+            List<Dish> dishes = GetDishesByMenuId(menu.Id);
+            foreach (Dish dish in dishes)
+            {
+                DeleteDish(dish);
+            }
+            _menuRepo.Delete(menu);
         }
 
         public void DeleteUser(User user)
@@ -93,6 +98,16 @@ namespace DePosteleinManagement.Services
         public void DeleteIngredient(Ingredient ingredient)
         {
             _ingredientRepo.Delete(ingredient);
+        }
+
+        public void DeleteDish(Dish dish)
+        {
+            List<Ingredient> ingredients = GetIngredientsByDishId(dish.Id);
+            foreach (Ingredient ingredient in ingredients)
+            {
+                DeleteIngredient(ingredient);
+            }
+            _dishRepo.Delete(dish);
         }
 
         public List<Customer> GetAllCustomers()
@@ -164,9 +179,9 @@ namespace DePosteleinManagement.Services
             _delivererRepo.Update(new Deliverer { Name = name, Id = id });
         }
 
-        public void EditEvent(Menu menuName, int guests, int bread, string customer, string location, long epocheDate, int id)
+        public void EditEvent(string menuName, int guests, int bread, string customer, string location, long epocheDate, int id)
         {
-            _eventRepo.Update(new Event { Guests = guests, Bread = bread, Customer = customer, Location = location, Date = epocheDate, Menu = menuName.Name, Id = id });
+            _eventRepo.Update(new Event { Guests = guests, Bread = bread, Customer = customer, Location = location, Date = epocheDate, Menu = menuName, Id = id });
         }
 
         public void EditUser(string password, string name, string login, string email, UserRole userRole, int id)
@@ -180,5 +195,7 @@ namespace DePosteleinManagement.Services
                 _userRepo.Update(new User { Password = password, Name = name, Login = login, UserRoleHelp = userRole.ToString(), EMail = email, Function = "USER", Id = id });
             }
         }
+
+
     }
 }

@@ -81,17 +81,31 @@ namespace DePostelein.ViewModels
             }
         }
 
-        private String _customer;
-        public String Customer
+        private ObservableCollection<Customer> _customers;
+        public ObservableCollection<Customer> Customers
         {
             get
             {
-                return _customer;
+                return _customers;
             }
             set
             {
-                _customer = value;
-                RaisePropertyChanged(nameof(Customer));
+                _customers = value;
+                RaisePropertyChanged(nameof(Customers));
+            }
+        }
+
+        private Customer _customerName;
+        public Customer CustomerName
+        {
+            get
+            {
+                return _customerName;
+            }
+            set
+            {
+                _customerName = value;
+                RaisePropertyChanged(nameof(CustomerName));
             }
         }
 
@@ -164,15 +178,25 @@ namespace DePostelein.ViewModels
             {
                 Menus = new ObservableCollection<Menu>();
             }
+
+            List<Customer> cList = _dataService.GetAllCustomers();
+            if (cList != null)
+            {
+                Customers = cList.ToObservableCollection();
+            }
+            else
+            {
+                Customers = new ObservableCollection<Customer>();
+            }
         }
 
         private void CreateNewEvent(object obj)
         {
             Event result = null;
-            if (_menuName != null && _guests != 0 && _customer != null && _location != null)
+            if (_menuName != null && _guests != 0 && _customerName != null && _location != null)
             {
                     long epocheDate = (_date.Ticks - 621355968000000000) / 10000;
-                    result = _dataService.CreateNewEvent(_menuName, _guests, _bread, _customer, _location, epocheDate, _loggedInUser);
+                    result = _dataService.CreateNewEvent(_menuName.Name, _guests, _bread, _customerName.Name, _location, epocheDate, _loggedInUser);
 
             }
             if (result != null)

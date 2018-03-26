@@ -1,4 +1,5 @@
-﻿using DePosteleinManagement.DAL;
+﻿using ClassLibrary2.Enums;
+using DePosteleinManagement.DAL;
 using DePosteleinManagement.Domain;
 using DePosteleinManagement.Extensions;
 using DePosteleinManagement.Services;
@@ -71,17 +72,31 @@ namespace DePostelein.ViewModels
             }
         }
 
-        private String _function;
-        public String Function
+        private ObservableCollection<UserRole> _userRoles;
+        public ObservableCollection<UserRole> UserRoles
         {
             get
             {
-                return _function;
+                return _userRoles;
             }
             set
             {
-                _function = value;
-                RaisePropertyChanged(nameof(Function));
+                _userRoles = value;
+                RaisePropertyChanged(nameof(UserRoles));
+            }
+        }
+
+        private UserRole _userRole;
+        public UserRole UserRole
+        {
+            get
+            {
+                return _userRole;
+            }
+            set
+            {
+                _userRole = value;
+                RaisePropertyChanged(nameof(UserRole));
             }
         }
 
@@ -188,6 +203,16 @@ namespace DePostelein.ViewModels
             {
                 Deliverers = new ObservableCollection<Deliverer>();
             }
+
+            List<UserRole> uList = Enum.GetValues(typeof(UserRole)).Cast<UserRole>().ToList();
+            if (list != null)
+            {
+                UserRoles = uList.ToObservableCollection();
+            }
+            else
+            {
+                UserRoles = new ObservableCollection<UserRole>();
+            }
         }
 
         private void CreateNewIngredient(object obj)
@@ -211,9 +236,14 @@ namespace DePostelein.ViewModels
         private void CreateNewDish(object obj)
         {
             Dish _dish = null;
-            if (_ingredients != null && _dishName != null && _function != null)
+            if (_ingredients != null && _dishName != null)
             {
-                _dish = _dataService.CreateNewDish(_dishName, _menu, _function, _loggedInUser);
+                _dish = _dataService.CreateNewDish(_dishName, _menu, _userRole, _loggedInUser);
+            }
+
+            if (_ingredientName != null && _amount != 0 && _unit != null && _selectedDeliverer != null)
+            {
+                _ingredients.Add(new Ingredient { Name = _ingredientName, Amount = _amount, Unit = _unit, DelivererId = _selectedDeliverer.Id, DishId = 0 });
             }
 
             if (_dish != null)
@@ -222,6 +252,12 @@ namespace DePostelein.ViewModels
                 {
                     _dataService.CreateNewIngredient(ingredient.Name, ingredient.Amount, ingredient.Unit, ingredient.DelivererId, _dish.Id);
                 }
+
+                IngredientName = null;
+                Amount = 0;
+                Unit = null;
+                DishName = null; 
+
                 List<object> objList = new List<object>();
                 objList.Add(_menu);
                 objList.Add(_loggedInUser);
@@ -233,9 +269,9 @@ namespace DePostelein.ViewModels
         private void FinishMenu(object obj)
         {
             Dish _dish = null;
-            if (_ingredients != null && _dishName != null && _function != null)
+            if (_ingredients != null && _dishName != null)
             {
-                _dish = _dataService.CreateNewDish(_dishName, _menu, _function, _loggedInUser);
+                _dish = _dataService.CreateNewDish(_dishName, _menu, _userRole, _loggedInUser);
             }
 
             if (_dish != null)

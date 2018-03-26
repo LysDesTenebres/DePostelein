@@ -81,17 +81,31 @@ namespace DePostelein.ViewModels
             }
         }
 
-        private String _customer;
-        public String Customer
+        private ObservableCollection<Customer> _customers;
+        public ObservableCollection<Customer> Customers
         {
             get
             {
-                return _customer;
+                return _customers;
             }
             set
             {
-                _customer = value;
-                RaisePropertyChanged(nameof(Customer));
+                _customers = value;
+                RaisePropertyChanged(nameof(Customers));
+            }
+        }
+
+        private Customer _customerName;
+        public Customer CustomerName
+        {
+            get
+            {
+                return _customerName;
+            }
+            set
+            {
+                _customerName = value;
+                RaisePropertyChanged(nameof(CustomerName));
             }
         }
 
@@ -175,7 +189,7 @@ namespace DePostelein.ViewModels
 
             CreateNewEventCommand = new CustomCommand(CreateNewEvent, null);
             BackCommand = new CustomCommand(GoBack, null);
-            // CreateEventCommand = new CustomCommand(CreateEvent, CheckEventToCreate);
+          
         }
 
         private void LoadData()
@@ -184,22 +198,35 @@ namespace DePostelein.ViewModels
             if (list != null)
             {
                 Menus = list.ToObservableCollection();
+                MenuName = Menus.Where(o => o.Name.ToString().Equals(_event.Menu)).ToList().FirstOrDefault();
             }
             else
             {
                 Menus = new ObservableCollection<Menu>();
             }
-            MenuName = Menus.Where(o => o.Name.ToString().Equals(_event.Menu)).ToList().FirstOrDefault();
+          
+
+            List<Customer> cList = _dataService.GetAllCustomers();
+            if (cList != null)
+            {
+                Customers = cList.ToObservableCollection();
+                CustomerName = Customers.Where(o => o.Name.ToString().Equals(_event.Customer)).ToList().FirstOrDefault();
+            }
+            else
+            {
+                Customers = new ObservableCollection<Customer>();
+            }
+           
         }
 
         private void CreateNewEvent(object obj)
         {
-            if (_menuName != null && _guests != 0 && _customer != null && _location != null)
+            if (_menuName != null && _guests != 0 && _customerName != null && _location != null)
             {
                 long epocheDate = (_date.Ticks - 621355968000000000) / 10000;
-                _dataService.EditEvent(_menuName, _guests, _bread, _customer, _location, epocheDate, _event.Id);
+                _dataService.EditEvent(_menuName.Name, _guests, _bread, _customerName.Name, _location, epocheDate, _event.Id);
                 Messenger.Default.Send<User>(_loggedInUser);
-                _navigationService.NavigateTo("MainView");
+                _navigationService.NavigateTo("EventOverview");
             }
 
         }

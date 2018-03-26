@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using ClassLibrary2.Enums;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +18,9 @@ namespace DePosteleinManagement.Domain
         [JsonProperty(PropertyName = "menuId")]
         public int MenuId { get; set; }
         [JsonProperty(PropertyName = "role")]
-        public String role { get; set; }
+        public string role { get; set; }
+        [JsonProperty(PropertyName = "userRole")]
+        [JsonConverter(typeof(StringEnumConverter))]
+        public UserRole UserRole { get; set; }
     }
 }
