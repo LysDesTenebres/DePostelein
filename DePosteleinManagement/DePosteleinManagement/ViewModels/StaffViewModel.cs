@@ -82,7 +82,7 @@ namespace DePostelein.ViewModels
 
         private void LoadData()
         {
-            List<User> list = _dataService.GetAllUsers();
+            List<User> list = _dataService.GetAllUsers().Where(o => o.Id != 1).ToList();
             if (list != null)
             {
                 Users = list.ToObservableCollection();

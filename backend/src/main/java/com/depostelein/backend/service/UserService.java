@@ -32,6 +32,19 @@ public class UserService {
         return userRepository.findOne(id);
     }
 
+    public User findUser(String username, String password){
+        List <User> users = userRepository.findAll();
+
+        User loggedinUser = null;
+      for (User user : users){
+          if (user.getLogin().equals(username) && user.getPassword().equals(password)){
+              loggedinUser = user;
+          }
+      }
+
+      return loggedinUser;
+    }
+
     public User changeUser(int id, User user) {
        // User existingUser = findUser(id);
         //BeanUtils.copyProperties(user, existingUser);

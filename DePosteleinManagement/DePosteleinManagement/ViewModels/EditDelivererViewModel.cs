@@ -90,7 +90,7 @@ namespace DePostelein.ViewModels
             {
                 _dataService.EditDeliverer(_name, _deliverer.Id);
                 Messenger.Default.Send<User>(_loggedInUser);
-                _navigationService.NavigateTo("MainView");
+                _navigationService.NavigateTo("Deliverer");
             }
 
         }

@@ -45,10 +45,27 @@ public class User {
         }
         if (userRole.equals(UserRole.ADMIN.name())){
             this.userRole = UserRole.ADMIN;
-        } else if (userRole.equals(UserRole.COLD.name())) {
-            this.userRole = UserRole.COLD;
+        } else if (userRole.equals(UserRole.HAPJES.name())) {
+            this.userRole = UserRole.HAPJES;
+        } else if (userRole.equals(UserRole.KOUD.name())) {
+            this.userRole = UserRole.KOUD;
+        } else if (userRole.equals(UserRole.GROENTEN.name())) {
+            this.userRole = UserRole.GROENTEN;
+        } else if (userRole.equals(UserRole.BEREIDINGEN.name())) {
+            this.userRole = UserRole.BEREIDINGEN;
+        } else if (userRole.equals(UserRole.AARDAPPELBEREIDINGEN.name())) {
+            this.userRole = UserRole.AARDAPPELBEREIDINGEN;
+        } else if (userRole.equals(UserRole.SAUZEN.name())) {
+            this.userRole = UserRole.SAUZEN;
+        } else if (userRole.equals(UserRole.VIS.name())) {
+            this.userRole = UserRole.VIS;
+        } else if (userRole.equals(UserRole.DESSERT.name())) {
+            this.userRole = UserRole.DESSERT;
+        } else if (userRole.equals(UserRole.DRANKEN.name())) {
+            this.userRole = UserRole.DRANKEN;
+        } else if (userRole.equals(UserRole.LOGISTIEK.name())) {
+            this.userRole = UserRole.LOGISTIEK;
         }
-
         this.help = userRole;
 
     }
@@ -134,8 +151,26 @@ public class User {
     public void setUserRole(String userRole) {
         if (userRole.equals(UserRole.ADMIN.name())){
             this.userRole = UserRole.ADMIN;
-        } else if (userRole.equals(UserRole.COLD.name())) {
-            this.userRole = UserRole.COLD;
+        } else if (userRole.equals(UserRole.HAPJES.name())) {
+            this.userRole = UserRole.HAPJES;
+        } else if (userRole.equals(UserRole.KOUD.name())) {
+            this.userRole = UserRole.KOUD;
+        } else if (userRole.equals(UserRole.GROENTEN.name())) {
+            this.userRole = UserRole.GROENTEN;
+        } else if (userRole.equals(UserRole.BEREIDINGEN.name())) {
+            this.userRole = UserRole.BEREIDINGEN;
+        } else if (userRole.equals(UserRole.AARDAPPELBEREIDINGEN.name())) {
+            this.userRole = UserRole.AARDAPPELBEREIDINGEN;
+        } else if (userRole.equals(UserRole.SAUZEN.name())) {
+            this.userRole = UserRole.SAUZEN;
+        } else if (userRole.equals(UserRole.VIS.name())) {
+            this.userRole = UserRole.VIS;
+        } else if (userRole.equals(UserRole.DESSERT.name())) {
+            this.userRole = UserRole.DESSERT;
+        } else if (userRole.equals(UserRole.DRANKEN.name())) {
+            this.userRole = UserRole.DRANKEN;
+        } else if (userRole.equals(UserRole.LOGISTIEK.name())) {
+            this.userRole = UserRole.LOGISTIEK;
         }
     }
 

@@ -30,6 +30,13 @@ public class UserController {
             return ResponseEntity.ok(userService.addUser(user));
     }
 
+    @RequestMapping(value = "login", method = RequestMethod.POST)
+    @Secured({"ROLE_ADMIN"})
+    public ResponseEntity validateLogin(@RequestBody String login, String password) {
+        System.out.println("login called");
+        return ResponseEntity.ok(userService.findUser(login, password));
+    }
+
     @RequestMapping(value = "users/{id}", method = RequestMethod.GET)
     @Secured({"ROLE_LECTURER", "ROLE_ADMIN"})
     public ResponseEntity getUser(@PathVariable int id) {

@@ -256,7 +256,9 @@ namespace DePostelein.ViewModels
                 IngredientName = null;
                 Amount = 0;
                 Unit = null;
-                DishName = null; 
+                DishName = null;
+                IngredientText = null;
+                _ingredients.Clear();
 
                 List<object> objList = new List<object>();
                 objList.Add(_menu);
@@ -269,16 +271,24 @@ namespace DePostelein.ViewModels
         private void FinishMenu(object obj)
         {
             Dish _dish = null;
-            if (_ingredients != null && _dishName != null)
+            if (_dishName != null)
             {
                 _dish = _dataService.CreateNewDish(_dishName, _menu, _userRole, _loggedInUser);
             }
 
             if (_dish != null)
             {
-                foreach (Ingredient ingredient in _ingredients)
+                if (_ingredients != null)
                 {
-                    _dataService.CreateNewIngredient(ingredient.Name, ingredient.Amount, ingredient.Unit, ingredient.DelivererId, _dish.Id);
+                    foreach (Ingredient ingredient in _ingredients)
+                    {
+                        _dataService.CreateNewIngredient(ingredient.Name, ingredient.Amount, ingredient.Unit, ingredient.DelivererId, _dish.Id);
+                    }
+                }
+
+                if (_ingredientName != null && _amount != 0 && _unit != null && _selectedDeliverer != null)
+                {
+                    _dataService.CreateNewIngredient(_ingredientName, _amount, _unit, _selectedDeliverer.Id, _dish.Id);
                 }
 
                 Messenger.Default.Send<User>(_loggedInUser);
