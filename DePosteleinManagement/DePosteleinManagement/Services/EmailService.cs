@@ -12,7 +12,7 @@ namespace DePosteleinManagement.Services
     {
         public async Task SendEmailAsync (String adress, String username, String password) {
 
-            using (SmtpClient client = new SmtpClient("smtp-mail.outlook.com", 587, false, "*****@outlook.de", "password"))
+            using (SmtpClient client = new SmtpClient("smtp-mail.outlook.com", 587, false, "@outlook.de", "password"))
             {
                 EmailMessage emailMessage = new EmailMessage();
 

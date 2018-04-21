@@ -15,32 +15,32 @@ public class EventController {    @Autowired
 private EventService eventService;
 
     @RequestMapping(value = "events", method = RequestMethod.GET)
-    @Secured({"ROLE_LECTURER", "ROLE_ADMIN"})
+    @Secured({"ROLE_ADMIN", "ROLE_USER"})
     public ResponseEntity list() {
         return ResponseEntity.ok(eventService.findAllEvents());
     }
 
     @RequestMapping(value = "events", method = RequestMethod.POST)
-    @Secured({"ROLE_LECTURER", "ROLE_ADMIN"})
+    @Secured({"ROLE_ADMIN"})
     public ResponseEntity create(@RequestBody Event event) {
         eventService.addEvent(event);
         return ResponseEntity.created(URI.create("/api/event/events/" + event.getId())).build();
     }
 
     @RequestMapping(value = "events/{id}", method = RequestMethod.GET)
-    @Secured({"ROLE_STUDENT", "ROLE_LECTURER", "ROLE_ADMIN"})
+    @Secured({"ROLE_ADMIN"})
     public ResponseEntity get(@PathVariable int id) {
         return ResponseEntity.ok(eventService.findEvent(id));
     }
 
     @RequestMapping(value = "events/{id}", method = RequestMethod.PUT)
-    @Secured({"ROLE_LECTURER", "ROLE_ADMIN"})
+    @Secured({"ROLE_ADMIN"})
     public ResponseEntity update(@PathVariable int id, @RequestBody Event event) {
         return ResponseEntity.ok(eventService.changeEvent(id, event));
     }
 
     @RequestMapping(value = "events/{id}", method = RequestMethod.DELETE)
-    @Secured({"ROLE_LECTURER", "ROLE_ADMIN"})
+    @Secured({"ROLE_ADMIN"})
     public ResponseEntity delete(@PathVariable int id) {
         return ResponseEntity.ok(eventService.deleteEvent(id));
     }

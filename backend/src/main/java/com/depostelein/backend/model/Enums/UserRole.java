@@ -13,5 +13,5 @@ public enum UserRole {
     DRANKEN ("DRANKEN"),
     LOGISTIEK ("LOGISTIEK");
 
-    UserRole (String type) {type = type;}
+    UserRole(String type) {type = type;}
 }

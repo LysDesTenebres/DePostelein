@@ -2,13 +2,10 @@ package com.depostelein.backend.service;
 
 import com.depostelein.backend.model.User;
 import com.depostelein.backend.repository.UserRepository;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.UnsupportedEncodingException;
 import java.util.List;
-import java.util.Random;
 
 @Service
 public class UserService {
@@ -34,10 +31,16 @@ public class UserService {
 
     public User findUser(String username, String password){
         List <User> users = userRepository.findAll();
-
+        String hash = null;
         User loggedinUser = null;
       for (User user : users){
-          if (user.getLogin().equals(username) && user.getPassword().equals(password)){
+          try{
+              hash = user.HashPassword(password);
+          }
+          catch(Exception ex){
+
+          }
+          if (user.getLogin().equals(username) && user.getPassword().equals(hash)){
               loggedinUser = user;
           }
       }

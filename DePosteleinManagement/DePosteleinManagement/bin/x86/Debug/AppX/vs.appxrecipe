@@ -31,13 +31,13 @@
     <AppXManifest Include="D:\GitHub\DePostelein\DePosteleinManagement\DePosteleinManagement\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-27T18:55:46.049</Modified>
+      <Modified>2018-04-18T19:08:07.407</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="D:\GitHub\DePostelein\DePosteleinManagement\DePosteleinManagement\bin\x86\Debug\DePostelein.exe">
       <PackagePath>entrypoint\DePostelein.exe</PackagePath>
-      <Modified>2018-03-27T18:55:44.920</Modified>
+      <Modified>2018-04-18T19:08:06.206</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Verena\.nuget\packages\lightbuzz-smtp\1.8.0\lib\netcore\LightBuzz.SMTP.dll">
       <PackagePath>LightBuzz.SMTP.dll</PackagePath>
@@ -557,11 +557,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\GitHub\DePostelein\DePosteleinManagement\ClassLibrary2\bin\x86\Debug\ClassLibrary2.dll">
       <PackagePath>ClassLibrary2.dll</PackagePath>
-      <Modified>2018-03-26T23:00:44.467</Modified>
+      <Modified>2018-04-18T19:08:02.377</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\GitHub\DePostelein\DePosteleinManagement\DePosteleinManagement.DAL\bin\x86\Debug\DePosteleinManagement.DAL.dll">
       <PackagePath>DePosteleinManagement.DAL.dll</PackagePath>
-      <Modified>2018-03-26T23:00:45.116</Modified>
+      <Modified>2018-04-18T19:08:02.978</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Verena\.nuget\packages\microsoft.xaml.behaviors.uwp.native\1.0.4\lib\uap10.0\Microsoft.Xaml.Interactions.winmd">
       <PackagePath>Microsoft.Xaml.Interactions.winmd</PackagePath>
@@ -624,11 +624,11 @@
     <AppxPackagedFile Include="D:\GitHub\DePostelein\DePosteleinManagement\DePosteleinManagement\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-27T18:55:45.672</Modified>
+      <Modified>2018-04-18T19:08:06.918</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\GitHub\DePostelein\DePosteleinManagement\DePosteleinManagement\bin\x86\Debug\Core\DePostelein.exe">
       <PackagePath>DePostelein.exe</PackagePath>
-      <Modified>2018-03-27T18:55:46.044</Modified>
+      <Modified>2018-04-18T19:08:07.400</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

@@ -19,8 +19,8 @@ namespace DePosteleinManagement.Domain
         public int MenuId { get; set; }
         [JsonProperty(PropertyName = "role")]
         public string role { get; set; }
-        [JsonProperty(PropertyName = "userRole")]
+        [JsonProperty(PropertyName = "kitchenRole")]
         [JsonConverter(typeof(StringEnumConverter))]
-        public UserRole UserRole { get; set; }
+        public UserRole KitchenRole { get; set; }
     }
 }

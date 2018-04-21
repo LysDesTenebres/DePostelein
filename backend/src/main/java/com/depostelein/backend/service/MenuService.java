@@ -28,6 +28,18 @@ public class MenuService {
         return menuRepository.findOne(id);
     }
 
+    public Menu findMenubyName(String name){
+        List<Menu> menus = menuRepository.findAll();
+        Menu menuEvent = null;
+
+        for (Menu menu : menus){
+            if (menu.getName().equals(name)){
+                menuEvent = menu;
+            }
+        }
+        return menuEvent;
+    }
+
     public Menu changeMenu(int id, Menu menu) {
         Menu existingMenu = menuRepository.findOne(id);
         BeanUtils.copyProperties(menu, existingMenu);

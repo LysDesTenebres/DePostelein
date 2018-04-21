@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
+import org.json.JSONObject;
 
-import java.net.URI;
 
 @RestController
 @RequestMapping("api/user/")
@@ -17,7 +17,7 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping(value = "users", method = RequestMethod.GET)
-    @Secured({"ROLE_STUDENT", "ROLE_LECTURER", "ROLE_ADMIN"})
+    @Secured({"ROLE_USER", "ROLE_ADMIN"})
     public ResponseEntity getAllUsers() {
 
         return ResponseEntity.ok(userService.findAllUsers());
@@ -31,10 +31,18 @@ public class UserController {
     }
 
     @RequestMapping(value = "login", method = RequestMethod.POST)
-    @Secured({"ROLE_ADMIN"})
-    public ResponseEntity validateLogin(@RequestBody String login, String password) {
-        System.out.println("login called");
-        return ResponseEntity.ok(userService.findUser(login, password));
+    @Secured({"ROLE_ADMIN", "ROLE_USER"})
+    public ResponseEntity validateLogin(@RequestBody String credentials) {
+        User user = null;
+        try {
+            JSONObject object = new JSONObject(credentials);
+
+            user = userService.findUser(object.getString("login"), object.getString("password"));
+        } catch (Exception ex){
+
+        }
+        return ResponseEntity.ok(user);
+
     }
 
     @RequestMapping(value = "users/{id}", method = RequestMethod.GET)
